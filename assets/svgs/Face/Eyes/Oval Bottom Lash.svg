@@ -1,0 +1,20 @@
+<svg width="134" height="59" viewBox="0 0 134 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M48 29C48 16.7384 39.1645 7 28.5 7C17.8355 7 9 16.7384 9 29C9 41.2616 17.8355 51 28.5 51C39.1645 51 48 41.2616 48 29Z"
+    fill="white" stroke="#8C501D" stroke-width="2" />
+  <ellipse rx="15" ry="17" transform="matrix(1 0 0 -1 34 29)" fill="#8C501D" />
+  <line x1="17.866" y1="48.3038" x2="15.366" y2="52.6339" stroke="#8C501D" stroke-width="2" stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0 1 1 0 29 51)" stroke="#8C501D" stroke-width="2"
+    stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0.5 0.866025 0.866025 -0.5 40 46.9377)" stroke="#8C501D"
+    stroke-width="2" stroke-linecap="round" />
+  <path
+    d="M124 29C124 16.7384 115.164 7 104.5 7C93.8355 7 85 16.7384 85 29C85 41.2616 93.8355 51 104.5 51C115.164 51 124 41.2616 124 29Z"
+    fill="white" stroke="#8C501D" stroke-width="2" />
+  <ellipse rx="15" ry="17" transform="matrix(1 0 0 -1 110 29)" fill="#8C501D" />
+  <line x1="93.866" y1="48.3038" x2="91.366" y2="52.6339" stroke="#8C501D" stroke-width="2" stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0 1 1 0 105 51)" stroke="#8C501D" stroke-width="2"
+    stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0.5 0.866025 0.866025 -0.5 116 46.9379)" stroke="#8C501D"
+    stroke-width="2" stroke-linecap="round" />
+</svg>
