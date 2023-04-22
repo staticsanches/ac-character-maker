@@ -13,5 +13,8 @@
   },
   "css.lint.unknownAtRules": "ignore",
   "scss.lint.validProperties": ["composes"],
-  "prettier.printWidth": 120
+  "prettier.printWidth": 120,
+  "[xml]": {
+    "editor.defaultFormatter": "mikeburgh.xml-format"
+  }
 }
