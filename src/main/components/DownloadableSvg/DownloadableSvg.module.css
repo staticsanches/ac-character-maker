@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 8px);
+}
+
+.row.svgDiv {
+  height: calc(100% - 70px);
+}
+
+.row.svgDiv > div > svg {
+  display: block;
+}
+
+.row.actions {
+  margin-top: 2px;
+}

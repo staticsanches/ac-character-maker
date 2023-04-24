@@ -16,5 +16,6 @@
   "prettier.printWidth": 120,
   "[xml]": {
     "editor.defaultFormatter": "mikeburgh.xml-format"
-  }
+  },
+  "editor.tabSize": 2
 }

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import reportWebVitals from './reportWebVitals'
 
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 
 import { App } from '@/App'
 import { amber, purple } from '@mui/material/colors'

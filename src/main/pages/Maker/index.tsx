@@ -1,13 +1,36 @@
-import { Grid, Typography } from '@mui/material'
+import { AvatarPiece } from '@/components/AvatarPiece'
+import { DownloadableSvg } from '@/components/DownloadableSvg'
+import { Head } from '@/pieces/Head'
+import { Container, Grid, Typography } from '@mui/material'
 
 export const MakerPage = () => {
   return (
-    <Grid container spacing={0} direction="column" alignItems="center" justifyContent="center" flex={1} overflow="auto">
-      <Grid item>
-        <Typography variant="h4" component="h1" align="center">
-          Under Construction
-        </Typography>
+    <Container maxWidth="lg" sx={{ width: '100%', height: '100%' }}>
+      <Grid container spacing={0} sx={{ width: '100%', height: '100%' }}>
+        <Grid item xs={12} sm={6} sx={{ height: { xs: '50%', sm: '100%' } }}>
+          <DownloadableSvg
+            filename="head"
+            svgBuilder={(ref) => (
+              <AvatarPiece ref={ref} width={400} height={400} pieceType="head" pieceComponent={Head} omitXY />
+            )}
+          />
+        </Grid>
+        <Grid
+          container
+          item
+          xs={12}
+          sm={6}
+          sx={{ height: { xs: '50%', sm: '100%' } }}
+          alignContent="center"
+          justifyContent="center"
+        >
+          <Grid item>
+            <Typography variant="h4" textAlign="center">
+              Controls (TODO)
+            </Typography>
+          </Grid>
+        </Grid>
       </Grid>
-    </Grid>
+    </Container>
   )
 }
