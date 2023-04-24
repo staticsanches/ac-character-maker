@@ -1,13 +1,16 @@
 {
   "files": {
-    "main.js": "/ac-character-maker/static/js/main.b5339571.js",
+    "main.css": "/ac-character-maker/static/css/main.98ff9fdb.css",
+    "main.js": "/ac-character-maker/static/js/main.96a7339f.js",
     "static/js/787.ac1e15f5.chunk.js": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js",
     "static/media/leaf.svg": "/ac-character-maker/static/media/leaf.a29be146402979cd2857a80609243244.svg",
     "index.html": "/ac-character-maker/index.html",
-    "main.b5339571.js.map": "/ac-character-maker/static/js/main.b5339571.js.map",
+    "main.98ff9fdb.css.map": "/ac-character-maker/static/css/main.98ff9fdb.css.map",
+    "main.96a7339f.js.map": "/ac-character-maker/static/js/main.96a7339f.js.map",
     "787.ac1e15f5.chunk.js.map": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b5339571.js"
+    "static/css/main.98ff9fdb.css",
+    "static/js/main.96a7339f.js"
   ]
 }
