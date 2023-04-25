@@ -1,13 +1,13 @@
 import { useSkinColor } from '@/hooks/useSkinColor'
 import { useSvgColor } from '@/hooks/useSvgColor'
-import { PieceProps } from '@/types/piece'
+import { withPieceType } from '@/types/piece.d'
 import { SvgColor } from '@/types/svgColor'
 
-export type HeadProps = PieceProps<'head'> & {
+export type HeadProps = {
   readonly color?: SvgColor
 }
 
-export const Head = ({ color }: HeadProps) => {
+const _Head = ({ color }: HeadProps): JSX.Element => {
   const skinColor = useSkinColor()
   const [colorValue, colorDef] = useSvgColor(color ?? skinColor)
 
@@ -21,3 +21,5 @@ export const Head = ({ color }: HeadProps) => {
     </>
   )
 }
+
+export const Head = withPieceType('head')(_Head)

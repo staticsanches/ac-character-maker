@@ -37,6 +37,5 @@ export const convertSvgToImage = async (
     })
   } finally {
     URL.revokeObjectURL(url)
-    console.log('Revoked url', url)
   }
 }

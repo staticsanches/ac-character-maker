@@ -1,28 +1,27 @@
 import React from 'react'
 
-import { PieceProps, PieceType } from '@/types/piece'
+import { extractPieceType, PieceType } from '@/types/piece.d'
 
-export type AvatarPieceBaseProps<PT extends PieceType, P extends React.ComponentType<PieceProps<PT>>> = {
+export type AvatarPieceBaseProps<P extends React.ElementType> = {
   readonly width?: number
   readonly height?: number
 
   readonly omitXY?: boolean
 
-  readonly pieceType: PT
   readonly pieceComponent: P
 }
 
-export type AvatarPieceProps<
-  PT extends PieceType,
-  P extends React.ComponentType<PieceProps<PT>>
-> = AvatarPieceBaseProps<PT, P> & DistributiveOmit<React.ComponentPropsWithoutRef<P>, keyof AvatarPieceBaseProps<PT, P>>
+export type AvatarPieceProps<P extends React.ElementType> = AvatarPieceBaseProps<P> &
+  DistributiveOmit<React.ComponentPropsWithoutRef<P>, keyof AvatarPieceBaseProps<P>>
 
-const _AvatarPiece = <PT extends PieceType, P extends React.ComponentType<PieceProps<PT>>>(
-  { pieceType, pieceComponent, width, height, omitXY = false, ...pieceProps }: AvatarPieceProps<PT, P>,
+const _AvatarPiece = <P extends React.ElementType>(
+  { pieceComponent, width, height, omitXY = false, ...pieceProps }: AvatarPieceProps<P>,
   ref: React.ForwardedRef<SVGSVGElement>
 ): JSX.Element | null => {
-  const dimension = defaultDimension(pieceType)
   const pieceElement = React.createElement(pieceComponent, pieceProps)
+
+  const pieceType = extractPieceType(pieceElement)
+  const dimension = defaultDimension(pieceType)
 
   return (
     <svg
