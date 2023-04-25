@@ -10,9 +10,7 @@ export const MakerPage = () => {
         <Grid item xs={12} sm={6} sx={{ height: { xs: '50%', sm: '100%' } }}>
           <DownloadableSvg
             filename="head"
-            svgBuilder={(ref) => (
-              <AvatarPiece ref={ref} width={400} height={400} pieceType="head" pieceComponent={Head} omitXY />
-            )}
+            svgBuilder={(ref) => <AvatarPiece ref={ref} pieceType="head" pieceComponent={Head} omitXY />}
           />
         </Grid>
         <Grid

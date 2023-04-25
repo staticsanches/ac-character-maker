@@ -1,7 +1,6 @@
 import { Buffer } from 'buffer'
 import React, { createRef } from 'react'
 
-import { useScalableContent } from '@/hooks/useScalableContent'
 import { convertSvgToImage } from '@/utils/convertSvgToImage'
 import { prettifyXml } from '@/utils/prettifyXml'
 import { Button, useTheme } from '@mui/material'
@@ -14,7 +13,6 @@ export type DownloadableSvgProps = {
 
 export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) => {
   const svgRef = createRef<SVGSVGElement>()
-  const { scalableWrapperRef, scalableContentRef } = useScalableContent<HTMLDivElement, HTMLDivElement>()
   const theme = useTheme()
 
   const download = (href: string, extension: `.${string}`) => {
@@ -38,19 +36,14 @@ export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) 
     download(href, `.${type}`)
   }
 
-  const iconSize = 64
   return (
     <div className={classes.container}>
-      <div ref={scalableWrapperRef} className={[classes.row, classes.svgDiv].join(' ')}>
-        <div ref={scalableContentRef}>{svgBuilder(svgRef)}</div>
-      </div>
+      <div className={[classes.row, classes.svgDiv].join(' ')}>{svgBuilder(svgRef)}</div>
       <div className={[classes.row, classes.actions].join(' ')}>
         <Button
           component="svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={iconSize}
-          height={iconSize}
           onClick={handleSvg}
           color="secondary"
         >
@@ -63,8 +56,6 @@ export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) 
           component="svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={iconSize}
-          height={iconSize}
           onClick={() => handleImage('png')}
           color="secondary"
         >
@@ -77,8 +68,6 @@ export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) 
           component="svg"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={iconSize}
-          height={iconSize}
           onClick={() => handleImage('jpeg', 'white')}
           color="secondary"
         >

@@ -6,7 +6,7 @@ import { Header } from './Header'
 
 export const App = () => {
   return (
-    <Box>
+    <Box overflow="hidden">
       <Header />
       <Box component="main" height="100vh" display="flex" flexDirection="column">
         <Toolbar />
