@@ -1,6 +1,6 @@
 import { Button, SxProps, Theme } from '@mui/material'
 import { Buffer } from 'buffer'
-import React, { createRef } from 'react'
+import React, { useRef } from 'react'
 
 import { convertSvgToImage } from '@/utils/convertSvgToImage'
 import { prettifyXml } from '@/utils/prettifyXml'
@@ -17,7 +17,7 @@ export type DownloadableSvgProps = {
 }
 
 export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) => {
-  const svgRef = createRef<SVGSVGElement>()
+  const svgRef = useRef<SVGSVGElement>(null)
 
   const download = (href: string, extension: `.${string}`) => {
     const element = document.createElement('a')
