@@ -17,8 +17,8 @@ export const isRGBAColor = (color: unknown): color is RGBAColor =>
   isOctal(color.b) &&
   (!('a' in color) || color.a === undefined || (typeof color.a === 'number' && color.a >= 0 && color.a <= 1))
 
-const toOctal = (value: number): Octal => {
-  if (value < 0) return 0
-  if (value > 255) return 255
-  return (value | 0) as Octal
-}
+// const toOctal = (value: number): Octal => {
+//   if (value < 0) return 0
+//   if (value > 255) return 255
+//   return (value | 0) as Octal
+// }
