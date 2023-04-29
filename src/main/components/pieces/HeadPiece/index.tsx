@@ -1,12 +1,32 @@
-import { useSvgColor } from '@/hooks/useSvgColor'
-import type { SvgColor } from '@/types/svgColor'
-import { withPieceType } from '@/utils/pieceUtils'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
-export type HeadProps = {
+import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
+import { useSvgColor } from '@/hooks/useSvgColor'
+import { selectHeadColor } from '@/redux/selectors'
+import type { SvgColor } from '@/types/svgColor'
+
+export type HeadPieceProps = AvatarPieceBaseProps & Partial<HeadProps>
+
+export const HeadPiece = React.forwardRef<SVGSVGElement, HeadPieceProps>(({ color, ...avatarPieceProps }, ref) => {
+  const colorFromStore = useSelector(selectHeadColor)
+
+  return (
+    <AvatarPiece
+      ref={ref}
+      {...avatarPieceProps}
+      pieceType="head"
+      contentComponent={Head}
+      color={color ?? colorFromStore}
+    />
+  )
+})
+
+type HeadProps = {
   readonly color: SvgColor
 }
 
-const _Head = ({ color }: HeadProps): JSX.Element => {
+const Head = ({ color }: HeadProps): JSX.Element => {
   const [colorValue, colorOpacity, colorDef] = useSvgColor(color)
 
   return (
@@ -20,5 +40,3 @@ const _Head = ({ color }: HeadProps): JSX.Element => {
     </>
   )
 }
-
-export const Head = withPieceType('head')(_Head)

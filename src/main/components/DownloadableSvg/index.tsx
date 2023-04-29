@@ -41,6 +41,7 @@ export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) 
   }
 
   const buttonSx: SxProps<Theme> = {
+    '> svg': { height: '100%' },
     '> svg > path': { fill: (theme) => theme.palette.secondary.main },
   }
 

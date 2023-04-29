@@ -1,16 +1,40 @@
+import React from 'react'
+import { useSelector } from 'react-redux'
+
+import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgColor } from '@/hooks/useSvgColor'
+import { selectNoseColor, selectNoseVariant } from '@/redux/selectors'
 import type { SvgColor } from '@/types/svgColor'
-import { withPieceType } from '@/utils/pieceUtils'
 
 export type NoseVariant = (typeof noseVariants)[number]
 export const noseVariants = ['circle', 'oval', 'rectangle', 'triangle'] as const
 
-export type NoseProps = {
+export type NosePieceProps = AvatarPieceBaseProps & Partial<NoseProps>
+
+export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(
+  ({ variant, color, ...avatarPieceProps }, ref) => {
+    const variantFromStore = useSelector(selectNoseVariant)
+    const colorFromStore = useSelector(selectNoseColor)
+
+    return (
+      <AvatarPiece
+        {...avatarPieceProps}
+        ref={ref}
+        pieceType="nose"
+        contentComponent={Nose}
+        variant={variant ?? variantFromStore}
+        color={color ?? colorFromStore}
+      />
+    )
+  }
+)
+
+type NoseProps = {
   readonly variant: NoseVariant
   readonly color: SvgColor
 }
 
-const _Nose = ({ variant, color }: NoseProps): JSX.Element => {
+const Nose = ({ variant, color }: NoseProps): JSX.Element => {
   const [colorValue, colorOpacity, colorDef] = useSvgColor(color)
 
   return (
@@ -33,5 +57,3 @@ const noseElement = (variant: NoseVariant, color: string, opacity?: number): JSX
       return <path d="M17 3L25.6603 25.5H8.33975L17 3Z" fill={color} fillOpacity={opacity} />
   }
 }
-
-export const Nose = withPieceType('nose')(_Nose)

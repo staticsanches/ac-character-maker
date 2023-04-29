@@ -32,3 +32,7 @@
   min-height: 5rem;
   max-height: 5rem;
 }
+
+.row.actions > button {
+  height: 100%;
+}
