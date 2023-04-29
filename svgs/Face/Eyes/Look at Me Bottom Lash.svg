@@ -1,0 +1,16 @@
+<svg width="134" height="59" viewBox="0 0 134 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle r="17" transform="matrix(1 0 0 -1 31 29)" fill="white" stroke="#8C501D" stroke-width="2" />
+  <circle cx="33" cy="28" r="11" fill="#8C501D" />
+  <line x1="19.866" y1="42.3038" x2="17.366" y2="46.6339" stroke="#8C501D" stroke-width="2" stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0 1 1 0 32 46)" stroke="#8C501D" stroke-width="2"
+    stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0.5 0.866025 0.866025 -0.5 42 40.9377)" stroke="#8C501D"
+    stroke-width="2" stroke-linecap="round" />
+  <circle r="17" transform="matrix(1 0 0 -1 102 29)" fill="white" stroke="#8C501D" stroke-width="2" />
+  <circle cx="100" cy="28" r="11" fill="#8C501D" />
+  <line x1="90.866" y1="42.3038" x2="88.366" y2="46.6339" stroke="#8C501D" stroke-width="2" stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0 1 1 0 103 46)" stroke="#8C501D" stroke-width="2"
+    stroke-linecap="round" />
+  <line x1="1" y1="-1" x2="6" y2="-1" transform="matrix(0.5 0.866025 0.866025 -0.5 113 40.9377)" stroke="#8C501D"
+    stroke-width="2" stroke-linecap="round" />
+</svg>
