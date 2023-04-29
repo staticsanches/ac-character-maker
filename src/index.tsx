@@ -6,8 +6,11 @@ import reportWebVitals from './reportWebVitals'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
 
 import { App } from '@/App'
+import { persistor, store } from '@/redux'
 import { amber, purple } from '@mui/material/colors'
+import { Provider } from 'react-redux'
 import { HashRouter, Route, Routes } from 'react-router-dom'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const theme = createTheme({
   palette: {
@@ -20,14 +23,18 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <HashRouter>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
-      </HashRouter>
-    </ThemeProvider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <HashRouter>
+            <Routes>
+              <Route path="/*" element={<App />} />
+            </Routes>
+          </HashRouter>
+        </ThemeProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 )
 

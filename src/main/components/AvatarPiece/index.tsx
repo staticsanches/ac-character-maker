@@ -1,23 +1,26 @@
 import React from 'react'
 
-import { extractPieceType, PieceType } from '@/types/piece.d'
+import type { PieceType } from '@/types/piece'
+import { extractPieceType } from '@/utils/pieceUtils'
 
-export type AvatarPieceBaseProps<P extends React.ElementType> = {
+export type AvatarPieceBaseProps = {
   readonly width?: number
   readonly height?: number
 
   readonly omitXY?: boolean
+}
 
+type AvatarPieceWithComponentBaseProps<P extends React.ElementType> = AvatarPieceBaseProps & {
   readonly pieceComponent: P
 }
 
-export type AvatarPieceProps<P extends React.ElementType> = AvatarPieceBaseProps<P> &
-  DistributiveOmit<React.ComponentPropsWithoutRef<P>, keyof AvatarPieceBaseProps<P>>
+type AvatarPieceProps<P extends React.ElementType> = AvatarPieceWithComponentBaseProps<P> &
+  DistributiveOmit<React.ComponentPropsWithoutRef<P>, keyof AvatarPieceWithComponentBaseProps<P>>
 
 const _AvatarPiece = <P extends React.ElementType>(
   { pieceComponent, width, height, omitXY = false, ...pieceProps }: AvatarPieceProps<P>,
   ref: React.ForwardedRef<SVGSVGElement>
-): JSX.Element | null => {
+): JSX.Element => {
   const pieceElement = React.createElement(pieceComponent, pieceProps)
 
   const pieceType = extractPieceType(pieceElement)

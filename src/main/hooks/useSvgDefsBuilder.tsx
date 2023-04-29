@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react'
 
-import { SvgColor, SvgGradient, SvgGradientStop, SvgLinearGradient, SvgRadialGradient } from '@/types/svgColor'
+import type { SvgColor, SvgGradient, SvgGradientStop, SvgLinearGradient, SvgRadialGradient } from '@/types/svgColor'
+import { isRGBAColor } from '@/utils/svgColorUtils'
 import { uniqueID } from '@/utils/uniqueID'
 
 export type SvgDefsBuilder = {
   addDef: (def: JSX.Element) => void
-  addColor: (color: SvgColor) => string
-  maybeColor: (color: SvgColor, add: boolean) => string | undefined
+  addColor: (color: SvgColor) => [string, number | undefined]
+  maybeColor: (color: SvgColor, add: boolean) => [string, number | undefined] | undefined
 
   /**
    * Builds the defs block and forgets all added data.
@@ -30,16 +31,19 @@ class Builder implements SvgDefsBuilder {
     this.#defs.push(def)
   }
 
-  addColor = (color: SvgColor) => {
+  addColor = (color: SvgColor): [string, number | undefined] => {
     if (typeof color === 'string') {
-      return color
+      return [color, undefined]
+    }
+    if (isRGBAColor(color)) {
+      return [`rgb(${color.r}, ${color.g}, ${color.b})`, color.a]
     }
 
     // Checks if the color has been used
     for (let i = 0; i < this.#gradients.length; i++) {
       const gradient = this.#gradients[i]
       if (isEqualsGradient(color, gradient)) {
-        return `url(#${this.#buildSvgID(color.type, this.#ids[i])})`
+        return [`url(#${this.#buildSvgID(color.type, this.#ids[i])})`, undefined]
       }
     }
 
@@ -51,7 +55,9 @@ class Builder implements SvgDefsBuilder {
 
     // Creates the new def
     let def: JSX.Element
-    const stops = color.stops?.map((stop, index) => <stop key={index} offset={stop.offset} stopColor={stop.color} />)
+    const stops = color.stops?.map((stop, index) => (
+      <stop key={index} offset={stop.offset} stopColor={stop.color} stopOpacity={stop.opacity} />
+    ))
     switch (color.type) {
       case 'linearGradient':
         def = (
@@ -71,7 +77,7 @@ class Builder implements SvgDefsBuilder {
 
     this.addDef(def)
 
-    return `url(#${id})`
+    return [`url(#${id})`, undefined]
   }
 
   maybeColor = (color: SvgColor, add: boolean) => {
@@ -167,5 +173,5 @@ const isEqualsStops = (stops1: SvgGradientStop[] | undefined, stops2: SvgGradien
 }
 
 const isEqualsStop = (s1: SvgGradientStop, s2: SvgGradientStop) => {
-  return s1 === s2 || (s1.color === s2.color && s1.offset === s2.offset)
+  return s1 === s2 || (s1.color === s2.color && s1.offset === s2.offset && s1.opacity === s2.opacity)
 }

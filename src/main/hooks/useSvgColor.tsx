@@ -1,18 +1,25 @@
-import { SvgColor } from '@/types/svgColor'
+import type { SvgColor } from '@/types/svgColor'
+import { isRGBAColor } from '@/utils/svgColorUtils'
 import { useSvgLazyID } from './useSvgLazyID'
 
-export const useSvgColor = (color: SvgColor): [string, JSX.Element | undefined] => {
-  const [lazyID, lazyUrl] = useSvgLazyID(typeof color === 'string' ? 'color' : color.type)
+export const useSvgColor = (color: SvgColor): [string, Opt<number>, Opt<JSX.Element>] => {
+  const [lazyID, lazyUrl] = useSvgLazyID(typeof color === 'string' || isRGBAColor(color) ? 'color' : color.type)
 
   let colorValue: string
-  let definitionPiece: JSX.Element | undefined
+  let colorOpacity: Opt<number>
+  let definitionPiece: Opt<JSX.Element>
   if (typeof color === 'string') {
     colorValue = color
+  } else if (isRGBAColor(color)) {
+    colorValue = `rgb(${color.r}, ${color.g}, ${color.b})`
+    colorOpacity = color.a
   } else {
     const id = lazyID()
     colorValue = lazyUrl()
 
-    const stops = color.stops?.map((stop, index) => <stop key={index} offset={stop.offset} stopColor={stop.color} />)
+    const stops = color.stops?.map((stop, index) => (
+      <stop key={index} offset={stop.offset} stopColor={stop.color} stopOpacity={stop.opacity} />
+    ))
 
     switch (color.type) {
       case 'linearGradient':
@@ -32,5 +39,5 @@ export const useSvgColor = (color: SvgColor): [string, JSX.Element | undefined] 
     }
   }
 
-  return [colorValue, definitionPiece]
+  return [colorValue, colorOpacity, definitionPiece]
 }

@@ -1,4 +1,12 @@
-export type SvgColor = 'none' | string | SvgGradient
+import { ComputeRange } from './computeRange'
+
+export type SvgColor = HexColor | RGBAColor | SvgGradient
+
+export type HexColor = `#${string}`
+
+export type Octal = ComputeRange<256>[number]
+
+export type RGBAColor = { r: Octal; g: Octal; b: Octal; a?: number }
 
 export type SvgGradient = SvgLinearGradient | SvgRadialGradient
 
@@ -29,4 +37,5 @@ export type SvgRadialGradient = {
 export type SvgGradientStop = {
   readonly offset?: number | string
   readonly color?: string
+  readonly opacity?: string
 }

@@ -1,6 +1,5 @@
-import { AvatarPiece } from '@/components/AvatarPiece'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
-import { Nose } from '@/pieces/Nose'
+import { HeadPiece } from '@/components/HeadPiece'
 import { Container, Grid, Typography } from '@mui/material'
 
 export const MakerPage = () => {
@@ -8,10 +7,7 @@ export const MakerPage = () => {
     <Container maxWidth="lg" sx={{ width: '100%', height: '100%' }}>
       <Grid container spacing={0} sx={{ width: '100%', height: '100%' }}>
         <Grid item xs={12} sm={6} sx={{ height: { xs: '50%', sm: '100%' } }}>
-          <DownloadableSvg
-            filename="head"
-            svgBuilder={(ref) => <AvatarPiece ref={ref} pieceComponent={Nose} variant="oval" omitXY />}
-          />
+          <DownloadableSvg filename="head" svgBuilder={(ref) => <HeadPiece ref={ref} />} />
         </Grid>
         <Grid
           container

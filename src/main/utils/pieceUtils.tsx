@@ -1,7 +1,6 @@
 import React from 'react'
 
-export type PieceType = (typeof pieceTypes)[number]
-export const pieceTypes = ['blush', 'body', 'ears', 'eyes', 'head', 'mouth', 'neck', 'nose', 'pants', 'top'] as const
+import { PieceType, pieceTypes } from '@/types/piece.d'
 
 export const withPieceType = (type: PieceType) => {
   return <P extends object>(Component: React.ComponentType<P>) => {
