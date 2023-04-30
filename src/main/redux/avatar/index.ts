@@ -6,11 +6,7 @@ export type AvatarState = {
   /**
    * @defaultValue `360`
    */
-  readonly width: number
-  /**
-   * @defaultValue `360`
-   */
-  readonly height: number
+  readonly size: number
 
   /**
    * @defaultValue `#D0784E`
@@ -19,8 +15,7 @@ export type AvatarState = {
 }
 
 const initialState: AvatarState = {
-  width: 360,
-  height: 360,
+  size: 360,
 
   skinColor: '#84401A',
 }
@@ -29,6 +24,9 @@ const avatarSlice = createSlice({
   name: 'avatar',
   initialState,
   reducers: {
+    changeSize: (state, action: PayloadAction<number>) => {
+      state.size = action.payload
+    },
     changeSkinColor: (state, action: PayloadAction<SvgColor>) => {
       state.skinColor = action.payload
     },

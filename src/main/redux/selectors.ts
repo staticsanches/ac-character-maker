@@ -1,4 +1,4 @@
-import { createSelector, Selector } from '@reduxjs/toolkit'
+import { Selector } from '@reduxjs/toolkit'
 
 import type { NoseVariant } from '@/components/pieces/NosePiece'
 import type { SvgColor } from '@/types/svgColor'
@@ -9,13 +9,7 @@ export type RootSelector<Result> = Selector<RootState, Result>
 
 // Avatar selectors
 
-export const selectAvatarWidth: RootSelector<number> = (state) => state.avatar.width
-export const selectAvatarHeight: RootSelector<number> = (state) => state.avatar.height
-export const selectAvatarDimension: RootSelector<{ width: number; height: number }> = createSelector(
-  selectAvatarWidth,
-  selectAvatarHeight,
-  (width, height) => ({ width, height })
-)
+export const selectAvatarSize: RootSelector<number> = (state) => state.avatar.size
 
 export const selectAvatarSkinColor: RootSelector<SvgColor> = (state) => state.avatar.skinColor
 

@@ -9,13 +9,13 @@ import { EarsPiece } from '@/components/pieces/EarsPiece'
 import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
-import { selectAvatarDimension } from '@/redux/selectors'
+import { selectAvatarSize } from '@/redux/selectors'
 
-export const Avatar = React.forwardRef<SVGSVGElement, Partial<AvatarBaseProps>>(({ width, height }, ref) => {
-  const { width: widthFromStore, height: heightFromStore } = useSelector(selectAvatarDimension)
+export const Avatar = React.forwardRef<SVGSVGElement, Partial<AvatarBaseProps>>(({ size }, ref) => {
+  const sizeFromStore = useSelector(selectAvatarSize)
 
   return (
-    <AvatarBase ref={ref} width={width ?? widthFromStore} height={height ?? heightFromStore}>
+    <AvatarBase ref={ref} size={size ?? sizeFromStore}>
       <EarsPiece />
       <BodyPiece />
       <HeadPiece />
