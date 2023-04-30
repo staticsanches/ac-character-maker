@@ -45,6 +45,8 @@ const defaultDimension = (type: PieceType): { width: number; height: number } =>
       return { width: 169, height: 31 }
     case 'body':
       return { width: 247, height: 153 }
+    case 'chest':
+      return { width: 67, height: 53 }
     case 'ears':
       return { width: 213, height: 38 }
     case 'eyes':
@@ -53,8 +55,6 @@ const defaultDimension = (type: PieceType): { width: number; height: number } =>
       return { width: 170, height: 167 }
     case 'mouth':
       return { width: 65, height: 26 }
-    case 'neck':
-      return { width: 67, height: 53 }
     case 'nose':
       return { width: 33, height: 33 }
     case 'pants':
@@ -70,6 +70,8 @@ const defaultPosition = (type: PieceType): { x: number; y: number } => {
       return { x: 95, y: 145 }
     case 'body':
       return { x: 56, y: 207 }
+    case 'chest':
+      return { x: 149, y: 207 }
     case 'ears':
       return { x: 72, y: 125 }
     case 'eyes':
@@ -78,8 +80,6 @@ const defaultPosition = (type: PieceType): { x: number; y: number } => {
       return { x: 94, y: 43 }
     case 'mouth':
       return { x: 148, y: 160 }
-    case 'neck':
-      return { x: 149, y: 207 }
     case 'nose':
       return { x: 164, y: 127 }
     case 'pants':

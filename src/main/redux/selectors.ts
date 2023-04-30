@@ -24,6 +24,10 @@ export const selectAvatarSkinColor: RootSelector<SvgColor> = (state) => state.av
 export const selectBodyColor: RootSelector<SvgColor> = (state) =>
   state.pieces.body.color ?? selectAvatarSkinColor(state)
 
+// Chest piece selectors
+
+export const selectChestColor: RootSelector<SvgColor> = (state) => state.pieces.chest.color
+
 // Ears piece selectors
 
 export const selectEarsPrColor: RootSelector<SvgColor> = (state) =>
