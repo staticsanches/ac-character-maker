@@ -19,7 +19,7 @@ export const isRGBAColor = (color: unknown): color is RGBAColor =>
   isOctal(color.b) &&
   (!('a' in color) || color.a === undefined || (typeof color.a === 'number' && color.a >= 0 && color.a <= 1))
 
-export const darken = (color: SvgColor, value: number = 5): SvgColor => {
+export const darken = (color: SvgColor, value: number = 10): SvgColor => {
   if (isHexColor(color)) {
     const hsl = colorConvert.hex.hsl(color.substring(1))
     hsl[2] -= value

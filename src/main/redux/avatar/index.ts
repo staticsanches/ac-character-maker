@@ -22,7 +22,7 @@ const initialState: AvatarState = {
   width: 360,
   height: 360,
 
-  skinColor: '#D0784E',
+  skinColor: '#84401A',
 }
 
 const avatarSlice = createSlice({

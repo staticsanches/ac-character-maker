@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 
 import { selectAvatarDimension } from '@/redux/selectors'
 import { AvatarBase, AvatarBaseProps } from '../AvatarBase'
+import { BodyPiece } from '../pieces/BodyPiece'
 import { EarsPiece } from '../pieces/EarsPiece'
 import { HeadPiece } from '../pieces/HeadPiece'
 import { NosePiece } from '../pieces/NosePiece'
@@ -13,6 +14,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, Partial<AvatarBaseProps>>(
   return (
     <AvatarBase ref={ref} width={width ?? widthFromStore} height={height ?? heightFromStore}>
       <EarsPiece />
+      <BodyPiece />
       <HeadPiece />
       <NosePiece />
     </AvatarBase>
