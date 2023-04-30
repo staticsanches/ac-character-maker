@@ -46,3 +46,7 @@ export const selectHeadColor: RootSelector<SvgColor> = (state) =>
 export const selectNoseVariant: RootSelector<NoseVariant> = (state) => state.pieces.nose.variant
 
 export const selectNoseColor: RootSelector<SvgColor> = (state) => state.pieces.nose.color
+
+// Pants piece selectors
+
+export const selectPantsColor: RootSelector<SvgColor> = (state) => state.pieces.pants.color

@@ -6,6 +6,7 @@ import { chestReducer, ChestState, getChestInitialState } from './chest'
 import { earsReducer, EarsState, getEarsInitialState } from './ears'
 import { getHeadInitialState, headReducer, HeadState } from './head'
 import { getNoseInitialState, noseReducer, NoseState } from './nose'
+import { getPantsInitialState, pantsReducer, PantsState } from './pants'
 
 export type PiecesState = {
   readonly body: BodyState
@@ -13,6 +14,7 @@ export type PiecesState = {
   readonly ears: EarsState
   readonly head: HeadState
   readonly nose: NoseState
+  readonly pants: PantsState
 }
 
 const initialState: () => PiecesState = () => ({
@@ -21,6 +23,7 @@ const initialState: () => PiecesState = () => ({
   ears: getEarsInitialState(),
   head: getHeadInitialState(),
   nose: getNoseInitialState(),
+  pants: getPantsInitialState(),
 })
 
 const { reducer: originalReducer, actions: piecesActions } = createSlice({
@@ -35,6 +38,7 @@ const nestedReducer = combineReducers({
   ears: earsReducer,
   head: headReducer,
   nose: noseReducer,
+  pants: pantsReducer,
 })
 
 const piecesReducer = reduceReducers(originalReducer, nestedReducer) as Reducer<PiecesState>
