@@ -1,6 +1,6 @@
 import React from 'react'
 
-import classes from './AvatarPiece.module.css'
+import classes from '@/css/HighlightOnHover.module.css'
 
 import type { PieceType } from '@/types/piece'
 
@@ -45,7 +45,7 @@ const _AvatarPiece = <P extends React.ElementType>(
       width={width ?? dimension.width}
       height={height ?? dimension.height}
       {...(omitXY ? {} : defaultPosition(pieceType))}
-      className={highlightOnHover ? classes.highlighted : ''}
+      className={highlightOnHover ? classes.highlightOnHover : ''}
     >
       {pieceElement}
     </svg>

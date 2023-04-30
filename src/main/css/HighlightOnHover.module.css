@@ -1,0 +1,8 @@
+.highlightOnHover {
+  transition: ease-in-out 250ms;
+}
+
+.highlightOnHover:hover {
+  cursor: pointer;
+  filter: brightness(2);
+}
