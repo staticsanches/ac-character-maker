@@ -53,6 +53,8 @@ export const Header = () => {
         </Toolbar>
       </AppBar>
 
+      <Toolbar />
+
       <Box component="nav" className="NavBox">
         <Drawer
           variant="temporary"

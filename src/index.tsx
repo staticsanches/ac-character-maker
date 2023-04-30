@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import { App } from '@/App'
 import { persistor, store } from '@/redux'
+import './index.css'
 import reportWebVitals from './reportWebVitals'
 
 const theme = createTheme({
