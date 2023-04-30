@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ac-character-maker/static/css/main.396baf5b.css",
-    "main.js": "/ac-character-maker/static/js/main.4d9f81da.js",
+    "main.css": "/ac-character-maker/static/css/main.fd9b26a0.css",
+    "main.js": "/ac-character-maker/static/js/main.3ce8f4f8.js",
     "static/js/787.ac1e15f5.chunk.js": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js",
     "static/media/leaf.svg": "/ac-character-maker/static/media/leaf.a29be146402979cd2857a80609243244.svg",
     "static/media/svgFileIcon.svg": "/ac-character-maker/static/media/svgFileIcon.0f63b52c9d87cb7d2d82af606b607c9c.svg",
     "static/media/jpgFileIcon.svg": "/ac-character-maker/static/media/jpgFileIcon.ac4ebee906b1d9595fad6bfa94a17ea3.svg",
     "static/media/pngFileIcon.svg": "/ac-character-maker/static/media/pngFileIcon.1ba35816bae3dc780160d62ded7af57d.svg",
     "index.html": "/ac-character-maker/index.html",
-    "main.396baf5b.css.map": "/ac-character-maker/static/css/main.396baf5b.css.map",
-    "main.4d9f81da.js.map": "/ac-character-maker/static/js/main.4d9f81da.js.map",
+    "main.fd9b26a0.css.map": "/ac-character-maker/static/css/main.fd9b26a0.css.map",
+    "main.3ce8f4f8.js.map": "/ac-character-maker/static/js/main.3ce8f4f8.js.map",
     "787.ac1e15f5.chunk.js.map": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.396baf5b.css",
-    "static/js/main.4d9f81da.js"
+    "static/css/main.fd9b26a0.css",
+    "static/js/main.3ce8f4f8.js"
   ]
 }
