@@ -29,7 +29,7 @@ export const DownloadableSvg = ({ filename, svgBuilder }: DownloadableSvgProps) 
   }
 
   const handleSvg = () => {
-    const svg = prettifyXml(svgRef.current!.outerHTML) + '\n'
+    const svg = prettifyXml(svgRef.current!.outerHTML, ['class']) + '\n'
     const base64 = Buffer.from(svg, 'utf-8').toString('base64')
     download(`data:image/svg+xml;charset=utf-8;base64,${base64}`, '.svg')
   }

@@ -9,7 +9,7 @@ import type { SvgColor } from '@/types/svgColor'
 export type EarsPieceProps = AvatarPieceBaseProps & Partial<EarsProps>
 
 export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
-  ({ prColor, plColor, ...avatarPieceProps }, ref) => {
+  ({ prColor, plColor, handleClick, ...avatarPieceProps }, ref) => {
     const prColorFromStore = useSelector(selectResolvedEarsPrColor)
     const plColorFromStore = useSelector(selectResolvedEarsPlColor)
 
@@ -19,8 +19,10 @@ export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
         {...avatarPieceProps}
         pieceType="ears"
         contentComponent={Ears}
+        highlightOnHover={!!handleClick}
         prColor={prColor ?? prColorFromStore}
         plColor={plColor ?? plColorFromStore}
+        handleClick={handleClick}
       />
     )
   }
@@ -29,17 +31,27 @@ export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
 type EarsProps = {
   prColor: SvgColor
   plColor: SvgColor
+
+  handleClick?: React.MouseEventHandler
 }
 
-const Ears = ({ prColor, plColor }: EarsProps): JSX.Element => {
+const Ears = ({ prColor, plColor, handleClick }: EarsProps): JSX.Element => {
   const defsBuilder = useSvgDefsBuilder()
   const [prColorValue, prColorOpacity] = defsBuilder.addColor(prColor)
   const [plColorValue, plColorOpacity] = defsBuilder.addColor(plColor)
 
   return (
     <>
-      <ellipse cx="22" cy="19" rx="22" ry="19" fill={prColorValue} fillOpacity={prColorOpacity} />
-      <ellipse cx="191" cy="19" rx="22" ry="19" fill={plColorValue} fillOpacity={plColorOpacity} />
+      <ellipse cx="22" cy="19" rx="22" ry="19" fill={prColorValue} fillOpacity={prColorOpacity} onClick={handleClick} />
+      <ellipse
+        cx="191"
+        cy="19"
+        rx="22"
+        ry="19"
+        fill={plColorValue}
+        fillOpacity={plColorOpacity}
+        onClick={handleClick}
+      />
       {defsBuilder.build()}
     </>
   )

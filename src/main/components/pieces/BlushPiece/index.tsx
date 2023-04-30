@@ -15,7 +15,7 @@ import type { SvgColor } from '@/types/svgColor'
 export type BlushPieceProps = AvatarPieceBaseProps & Partial<BlushProps>
 
 export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
-  ({ prColor, plColor, prSoft, plSoft, ...avatarPieceProps }, ref) => {
+  ({ prColor, plColor, prSoft, plSoft, handleClick, ...avatarPieceProps }, ref) => {
     const prColorFromStore = useSelector(selectResolvedBlushPrColor)
     const plColorFromStore = useSelector(selectResolvedBlushPlColor)
     const prSoftFromStore = useSelector(selectResolvedBlushPrSoft)
@@ -27,10 +27,12 @@ export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
         {...avatarPieceProps}
         pieceType="blush"
         contentComponent={Blush}
+        highlightOnHover={!!handleClick}
         prColor={prColor ?? prColorFromStore}
         plColor={plColor ?? plColorFromStore}
         prSoft={prSoft ?? prSoftFromStore}
         plSoft={plSoft ?? plSoftFromStore}
+        handleClick={handleClick}
       />
     )
   }
@@ -42,17 +44,39 @@ type BlushProps = {
 
   prSoft: boolean
   plSoft: boolean
+
+  handleClick?: React.MouseEventHandler
 }
 
-const Blush = ({ prColor, plColor, prSoft, plSoft }: BlushProps): JSX.Element => {
+const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): JSX.Element => {
   const [lazyFilterID, lazyFilterUrl] = useSvgLazyID('blur')
 
   const defsBuilder = useSvgDefsBuilder()
   const [prColorValue, prColorOpacity] = defsBuilder.addColor(prColor)
   const [plColorValue, plColorOpacity] = defsBuilder.addColor(plColor)
 
-  const prSvg = <ellipse cx="24.5" cy="15.5" rx="12.5" ry="10.5" fill={prColorValue} fillOpacity={prColorOpacity} />
-  const plSvg = <ellipse cx="144.5" cy="15.5" rx="12.5" ry="10.5" fill={plColorValue} fillOpacity={plColorOpacity} />
+  const prSvg = (
+    <ellipse
+      cx="24.5"
+      cy="15.5"
+      rx="12.5"
+      ry="10.5"
+      fill={prColorValue}
+      fillOpacity={prColorOpacity}
+      onClick={handleClick}
+    />
+  )
+  const plSvg = (
+    <ellipse
+      cx="144.5"
+      cy="15.5"
+      rx="12.5"
+      ry="10.5"
+      fill={plColorValue}
+      fillOpacity={plColorOpacity}
+      onClick={handleClick}
+    />
+  )
 
   if (prSoft || plSoft) {
     defsBuilder.addDef(

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import classes from './AvatarPiece.module.css'
+
 import type { PieceType } from '@/types/piece'
 
 export type AvatarPieceBaseProps = {
@@ -12,13 +14,23 @@ export type AvatarPieceBaseProps = {
 type AvatarPieceWithComponentBaseProps<P extends React.ElementType> = AvatarPieceBaseProps & {
   readonly pieceType: PieceType
   readonly contentComponent: P
+
+  readonly highlightOnHover?: boolean
 }
 
 type AvatarPieceProps<P extends React.ElementType> = AvatarPieceWithComponentBaseProps<P> &
   DistributiveOmit<React.ComponentPropsWithoutRef<P>, keyof AvatarPieceWithComponentBaseProps<P>>
 
 const _AvatarPiece = <P extends React.ElementType>(
-  { pieceType, contentComponent, width, height, omitXY = false, ...contentProps }: AvatarPieceProps<P>,
+  {
+    pieceType,
+    contentComponent,
+    width,
+    height,
+    highlightOnHover = false,
+    omitXY = false,
+    ...contentProps
+  }: AvatarPieceProps<P>,
   ref: React.ForwardedRef<SVGSVGElement>
 ): JSX.Element => {
   const dimension = defaultDimension(pieceType)
@@ -33,6 +45,7 @@ const _AvatarPiece = <P extends React.ElementType>(
       width={width ?? dimension.width}
       height={height ?? dimension.height}
       {...(omitXY ? {} : defaultPosition(pieceType))}
+      className={highlightOnHover ? classes.highlighted : ''}
     >
       {pieceElement}
     </svg>

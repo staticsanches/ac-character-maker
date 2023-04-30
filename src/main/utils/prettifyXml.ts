@@ -1,8 +1,9 @@
-export const prettifyXml = (xml: string) => {
+export const prettifyXml = (xml: string, attributesToRemove: string[] = []) => {
   const xmlDoc = new DOMParser().parseFromString(xml, 'application/xml')
   const xsltDoc = new DOMParser().parseFromString(
     [
       '<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform">',
+      ...attributesToRemove.map((attr) => `  <xsl:template match="@${attr}" />`),
       '  <xsl:strip-space elements="*"/>',
       '  <xsl:template match="para[content-style][not(text())]">',
       '    <xsl:value-of select="normalize-space(.)"/>',
