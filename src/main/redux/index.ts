@@ -10,10 +10,10 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist'
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2'
 import storage from 'redux-persist/lib/storage'
-import { avatarReducer } from './avatar'
 
+import { autoMergeDeep } from '@/utils/autoMergeDeep'
+import { avatarReducer } from './avatar'
 import { piecesReducer } from './pieces'
 
 const rootReducer = combineReducers({
@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
 const persistConfig: PersistConfig<ReturnType<typeof rootReducer>> = {
   key: 'avatar-maker',
   storage,
-  stateReconciler: autoMergeLevel2,
+  stateReconciler: autoMergeDeep,
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

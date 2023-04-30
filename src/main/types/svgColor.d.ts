@@ -6,7 +6,7 @@ export type HexColor = `#${string}`
 
 export type Octal = ComputeRange<256>[number]
 
-export type RGBAColor = { r: Octal; g: Octal; b: Octal; a?: number }
+export type RGBAColor = { readonly r: Octal; readonly g: Octal; readonly b: Octal; readonly a?: number }
 
 export type SvgGradient = SvgLinearGradient | SvgRadialGradient
 

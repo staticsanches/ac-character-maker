@@ -3,6 +3,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import type { SvgColor } from '@/types/svgColor'
 
 export type HeadState = {
+  /**
+   * @defaultValue avatar skin color
+   */
   readonly color?: SvgColor
 }
 
