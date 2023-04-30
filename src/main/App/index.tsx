@@ -28,7 +28,6 @@ const mainSx = (toolbar: CSSProperties): CSSProperties => {
     if (key === 'minHeight') continue
     sx[key] = createRecordWithHeight(toolbar[key] as CSSProperties)
   }
-  console.log(toolbar, sx)
   return sx
 }
 

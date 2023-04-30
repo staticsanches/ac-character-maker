@@ -19,9 +19,23 @@ export const selectAvatarDimension: RootSelector<{ width: number; height: number
 
 export const selectAvatarSkinColor: RootSelector<SvgColor> = (state) => state.avatar.skinColor
 
+// Blush piece selectors
+
+export const selectResolvedBlushPrColor: RootSelector<SvgColor> = (state) =>
+  state.pieces.blush.prColor ?? state.pieces.blush.color
+
+export const selectResolvedBlushPlColor: RootSelector<SvgColor> = (state) =>
+  state.pieces.blush.plColor ?? state.pieces.blush.color
+
+export const selectResolvedBlushPrSoft: RootSelector<boolean> = (state) =>
+  state.pieces.blush.prSoft ?? state.pieces.blush.soft
+
+export const selectResolvedBlushPlSoft: RootSelector<boolean> = (state) =>
+  state.pieces.blush.plSoft ?? state.pieces.blush.soft
+
 // Body piece selectors
 
-export const selectBodyColor: RootSelector<SvgColor> = (state) =>
+export const selectResolvedBodyColor: RootSelector<SvgColor> = (state) =>
   state.pieces.body.color ?? selectAvatarSkinColor(state)
 
 // Chest piece selectors
@@ -30,15 +44,15 @@ export const selectChestColor: RootSelector<SvgColor> = (state) => state.pieces.
 
 // Ears piece selectors
 
-export const selectEarsPrColor: RootSelector<SvgColor> = (state) =>
+export const selectResolvedEarsPrColor: RootSelector<SvgColor> = (state) =>
   state.pieces.ears.prColor ?? state.pieces.ears.color ?? darken(selectAvatarSkinColor(state))
 
-export const selectEarsPlColor: RootSelector<SvgColor> = (state) =>
+export const selectResolvedEarsPlColor: RootSelector<SvgColor> = (state) =>
   state.pieces.ears.plColor ?? state.pieces.ears.color ?? darken(selectAvatarSkinColor(state))
 
 // Head piece selectors
 
-export const selectHeadColor: RootSelector<SvgColor> = (state) =>
+export const selectResolvedHeadColor: RootSelector<SvgColor> = (state) =>
   state.pieces.head.color ?? selectAvatarSkinColor(state)
 
 // Nose piece selectors

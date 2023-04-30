@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux'
 
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { selectEarsPlColor, selectEarsPrColor } from '@/redux/selectors'
+import { selectResolvedEarsPlColor, selectResolvedEarsPrColor } from '@/redux/selectors'
 import type { SvgColor } from '@/types/svgColor'
 
 export type EarsPieceProps = AvatarPieceBaseProps & Partial<EarsProps>
 
 export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
   ({ prColor, plColor, ...avatarPieceProps }, ref) => {
-    const prColorFromStore = useSelector(selectEarsPrColor)
-    const plColorFromStore = useSelector(selectEarsPlColor)
+    const prColorFromStore = useSelector(selectResolvedEarsPrColor)
+    const plColorFromStore = useSelector(selectResolvedEarsPlColor)
 
     return (
       <AvatarPiece

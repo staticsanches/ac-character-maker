@@ -5,19 +5,19 @@ import type { SvgColor } from '@/types/svgColor'
 
 export type NoseState = {
   /**
-   * @defaultValue `circle`
+   * @defaultValue `rectangle`
    */
   readonly variant: NoseVariant
 
   /**
-   * @defaultValue `#FF7E36`
+   * @defaultValue `#FFBAA5`
    */
   readonly color: SvgColor
 }
 
 const initialState: NoseState = {
-  variant: 'circle',
-  color: '#FF7E36',
+  variant: 'rectangle',
+  color: '#FFBAA5',
 } as const
 
 const noseSlice = createSlice({

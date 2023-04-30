@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux'
 
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgColor } from '@/hooks/useSvgColor'
-import { selectHeadColor } from '@/redux/selectors'
+import { selectResolvedHeadColor } from '@/redux/selectors'
 import type { SvgColor } from '@/types/svgColor'
 
 export type HeadPieceProps = AvatarPieceBaseProps & Partial<HeadProps>
 
 export const HeadPiece = React.forwardRef<SVGSVGElement, HeadPieceProps>(({ color, ...avatarPieceProps }, ref) => {
-  const colorFromStore = useSelector(selectHeadColor)
+  const colorFromStore = useSelector(selectResolvedHeadColor)
 
   return (
     <AvatarPiece

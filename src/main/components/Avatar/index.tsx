@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 import { AvatarBase, AvatarBaseProps } from '@/components/AvatarBase'
+import { BlushPiece } from '@/components/pieces/BlushPiece'
 import { BodyPiece } from '@/components/pieces/BodyPiece'
 import { ChestPiece } from '@/components/pieces/ChestPiece'
 import { EarsPiece } from '@/components/pieces/EarsPiece'
@@ -21,6 +22,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, Partial<AvatarBaseProps>>(
       <ChestPiece />
       <PantsPiece />
       <NosePiece />
+      <BlushPiece />
     </AvatarBase>
   )
 })

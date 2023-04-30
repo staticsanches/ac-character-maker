@@ -1,6 +1,7 @@
 import { combineReducers, createSlice, Reducer } from '@reduxjs/toolkit'
 import reduceReducers from 'reduce-reducers'
 
+import { blushReducer, BlushState, getBlushInitialState } from './blush'
 import { bodyReducer, BodyState, getBodyInitialState } from './body'
 import { chestReducer, ChestState, getChestInitialState } from './chest'
 import { earsReducer, EarsState, getEarsInitialState } from './ears'
@@ -9,6 +10,7 @@ import { getNoseInitialState, noseReducer, NoseState } from './nose'
 import { getPantsInitialState, pantsReducer, PantsState } from './pants'
 
 export type PiecesState = {
+  readonly blush: BlushState
   readonly body: BodyState
   readonly chest: ChestState
   readonly ears: EarsState
@@ -18,6 +20,7 @@ export type PiecesState = {
 }
 
 const initialState: () => PiecesState = () => ({
+  blush: getBlushInitialState(),
   body: getBodyInitialState(),
   chest: getChestInitialState(),
   ears: getEarsInitialState(),
@@ -33,6 +36,7 @@ const { reducer: originalReducer, actions: piecesActions } = createSlice({
 })
 
 const nestedReducer = combineReducers({
+  blush: blushReducer,
   body: bodyReducer,
   chest: chestReducer,
   ears: earsReducer,
