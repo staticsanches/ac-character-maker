@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { AvatarBase, AvatarBaseProps } from '@/components/AvatarBase'
 import { BlushPiece } from '@/components/pieces/BlushPiece'
 import { BodyPiece } from '@/components/pieces/BodyPiece'
 import { ChestPiece } from '@/components/pieces/ChestPiece'
@@ -11,18 +10,51 @@ import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
 import { selectAvatarSize } from '@/redux/selectors'
 
-export const Avatar = React.forwardRef<SVGSVGElement, Partial<AvatarBaseProps>>(({ size }, ref) => {
-  const sizeFromStore = useSelector(selectAvatarSize)
+export type AvatarProps = {
+  size?: number
 
-  return (
-    <AvatarBase ref={ref} size={size ?? sizeFromStore}>
-      <EarsPiece />
-      <BodyPiece />
-      <HeadPiece />
-      <ChestPiece />
-      <PantsPiece />
-      <NosePiece />
-      <BlushPiece />
-    </AvatarBase>
-  )
-})
+  blush?: React.ElementType<{}>
+  body?: React.ElementType<{}>
+  chest?: React.ElementType<{}>
+  ears?: React.ElementType<{}>
+  head?: React.ElementType<{}>
+  nose?: React.ElementType<{}>
+  pants?: React.ElementType<{}>
+}
+
+export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
+  (
+    {
+      size,
+      blush: Blush = BlushPiece,
+      body: Body = BodyPiece,
+      chest: Chest = ChestPiece,
+      ears: Ears = EarsPiece,
+      head: Head = HeadPiece,
+      nose: Nose = NosePiece,
+      pants: Pants = PantsPiece,
+    },
+    ref
+  ) => {
+    const sizeFromStore = useSelector(selectAvatarSize)
+
+    return (
+      <svg
+        ref={ref}
+        viewBox="0 0 360 360"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        width={size ?? sizeFromStore}
+        height={size ?? sizeFromStore}
+      >
+        <Ears />
+        <Body />
+        <Head />
+        <Chest />
+        <Pants />
+        <Nose />
+        <Blush />
+      </svg>
+    )
+  }
+)
