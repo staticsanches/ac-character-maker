@@ -8,10 +8,16 @@ import { EarsPiece } from '@/components/pieces/EarsPiece'
 import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
-import { selectAvatarSize } from '@/redux/selectors'
+import { useSvgColor } from '@/hooks/useSvgColor'
+import { useSvgID } from '@/hooks/useSvgID'
+import { selectAvatarBackgroundColor, selectAvatarBackgroundRadius, selectAvatarSize } from '@/redux/selectors'
+import { SvgColor } from '@/types/svgColor'
 
 export type AvatarProps = {
   size?: number
+
+  backgroundRadius?: number
+  backgroundColor?: SvgColor
 
   blush?: React.ElementType<{}>
   body?: React.ElementType<{}>
@@ -26,6 +32,10 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
   (
     {
       size,
+
+      backgroundRadius,
+      backgroundColor,
+
       blush: Blush = BlushPiece,
       body: Body = BodyPiece,
       chest: Chest = ChestPiece,
@@ -37,6 +47,13 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
     ref
   ) => {
     const sizeFromStore = useSelector(selectAvatarSize)
+    const backgroundRadiusFromStore = useSelector(selectAvatarBackgroundRadius)
+    const backgroundColorFromStore = useSelector(selectAvatarBackgroundColor)
+
+    const [clipPathID, clipPathUrl] = useSvgID('clip-path')
+    const [backgroundColorValue, backgroundColorOpacity, backgroundColorDef] = useSvgColor(
+      backgroundColor ?? backgroundColorFromStore
+    )
 
     return (
       <svg
@@ -47,13 +64,31 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
         width={size ?? sizeFromStore}
         height={size ?? sizeFromStore}
       >
-        <Ears />
-        <Body />
-        <Head />
-        <Chest />
-        <Pants />
-        <Nose />
-        <Blush />
+        <g clipPath={clipPathUrl}>
+          <rect x={0} y={0} width={360} height={360} fill={backgroundColorValue} fillOpacity={backgroundColorOpacity} />
+          <Ears />
+          <Body />
+          <Head />
+          <Chest />
+          <Pants />
+          <Nose />
+          <Blush />
+        </g>
+
+        <defs>
+          {backgroundColorDef}
+
+          <clipPath id={clipPathID}>
+            <rect
+              x={0}
+              y={0}
+              width={360}
+              height={360}
+              rx={backgroundRadius ?? backgroundRadiusFromStore}
+              ry={backgroundRadius ?? backgroundRadiusFromStore}
+            />
+          </clipPath>
+        </defs>
       </svg>
     )
   }

@@ -13,6 +13,10 @@ export const selectAvatarSize: RootSelector<number> = (state) => state.avatar.si
 
 export const selectAvatarSkinColor: RootSelector<SvgColor> = (state) => state.avatar.skinColor
 
+export const selectAvatarBackgroundRadius: RootSelector<number> = (state) => state.avatar.backgroundRadius
+
+export const selectAvatarBackgroundColor: RootSelector<SvgColor> = (state) => state.avatar.backgroundColor
+
 // Blush piece selectors
 
 export const selectResolvedBlushPrColor: RootSelector<SvgColor> = (state) =>
