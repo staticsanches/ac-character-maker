@@ -13,7 +13,7 @@ const initialState: ChestState = {
   color: '#700000',
 }
 
-const chestSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/chest',
   initialState,
   reducers: {
@@ -23,4 +23,4 @@ const chestSlice = createSlice({
   },
 })
 
-export const { reducer: chestReducer, actions: chestActions, getInitialState: getChestInitialState } = chestSlice
+export const { reducer: chestReducer, actions: chestActions, getInitialState: getChestInitialState } = slice

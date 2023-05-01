@@ -18,7 +18,7 @@ export type EarsState = {
 
 const initialState: EarsState = {}
 
-const earsSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/ears',
   initialState,
   reducers: {
@@ -34,4 +34,4 @@ const earsSlice = createSlice({
   },
 })
 
-export const { reducer: earsReducer, actions: earsActions, getInitialState: getEarsInitialState } = earsSlice
+export const { reducer: earsReducer, actions: earsActions, getInitialState: getEarsInitialState } = slice

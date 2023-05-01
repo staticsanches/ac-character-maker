@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { NoseVariant } from '@/components/pieces/NosePiece'
+import type { NoseVariant } from '@/components/pieces/NosePiece'
 import type { SvgColor } from '@/types/svgColor'
 
 export type NoseState = {
@@ -20,7 +20,7 @@ const initialState: NoseState = {
   color: '#FFBAA5',
 } as const
 
-const noseSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/nose',
   initialState,
   reducers: {
@@ -33,4 +33,4 @@ const noseSlice = createSlice({
   },
 })
 
-export const { reducer: noseReducer, actions: noseActions, getInitialState: getNoseInitialState } = noseSlice
+export const { reducer: noseReducer, actions: noseActions, getInitialState: getNoseInitialState } = slice

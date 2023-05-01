@@ -29,10 +29,10 @@ export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
 )
 
 type EarsProps = {
-  prColor: SvgColor
-  plColor: SvgColor
+  readonly prColor: SvgColor
+  readonly plColor: SvgColor
 
-  handleClick?: React.MouseEventHandler
+  readonly handleClick?: React.MouseEventHandler
 }
 
 const Ears = ({ prColor, plColor, handleClick }: EarsProps): JSX.Element => {

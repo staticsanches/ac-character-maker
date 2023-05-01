@@ -35,7 +35,7 @@ type NoseProps = {
   readonly variant: NoseVariant
   readonly color: SvgColor
 
-  handleClick?: React.MouseEventHandler
+  readonly handleClick?: React.MouseEventHandler
 }
 
 const Nose = ({ variant, color, handleClick }: NoseProps): JSX.Element => {

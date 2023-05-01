@@ -29,7 +29,7 @@ export const BodyPiece = React.forwardRef<SVGSVGElement, BodyPieceProps>(
 type BodyProps = {
   readonly color: SvgColor
 
-  handleClick?: React.MouseEventHandler
+  readonly handleClick?: React.MouseEventHandler
 }
 
 const Body = ({ color, handleClick }: BodyProps): JSX.Element => {

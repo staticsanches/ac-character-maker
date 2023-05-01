@@ -39,7 +39,7 @@ const initialState: BlushState = {
   soft: false,
 }
 
-const blushSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/blush',
   initialState,
   reducers: {
@@ -65,4 +65,4 @@ const blushSlice = createSlice({
   },
 })
 
-export const { reducer: blushReducer, actions: blushActions, getInitialState: getBlushInitialState } = blushSlice
+export const { reducer: blushReducer, actions: blushActions, getInitialState: getBlushInitialState } = slice

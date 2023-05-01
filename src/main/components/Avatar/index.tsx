@@ -6,6 +6,7 @@ import { BodyPiece } from '@/components/pieces/BodyPiece'
 import { ChestPiece } from '@/components/pieces/ChestPiece'
 import { EarsPiece } from '@/components/pieces/EarsPiece'
 import { HeadPiece } from '@/components/pieces/HeadPiece'
+import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
 import { useSvgColor } from '@/hooks/useSvgColor'
@@ -24,6 +25,7 @@ export type AvatarProps = {
   chest?: React.ElementType<{}>
   ears?: React.ElementType<{}>
   head?: React.ElementType<{}>
+  mouth?: React.ElementType<{}>
   nose?: React.ElementType<{}>
   pants?: React.ElementType<{}>
 }
@@ -41,6 +43,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
       chest: Chest = ChestPiece,
       ears: Ears = EarsPiece,
       head: Head = HeadPiece,
+      mouth: Mouth = MouthPiece,
       nose: Nose = NosePiece,
       pants: Pants = PantsPiece,
     },
@@ -72,6 +75,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
           <Chest />
           <Pants />
           <Nose />
+          <Mouth />
           <Blush />
         </g>
 

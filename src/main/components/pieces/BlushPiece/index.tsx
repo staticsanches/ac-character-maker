@@ -39,13 +39,13 @@ export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
 )
 
 type BlushProps = {
-  prColor: SvgColor
-  plColor: SvgColor
+  readonly prColor: SvgColor
+  readonly plColor: SvgColor
 
-  prSoft: boolean
-  plSoft: boolean
+  readonly prSoft: boolean
+  readonly plSoft: boolean
 
-  handleClick?: React.MouseEventHandler
+  readonly handleClick?: React.MouseEventHandler
 }
 
 const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): JSX.Element => {

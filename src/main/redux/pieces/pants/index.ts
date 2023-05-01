@@ -13,7 +13,7 @@ const initialState: PantsState = {
   color: '#212121',
 }
 
-const pantsSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/pants',
   initialState,
   reducers: {
@@ -23,4 +23,4 @@ const pantsSlice = createSlice({
   },
 })
 
-export const { reducer: pantsReducer, actions: pantsActions, getInitialState: getPantsInitialState } = pantsSlice
+export const { reducer: pantsReducer, actions: pantsActions, getInitialState: getPantsInitialState } = slice

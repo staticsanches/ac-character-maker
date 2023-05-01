@@ -11,7 +11,7 @@ export type BodyState = {
 
 const initialState: BodyState = {}
 
-const bodySlice = createSlice({
+const slice = createSlice({
   name: 'pieces/body',
   initialState,
   reducers: {
@@ -21,4 +21,4 @@ const bodySlice = createSlice({
   },
 })
 
-export const { reducer: bodyReducer, actions: bodyActions, getInitialState: getBodyInitialState } = bodySlice
+export const { reducer: bodyReducer, actions: bodyActions, getInitialState: getBodyInitialState } = slice

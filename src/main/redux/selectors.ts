@@ -1,5 +1,6 @@
-import { Selector } from '@reduxjs/toolkit'
+import type { Selector } from '@reduxjs/toolkit'
 
+import type { MouthVariant } from '@/components/pieces/MouthPiece'
 import type { NoseVariant } from '@/components/pieces/NosePiece'
 import type { SvgColor } from '@/types/svgColor'
 import { darken } from '@/utils/svgColorUtils'
@@ -52,6 +53,14 @@ export const selectResolvedEarsPlColor: RootSelector<SvgColor> = (state) =>
 
 export const selectResolvedHeadColor: RootSelector<SvgColor> = (state) =>
   state.pieces.head.color ?? selectAvatarSkinColor(state)
+
+// Mouth piece selectors
+
+export const selectMouthVariant: RootSelector<MouthVariant> = (state) => state.pieces.mouth.variant
+
+export const selectMouthColor: RootSelector<SvgColor> = (state) => state.pieces.mouth.color
+
+export const selectMouthAccentColor: RootSelector<SvgColor> = (state) => state.pieces.mouth.accentColor
 
 // Nose piece selectors
 

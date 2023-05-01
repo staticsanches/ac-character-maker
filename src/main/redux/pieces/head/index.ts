@@ -11,7 +11,7 @@ export type HeadState = {
 
 const initialState: HeadState = {}
 
-const headSlice = createSlice({
+const slice = createSlice({
   name: 'pieces/head',
   initialState,
   reducers: {
@@ -21,4 +21,4 @@ const headSlice = createSlice({
   },
 })
 
-export const { reducer: headReducer, actions: headActions, getInitialState: getHeadInitialState } = headSlice
+export const { reducer: headReducer, actions: headActions, getInitialState: getHeadInitialState } = slice
