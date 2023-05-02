@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectResolvedEarsPlColor, selectResolvedEarsPrColor } from '@/redux/selectors'
+import type { HandleClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
 export type EarsPieceProps = AvatarPieceBaseProps & Partial<EarsProps>
@@ -28,11 +29,9 @@ export const EarsPiece = React.forwardRef<SVGSVGElement, EarsPieceProps>(
   }
 )
 
-type EarsProps = {
+type EarsProps = HandleClickProps & {
   readonly prColor: SvgColor
   readonly plColor: SvgColor
-
-  readonly handleClick?: React.MouseEventHandler
 }
 
 const Ears = ({ prColor, plColor, handleClick }: EarsProps): JSX.Element => {

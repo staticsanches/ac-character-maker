@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgColor } from '@/hooks/useSvgColor'
 import { selectNoseColor, selectNoseVariant } from '@/redux/selectors'
+import type { HandleClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
 export type NoseVariant = (typeof noseVariants)[number]
@@ -31,11 +32,9 @@ export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(
   }
 )
 
-type NoseProps = {
+type NoseProps = HandleClickProps & {
   readonly variant: NoseVariant
   readonly color: SvgColor
-
-  readonly handleClick?: React.MouseEventHandler
 }
 
 const Nose = ({ variant, color, handleClick }: NoseProps): JSX.Element => {

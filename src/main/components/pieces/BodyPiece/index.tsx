@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgColor } from '@/hooks/useSvgColor'
 import { selectResolvedBodyColor } from '@/redux/selectors'
+import type { HandleClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
 export type BodyPieceProps = AvatarPieceBaseProps & Partial<BodyProps>
@@ -26,10 +27,8 @@ export const BodyPiece = React.forwardRef<SVGSVGElement, BodyPieceProps>(
   }
 )
 
-type BodyProps = {
+type BodyProps = HandleClickProps & {
   readonly color: SvgColor
-
-  readonly handleClick?: React.MouseEventHandler
 }
 
 const Body = ({ color, handleClick }: BodyProps): JSX.Element => {

@@ -18,7 +18,7 @@ export type AvatarState = {
    */
   readonly backgroundRadius: number
   /**
-   * @defaultValue `#FFD686`
+   * @defaultValue `#2C2B5C`
    */
   readonly backgroundColor: SvgColor
 }
@@ -29,7 +29,7 @@ const initialState: AvatarState = {
   skinColor: '#84401A',
 
   backgroundRadius: 30,
-  backgroundColor: '#FFD686',
+  backgroundColor: '#2C2B5C',
 }
 
 const avatarSlice = createSlice({

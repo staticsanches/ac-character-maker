@@ -10,6 +10,7 @@ import {
   selectResolvedBlushPrColor,
   selectResolvedBlushPrSoft,
 } from '@/redux/selectors'
+import type { HandleClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
 export type BlushPieceProps = AvatarPieceBaseProps & Partial<BlushProps>
@@ -38,14 +39,12 @@ export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
   }
 )
 
-type BlushProps = {
+type BlushProps = HandleClickProps & {
   readonly prColor: SvgColor
   readonly plColor: SvgColor
 
   readonly prSoft: boolean
   readonly plSoft: boolean
-
-  readonly handleClick?: React.MouseEventHandler
 }
 
 const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): JSX.Element => {

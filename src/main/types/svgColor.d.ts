@@ -1,10 +1,8 @@
-import { ComputeRange } from './computeRange'
-
-export type SvgColor = HexColor | RGBAColor | SvgGradient
+export type SvgColor = 'none' | HexColor | RGBAColor | SvgGradient
 
 export type HexColor = `#${string}`
 
-export type Octal = ComputeRange<256>[number]
+export type Octal = EnumerateFromZeroTo<256>
 
 export type RGBAColor = { readonly r: Octal; readonly g: Octal; readonly b: Octal; readonly a?: number }
 

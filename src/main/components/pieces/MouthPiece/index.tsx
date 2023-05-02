@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectMouthAccentColor, selectMouthColor, selectMouthVariant } from '@/redux/selectors'
+import type { HandleClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
 export type MouthVariant = (typeof mouthVariants)[number]
@@ -42,13 +43,11 @@ export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(
   }
 )
 
-type MouthProps = {
+type MouthProps = HandleClickProps & {
   readonly variant: MouthVariant
 
   readonly color: SvgColor
   readonly accentColor: SvgColor
-
-  readonly handleClick?: React.MouseEventHandler
 }
 
 const Mouth = ({ variant, color, accentColor, handleClick }: MouthProps): JSX.Element => {
