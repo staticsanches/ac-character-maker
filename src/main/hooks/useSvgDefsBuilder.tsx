@@ -5,9 +5,11 @@ import { isRGBAColor } from '@/utils/svgColorUtils'
 import { uniqueID } from '@/utils/uniqueID'
 
 export type SvgDefsBuilder = {
-  addDef: (def: JSX.Element) => void
+  addDef: (defType: string, builder: (id: string) => JSX.Element) => string
+
   addColor: (color: SvgColor) => [string, number | undefined]
-  maybeColor: (color: SvgColor, add: boolean) => [string, number | undefined] | undefined
+  addFillColor: (color: SvgColor) => { fill: string; fillOpacity?: number }
+  addStrokeColor: (color: SvgColor) => { stroke: string; strokeOpacity?: number }
 
   /**
    * Builds the defs block and forgets all added data.
@@ -24,11 +26,14 @@ class Builder implements SvgDefsBuilder {
   #defs: JSX.Element[] = []
 
   #gradients: SvgGradient[] = []
+  #gradientIDs: string[] = []
   #ids: string[] = []
   #idPointer = 0
 
-  addDef = (def: JSX.Element) => {
-    this.#defs.push(def)
+  addDef = (defType: string, builder: (id: string) => JSX.Element) => {
+    const id = this.#nextID(defType)
+    this.#defs.push(builder(id))
+    return `url(#${id})`
   }
 
   addColor = (color: SvgColor): [string, number | undefined] => {
@@ -39,51 +44,49 @@ class Builder implements SvgDefsBuilder {
       return [`rgb(${color.r}, ${color.g}, ${color.b})`, color.a]
     }
 
-    // Checks if the color has been used
+    // Checks if the gradient has been used
     for (let i = 0; i < this.#gradients.length; i++) {
       const gradient = this.#gradients[i]
       if (isEqualsGradient(color, gradient)) {
-        return [`url(#${this.#buildSvgID(color.type, this.#ids[i])})`, undefined]
+        return [`url(#${this.#gradientIDs[i]})`, undefined]
       }
     }
 
-    // Adds the missing gradient
-    this.#gradients.push(color)
+    const url = this.addDef(color.type, (id) => {
+      // Adds the missing gradient
+      this.#gradients.push(color)
+      this.#gradientIDs.push(id)
 
-    // Gets the next id
-    const id = this.#nextID(color.type)
+      const stops = color.stops?.map((stop, index) => (
+        <stop key={index} offset={stop.offset} stopColor={stop.color} stopOpacity={stop.opacity} />
+      ))
+      switch (color.type) {
+        case 'linearGradient':
+          return (
+            <linearGradient id={id} x1={color.x1} x2={color.x2} y1={color.y1} y2={color.y2}>
+              {stops}
+            </linearGradient>
+          )
+        case 'radialGradient':
+          return (
+            <radialGradient id={id} cx={color.cx} cy={color.cy} fx={color.fx} fy={color.fy} fr={color.fr} r={color.r}>
+              {stops}
+            </radialGradient>
+          )
+      }
+    })
 
-    // Creates the new def
-    let def: JSX.Element
-    const stops = color.stops?.map((stop, index) => (
-      <stop key={index} offset={stop.offset} stopColor={stop.color} stopOpacity={stop.opacity} />
-    ))
-    switch (color.type) {
-      case 'linearGradient':
-        def = (
-          <linearGradient id={id} x1={color.x1} x2={color.x2} y1={color.y1} y2={color.y2}>
-            {stops}
-          </linearGradient>
-        )
-        break
-      case 'radialGradient':
-        def = (
-          <radialGradient id={id} cx={color.cx} cy={color.cy} fx={color.fx} fy={color.fy} fr={color.fr} r={color.r}>
-            {stops}
-          </radialGradient>
-        )
-        break
-    }
-
-    this.addDef(def)
-
-    return [`url(#${id})`, undefined]
+    return [url, undefined]
   }
 
-  maybeColor = (color: SvgColor, add: boolean) => {
-    if (add) {
-      return this.addColor(color)
-    }
+  addFillColor = (color: SvgColor) => {
+    const [fill, fillOpacity] = this.addColor(color)
+    return { fill, fillOpacity }
+  }
+
+  addStrokeColor = (color: SvgColor) => {
+    const [stroke, strokeOpacity] = this.addColor(color)
+    return { stroke, strokeOpacity }
   }
 
   build = () => {
@@ -106,6 +109,7 @@ class Builder implements SvgDefsBuilder {
     this.#defs = []
     this.#idPointer = 0
     this.#gradients = []
+    this.#gradientIDs = []
   }
 
   #nextID = (type: string) => {

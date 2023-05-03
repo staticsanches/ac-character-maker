@@ -55,14 +55,20 @@ export const selectResolvedEarsPlColor: RootSelector<SvgColor> = (state) =>
 export const selectEyesVariant: RootSelector<EyesVariant> = (state) => state.pieces.eyes.variant
 
 export const selectResolvedEyesPrOutlineColor: RootSelector<SvgColor> = (state) =>
-  state.pieces.eyes.prOutlineColor ?? state.pieces.eyes.outlineColor ?? state.pieces.eyes.color
+  state.pieces.eyes.prOutlineColor ??
+  state.pieces.eyes.outlineColor ??
+  state.pieces.eyes.prColor ??
+  state.pieces.eyes.color
 export const selectResolvedEyesPlOutlineColor: RootSelector<SvgColor> = (state) =>
-  state.pieces.eyes.plOutlineColor ?? state.pieces.eyes.outlineColor ?? state.pieces.eyes.color
+  state.pieces.eyes.plOutlineColor ??
+  state.pieces.eyes.outlineColor ??
+  state.pieces.eyes.plColor ??
+  state.pieces.eyes.color
 
 export const selectResolvedEyesPrIrisColor: RootSelector<SvgColor> = (state) =>
-  state.pieces.eyes.prIrisColor ?? state.pieces.eyes.irisColor ?? state.pieces.eyes.color
+  state.pieces.eyes.prIrisColor ?? state.pieces.eyes.irisColor ?? state.pieces.eyes.prColor ?? state.pieces.eyes.color
 export const selectResolvedEyesPlIrisColor: RootSelector<SvgColor> = (state) =>
-  state.pieces.eyes.plIrisColor ?? state.pieces.eyes.irisColor ?? state.pieces.eyes.color
+  state.pieces.eyes.plIrisColor ?? state.pieces.eyes.irisColor ?? state.pieces.eyes.plColor ?? state.pieces.eyes.color
 
 export const selectResolvedEyesPrScleraColor: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.prScleraColor ?? state.pieces.eyes.scleraColor
@@ -74,31 +80,37 @@ export const selectResolvedEyesPrBottomLash1Color: RootSelector<SvgColor> = (sta
   state.pieces.eyes.prBottomLash1Color ??
   state.pieces.eyes.prBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPrBottomLash2Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.prBottomLash2Color ??
   state.pieces.eyes.prBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPrBottomLash3Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.prBottomLash3Color ??
   state.pieces.eyes.prBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlBottomLash1Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plBottomLash1Color ??
   state.pieces.eyes.plBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlBottomLash2Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plBottomLash2Color ??
   state.pieces.eyes.plBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlBottomLash3Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plBottomLash3Color ??
   state.pieces.eyes.plBottomLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 
 export const selectEyesTopLashes: RootSelector<boolean> = (state) => state.pieces.eyes.topLashes
@@ -106,31 +118,37 @@ export const selectResolvedEyesPrTopLash1Color: RootSelector<SvgColor> = (state)
   state.pieces.eyes.prTopLash1Color ??
   state.pieces.eyes.prTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPrTopLash2Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.prTopLash2Color ??
   state.pieces.eyes.prTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPrTopLash3Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.prTopLash3Color ??
   state.pieces.eyes.prTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.prColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlTopLash1Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plTopLash1Color ??
   state.pieces.eyes.plTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlTopLash2Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plTopLash2Color ??
   state.pieces.eyes.plTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 export const selectResolvedEyesPlTopLash3Color: RootSelector<SvgColor> = (state) =>
   state.pieces.eyes.plTopLash3Color ??
   state.pieces.eyes.plTopLashesColor ??
   state.pieces.eyes.lashesColor ??
+  state.pieces.eyes.plColor ??
   state.pieces.eyes.color
 
 // Head piece selectors

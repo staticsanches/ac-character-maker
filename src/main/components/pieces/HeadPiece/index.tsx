@@ -1,18 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
-import { useSvgColor } from '@/hooks/useSvgColor'
+import { useRootSelector } from '@/hooks/useRootSelector'
+import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectResolvedHeadColor } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
-import type { SvgColor } from '@/types/svgColor'
 
-export type HeadPieceProps = AvatarPieceBaseProps & Partial<HeadProps>
+export type HeadPieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const HeadPiece = React.forwardRef<SVGSVGElement, HeadPieceProps>(
-  ({ color, handleClick, ...avatarPieceProps }, ref) => {
-    const colorFromStore = useSelector(selectResolvedHeadColor)
-
+  ({ handleClick, ...avatarPieceProps }, ref) => {
     return (
       <AvatarPiece
         ref={ref}
@@ -20,29 +17,24 @@ export const HeadPiece = React.forwardRef<SVGSVGElement, HeadPieceProps>(
         pieceType="head"
         contentComponent={Head}
         highlightOnHover={!!handleClick}
-        color={color ?? colorFromStore}
         handleClick={handleClick}
       />
     )
   }
 )
 
-type HeadProps = HandleClickProps & {
-  readonly color: SvgColor
-}
-
-const Head = ({ color, handleClick }: HeadProps): JSX.Element => {
-  const [colorValue, colorOpacity, colorDef] = useSvgColor(color)
+const Head = ({ handleClick }: HandleClickProps): JSX.Element => {
+  const color = useRootSelector(selectResolvedHeadColor)
+  const defsBuilder = useSvgDefsBuilder()
 
   return (
     <>
       <path
-        fill={colorValue}
-        fillOpacity={colorOpacity}
+        {...defsBuilder.addFillColor(color)}
         d="M84 0C53 0 1.5 11.2 1.5 82C1.60883 82 1.71648 82 1.82297 82C-0.0222255 93.0563 -0.590509 104.025 0.694239 113.5C3.89424 137.1 34.3609 155 49.1943 161C54.0276 163 67.8942 167 84.6942 167C101.494 167 115.361 163 120.194 161C135.028 155 165.494 137.1 168.694 113.5C169.99 103.946 169.392 92.8824 167.5 81.7417C167.375 11.1727 115.962 0 85 0H84Z"
         onClick={handleClick}
       />
-      {colorDef && <defs>{colorDef}</defs>}
+      {defsBuilder.build()}
     </>
   )
 }

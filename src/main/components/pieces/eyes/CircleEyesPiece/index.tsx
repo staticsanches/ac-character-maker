@@ -99,19 +99,10 @@ const bottomLashes = (
 ): Opt<JSX.Element> => {
   if (!bottomLashes) return
 
-  const [prLash1Value, prLash1Opacity] = defsBuilder.addColor(props.prBottomLash1Color)
-  const [prLash2Value, prLash2Opacity] = defsBuilder.addColor(props.prBottomLash2Color)
-  const [prLash3Value, prLash3Opacity] = defsBuilder.addColor(props.prBottomLash3Color)
-
-  const [plLash1Value, plLash1Opacity] = defsBuilder.addColor(props.plBottomLash1Color)
-  const [plLash2Value, plLash2Opacity] = defsBuilder.addColor(props.plBottomLash2Color)
-  const [plLash3Value, plLash3Opacity] = defsBuilder.addColor(props.plBottomLash3Color)
-
   return (
     <>
       <line
-        stroke={prLash1Value}
-        strokeOpacity={prLash1Opacity}
+        {...defsBuilder.addStrokeColor(props.prBottomLash1Color)}
         strokeLinecap="round"
         strokeWidth="2"
         x1="17.366"
@@ -122,8 +113,7 @@ const bottomLashes = (
       />
 
       <rect
-        fill={prLash2Value}
-        fillOpacity={prLash2Opacity}
+        {...defsBuilder.addFillColor(props.prBottomLash2Color)}
         x="27"
         y="49"
         width="2"
@@ -134,16 +124,15 @@ const bottomLashes = (
       />
 
       <path
-        stroke={prLash3Value}
-        strokeOpacity={prLash3Opacity}
+        {...defsBuilder.addStrokeColor(props.prBottomLash3Color)}
         strokeLinecap="round"
         strokeWidth="2"
+        d="m39.634 46.706 2.5 4.33"
         onClick={handleClick}
       />
 
       <line
-        stroke={plLash1Value}
-        strokeOpacity={plLash1Opacity}
+        {...defsBuilder.addStrokeColor(props.plBottomLash1Color)}
         strokeLinecap="round"
         strokeWidth="2"
         x1="93.366"
@@ -154,8 +143,7 @@ const bottomLashes = (
       />
 
       <rect
-        fill={plLash2Value}
-        fillOpacity={plLash2Opacity}
+        {...defsBuilder.addFillColor(props.plBottomLash2Color)}
         x="103"
         y="49"
         width="2"
@@ -166,11 +154,11 @@ const bottomLashes = (
       />
 
       <path
-        stroke={plLash3Value}
-        strokeOpacity={plLash3Opacity}
+        {...defsBuilder.addStrokeColor(props.plBottomLash3Color)}
         strokeLinecap="round"
         strokeWidth="2"
         d="m115.634 46.706 2.5 4.33"
+        onClick={handleClick}
       />
     </>
   )
@@ -182,19 +170,10 @@ const topLashes = (
 ): Opt<JSX.Element> => {
   if (!topLashes) return
 
-  const [prLash1Value, prLash1Opacity] = defsBuilder.addColor(props.prTopLash1Color)
-  const [prLash2Value, prLash2Opacity] = defsBuilder.addColor(props.prTopLash2Color)
-  const [prLash3Value, prLash3Opacity] = defsBuilder.addColor(props.prTopLash3Color)
-
-  const [plLash1Value, plLash1Opacity] = defsBuilder.addColor(props.plTopLash1Color)
-  const [plLash2Value, plLash2Opacity] = defsBuilder.addColor(props.plTopLash2Color)
-  const [plLash3Value, plLash3Opacity] = defsBuilder.addColor(props.plTopLash3Color)
-
   return (
     <>
       <path
-        stroke={prLash1Value}
-        strokeOpacity={prLash1Opacity}
+        {...defsBuilder.addStrokeColor(props.prTopLash1Color)}
         strokeLinecap="round"
         strokeWidth="2"
         d="m17.366 12.294-2.5-4.33"
@@ -202,8 +181,7 @@ const topLashes = (
       />
 
       <rect
-        fill={prLash2Value}
-        fillOpacity={prLash2Opacity}
+        {...defsBuilder.addFillColor(props.prTopLash2Color)}
         x="27"
         y="3"
         width="2"
@@ -214,8 +192,7 @@ const topLashes = (
       />
 
       <line
-        stroke={prLash3Value}
-        strokeOpacity={prLash3Opacity}
+        {...defsBuilder.addStrokeColor(props.prTopLash3Color)}
         strokeLinecap="round"
         strokeWidth="2"
         x1="39.634"
@@ -226,8 +203,7 @@ const topLashes = (
       />
 
       <path
-        stroke={plLash1Value}
-        strokeOpacity={plLash1Opacity}
+        {...defsBuilder.addStrokeColor(props.plTopLash1Color)}
         strokeLinecap="round"
         strokeWidth="2"
         d="m93.366 12.294-2.5-4.33"
@@ -235,8 +211,7 @@ const topLashes = (
       />
 
       <rect
-        fill={plLash2Value}
-        fillOpacity={plLash2Opacity}
+        {...defsBuilder.addFillColor(props.plTopLash2Color)}
         x="103"
         y="3"
         width="2"
@@ -247,8 +222,7 @@ const topLashes = (
       />
 
       <line
-        stroke={plLash3Value}
-        strokeOpacity={plLash3Opacity}
+        {...defsBuilder.addStrokeColor(props.plTopLash3Color)}
         strokeLinecap="round"
         strokeWidth="2"
         x1="115.634"
@@ -264,43 +238,28 @@ const topLashes = (
 const eyes = (
   defsBuilder: SvgDefsBuilder,
   { handleClick, ...props }: OutlineColorProps & IrisColorProps & ScleraColorProps & HandleClickProps
-): JSX.Element => {
-  const [prScleraColor, prScleraOpacity] = defsBuilder.addColor(props.prScleraColor)
-  const [plScleraColor, plScleraOpacity] = defsBuilder.addColor(props.plScleraColor)
+): JSX.Element => (
+  <>
+    <circle
+      cx="28.5"
+      cy="29.5"
+      r="19.5"
+      {...defsBuilder.addFillColor(props.prScleraColor)}
+      {...defsBuilder.addStrokeColor(props.prOutlineColor)}
+      strokeWidth="2"
+      onClick={handleClick}
+    />
+    <circle cx="34" cy="29" r="15" {...defsBuilder.addFillColor(props.prIrisColor)} onClick={handleClick} />
 
-  const [prOutlineColor, prOutlineOpacity] = defsBuilder.addColor(props.prOutlineColor)
-  const [plOutlineColor, plOutlineOpacity] = defsBuilder.addColor(props.plOutlineColor)
-
-  const [prIrisColor, prIrisOpacity] = defsBuilder.addColor(props.prIrisColor)
-  const [plIrisColor, plIrisOpacity] = defsBuilder.addColor(props.plIrisColor)
-
-  return (
-    <>
-      <circle
-        cx="28.5"
-        cy="29.5"
-        r="19.5"
-        fill={prScleraColor}
-        fillOpacity={prScleraOpacity}
-        stroke={prOutlineColor}
-        strokeOpacity={prOutlineOpacity}
-        strokeWidth="2"
-        onClick={handleClick}
-      />
-      <circle cx="34" cy="29" r="15" fill={prIrisColor} fillOpacity={prIrisOpacity} onClick={handleClick} />
-
-      <circle
-        cx="104.5"
-        cy="29.5"
-        r="19.5"
-        fill={plScleraColor}
-        fillOpacity={plScleraOpacity}
-        stroke={plOutlineColor}
-        strokeOpacity={plOutlineOpacity}
-        strokeWidth="2"
-        onClick={handleClick}
-      />
-      <circle cx="110" cy="29" r="15" fill={plIrisColor} fillOpacity={plIrisOpacity} onClick={handleClick} />
-    </>
-  )
-}
+    <circle
+      cx="104.5"
+      cy="29.5"
+      r="19.5"
+      {...defsBuilder.addFillColor(props.plScleraColor)}
+      {...defsBuilder.addStrokeColor(props.plOutlineColor)}
+      strokeWidth="2"
+      onClick={handleClick}
+    />
+    <circle cx="110" cy="29" r="15" {...defsBuilder.addFillColor(props.plIrisColor)} onClick={handleClick} />
+  </>
+)

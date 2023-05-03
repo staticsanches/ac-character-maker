@@ -1,5 +1,4 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import { BlushPiece } from '@/components/pieces/BlushPiece'
 import { BodyPiece } from '@/components/pieces/BodyPiece'
@@ -10,8 +9,8 @@ import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
-import { useSvgColor } from '@/hooks/useSvgColor'
-import { useSvgID } from '@/hooks/useSvgID'
+import { useRootSelector } from '@/hooks/useRootSelector'
+import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectAvatarBackgroundColor, selectAvatarBackgroundRadius, selectAvatarSize } from '@/redux/selectors'
 import { SvgColor } from '@/types/svgColor'
 
@@ -52,14 +51,24 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
     },
     ref
   ) => {
-    const sizeFromStore = useSelector(selectAvatarSize)
-    const backgroundRadiusFromStore = useSelector(selectAvatarBackgroundRadius)
-    const backgroundColorFromStore = useSelector(selectAvatarBackgroundColor)
+    const sizeFromStore = useRootSelector(selectAvatarSize)
+    const backgroundRadiusFromStore = useRootSelector(selectAvatarBackgroundRadius)
+    const backgroundColorFromStore = useRootSelector(selectAvatarBackgroundColor)
 
-    const [clipPathID, clipPathUrl] = useSvgID('clip-path')
-    const [backgroundColorValue, backgroundColorOpacity, backgroundColorDef] = useSvgColor(
-      backgroundColor ?? backgroundColorFromStore
-    )
+    const defsBuilder = useSvgDefsBuilder()
+
+    const clipPathUrl = defsBuilder.addDef('clip-path', (id) => (
+      <clipPath id={id}>
+        <rect
+          x={0}
+          y={0}
+          width={360}
+          height={360}
+          rx={backgroundRadius ?? backgroundRadiusFromStore}
+          ry={backgroundRadius ?? backgroundRadiusFromStore}
+        />
+      </clipPath>
+    ))
 
     return (
       <svg
@@ -71,7 +80,13 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
         height={size ?? sizeFromStore}
       >
         <g clipPath={clipPathUrl}>
-          <rect x={0} y={0} width={360} height={360} fill={backgroundColorValue} fillOpacity={backgroundColorOpacity} />
+          <rect
+            x={0}
+            y={0}
+            width={360}
+            height={360}
+            {...defsBuilder.addFillColor(backgroundColor ?? backgroundColorFromStore)}
+          />
           <Ears />
           <Body />
           <Head />
@@ -83,20 +98,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
           <Mouth />
         </g>
 
-        <defs>
-          {backgroundColorDef}
-
-          <clipPath id={clipPathID}>
-            <rect
-              x={0}
-              y={0}
-              width={360}
-              height={360}
-              rx={backgroundRadius ?? backgroundRadiusFromStore}
-              ry={backgroundRadius ?? backgroundRadiusFromStore}
-            />
-          </clipPath>
-        </defs>
+        {defsBuilder.build()}
       </svg>
     )
   }

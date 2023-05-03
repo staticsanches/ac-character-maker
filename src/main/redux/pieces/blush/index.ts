@@ -36,7 +36,7 @@ export type BlushState = {
 
 const initialState: BlushState = {
   color: '#FF7E36',
-  soft: false,
+  soft: true,
 }
 
 const slice = createSlice({

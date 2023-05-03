@@ -1,9 +1,8 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
+import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { useSvgLazyID } from '@/hooks/useSvgLazyID'
 import {
   selectResolvedBlushPlColor,
   selectResolvedBlushPlSoft,
@@ -11,17 +10,11 @@ import {
   selectResolvedBlushPrSoft,
 } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
-import type { SvgColor } from '@/types/svgColor'
 
-export type BlushPieceProps = AvatarPieceBaseProps & Partial<BlushProps>
+export type BlushPieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
-  ({ prColor, plColor, prSoft, plSoft, handleClick, ...avatarPieceProps }, ref) => {
-    const prColorFromStore = useSelector(selectResolvedBlushPrColor)
-    const plColorFromStore = useSelector(selectResolvedBlushPlColor)
-    const prSoftFromStore = useSelector(selectResolvedBlushPrSoft)
-    const plSoftFromStore = useSelector(selectResolvedBlushPlSoft)
-
+  ({ handleClick, ...avatarPieceProps }, ref) => {
     return (
       <AvatarPiece
         ref={ref}
@@ -29,58 +22,33 @@ export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
         pieceType="blush"
         contentComponent={Blush}
         highlightOnHover={!!handleClick}
-        prColor={prColor ?? prColorFromStore}
-        plColor={plColor ?? plColorFromStore}
-        prSoft={prSoft ?? prSoftFromStore}
-        plSoft={plSoft ?? plSoftFromStore}
         handleClick={handleClick}
       />
     )
   }
 )
 
-type BlushProps = HandleClickProps & {
-  readonly prColor: SvgColor
-  readonly plColor: SvgColor
+const Blush = ({ handleClick }: HandleClickProps): JSX.Element => {
+  const prColor = useRootSelector(selectResolvedBlushPrColor)
+  const plColor = useRootSelector(selectResolvedBlushPlColor)
 
-  readonly prSoft: boolean
-  readonly plSoft: boolean
-}
-
-const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): JSX.Element => {
-  const [lazyFilterID, lazyFilterUrl] = useSvgLazyID('blur')
+  const prSoft = useRootSelector(selectResolvedBlushPrSoft)
+  const plSoft = useRootSelector(selectResolvedBlushPlSoft)
 
   const defsBuilder = useSvgDefsBuilder()
-  const [prColorValue, prColorOpacity] = defsBuilder.addColor(prColor)
-  const [plColorValue, plColorOpacity] = defsBuilder.addColor(plColor)
 
   const prSvg = (
-    <ellipse
-      cx="24.5"
-      cy="15.5"
-      rx="12.5"
-      ry="10.5"
-      fill={prColorValue}
-      fillOpacity={prColorOpacity}
-      onClick={handleClick}
-    />
+    <ellipse cx="24.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(prColor)} onClick={handleClick} />
   )
   const plSvg = (
-    <ellipse
-      cx="144.5"
-      cy="15.5"
-      rx="12.5"
-      ry="10.5"
-      fill={plColorValue}
-      fillOpacity={plColorOpacity}
-      onClick={handleClick}
-    />
+    <ellipse cx="144.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(plColor)} onClick={handleClick} />
   )
 
+  let filterUrl: Opt<string>
   if (prSoft || plSoft) {
-    defsBuilder.addDef(
+    filterUrl = defsBuilder.addDef('blur', (id) => (
       <filter
-        id={lazyFilterID()}
+        id={id}
         x="-10"
         y="-10"
         width="189"
@@ -92,7 +60,7 @@ const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): J
         <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" />
         <feGaussianBlur stdDeviation="2.5" />
       </filter>
-    )
+    ))
   }
 
   return (
@@ -104,7 +72,7 @@ const Blush = ({ prColor, plColor, prSoft, plSoft, handleClick }: BlushProps): J
         </g>
       )}
       {(prSoft || plSoft) && (
-        <g opacity="0.7" filter={lazyFilterUrl()}>
+        <g opacity="0.7" filter={filterUrl}>
           {prSoft && prSvg}
           {plSoft && plSvg}
         </g>

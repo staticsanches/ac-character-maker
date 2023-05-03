@@ -8,7 +8,7 @@ import { Header } from './Header'
 export const App = () => {
   const theme = useTheme()
   return (
-    <Box overflow="hidden" height="100%">
+    <Box height="100%">
       <Header />
       <Box component="main" sx={mainSx(theme.mixins.toolbar)}>
         <Routes>

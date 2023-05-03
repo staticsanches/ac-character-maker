@@ -1,18 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
-import { useSvgColor } from '@/hooks/useSvgColor'
+import { useRootSelector } from '@/hooks/useRootSelector'
+import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectPantsColor } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
-import type { SvgColor } from '@/types/svgColor'
 
-export type PantsPieceProps = AvatarPieceBaseProps & Partial<PantsProps>
+export type PantsPieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const PantsPiece = React.forwardRef<SVGSVGElement, PantsPieceProps>(
-  ({ color, handleClick, ...avatarPieceProps }, ref) => {
-    const colorFromStore = useSelector(selectPantsColor)
-
+  ({ handleClick, ...avatarPieceProps }, ref) => {
     return (
       <AvatarPiece
         ref={ref}
@@ -20,29 +17,25 @@ export const PantsPiece = React.forwardRef<SVGSVGElement, PantsPieceProps>(
         pieceType="pants"
         contentComponent={Pants}
         highlightOnHover={!!handleClick}
-        color={color ?? colorFromStore}
         handleClick={handleClick}
       />
     )
   }
 )
 
-type PantsProps = HandleClickProps & {
-  readonly color: SvgColor
-}
+const Pants = ({ handleClick }: HandleClickProps): JSX.Element => {
+  const color = useRootSelector(selectPantsColor)
 
-const Pants = ({ color, handleClick }: PantsProps): JSX.Element => {
-  const [colorValue, colorOpacity, colorDef] = useSvgColor(color)
+  const defsBuilder = useSvgDefsBuilder()
 
   return (
     <>
       <path
-        fill={colorValue}
-        fillOpacity={colorOpacity}
+        {...defsBuilder.addFillColor(color)}
         d="M98.993 0.170044C91.3883 0.804877 64.0417 3 49.4999 3C36.5091 3 11.5476 1.24818 0.496335 0.421878C-0.312167 19.6509 1.13515 40.4815 7.85257 56.5H43.5L49.75 33.5L56.5 56.5H91.6475C98.3942 40.4116 99.8247 19.4689 98.993 0.170044Z"
         onClick={handleClick}
       />
-      {colorDef && <defs>{colorDef}</defs>}
+      {defsBuilder.build()}
     </>
   )
 }

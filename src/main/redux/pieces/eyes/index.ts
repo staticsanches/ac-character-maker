@@ -18,7 +18,8 @@ export type EyesState = {
   readonly lashesColor?: SvgColor
   readonly bottomLashesColor?: SvgColor
   readonly topLashesColor?: SvgColor
-} & Readonly<Partial<CustomType<'sclera', SvgColor, 'pr' | 'pl', 'color'>>> &
+} & Readonly<Partial<CustomType<'color', SvgColor, 'pr' | 'pl'>>> &
+  Readonly<Partial<CustomType<'sclera', SvgColor, 'pr' | 'pl', 'color'>>> &
   Readonly<Partial<CustomType<'iris', SvgColor, 'pr' | 'pl', 'color'>>> &
   Readonly<Partial<CustomType<'outline', SvgColor, 'pr' | 'pl', 'color'>>> &
   Readonly<Partial<CustomType<'lashes', SvgColor, 'pr' | 'pl', 'color'>>> &
