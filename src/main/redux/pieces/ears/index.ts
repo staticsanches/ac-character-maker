@@ -1,37 +1,27 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 import type { SvgColor } from '@/types/svgColor'
 
-export type EarsState = {
-  readonly color?: SvgColor
-
-  /**
-   * @defaultValue color or darker version of avatar skin color
-   */
-  readonly prColor?: SvgColor
-
-  /**
-   * @defaultValue color or darker version of avatar skin color
-   */
-  readonly plColor?: SvgColor
+export type EarsState = State & {
+  pr: Partial<State>
+  pl: Partial<State>
 }
 
-const initialState: EarsState = {}
+type State = {
+  readonly color?: SvgColor
+  readonly darkenCoefficient: number
+}
+
+const initialState: EarsState = {
+  darkenCoefficient: 10,
+  pr: {},
+  pl: {},
+} as const
 
 const slice = createSlice({
   name: 'pieces/ears',
   initialState,
-  reducers: {
-    changeColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
-      state.color = action.payload
-    },
-    changePrColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
-      state.prColor = action.payload
-    },
-    changePlColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
-      state.prColor = action.payload
-    },
-  },
+  reducers: {},
 })
 
 export const { reducer: earsReducer, actions: earsActions, getInitialState: getEarsInitialState } = slice

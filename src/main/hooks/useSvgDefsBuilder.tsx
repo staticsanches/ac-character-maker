@@ -4,8 +4,10 @@ import type { SvgColor, SvgGradient, SvgGradientStop, SvgLinearGradient, SvgRadi
 import { isRGBAColor } from '@/utils/svgColorUtils'
 import { uniqueID } from '@/utils/uniqueID'
 
+type URL = `url(#${string})`
+
 export type SvgDefsBuilder = {
-  addDef: (defType: string, builder: (id: string) => JSX.Element) => string
+  addDef: (defType: string, builder: (id: string) => JSX.Element) => URL
 
   addColor: (color: SvgColor) => [string, number | undefined]
   addFillColor: (color: SvgColor) => { fill: string; fillOpacity?: number }
@@ -23,14 +25,15 @@ export const useSvgDefsBuilder = (): SvgDefsBuilder => {
 }
 
 class Builder implements SvgDefsBuilder {
-  #defs: JSX.Element[] = []
+  #ids: string[] = []
 
+  // Temporary data
+  #defs: JSX.Element[] = []
   #gradients: SvgGradient[] = []
   #gradientIDs: string[] = []
-  #ids: string[] = []
   #idPointer = 0
 
-  addDef = (defType: string, builder: (id: string) => JSX.Element) => {
+  addDef = (defType: string, builder: (id: string) => JSX.Element): URL => {
     const id = this.#nextID(defType)
     this.#defs.push(builder(id))
     return `url(#${id})`
@@ -116,10 +119,8 @@ class Builder implements SvgDefsBuilder {
     if (this.#idPointer === this.#ids.length) {
       this.#ids.push(uniqueID())
     }
-    return this.#buildSvgID(type, this.#ids[this.#idPointer++])
+    return `${type}-${this.#ids[this.#idPointer++]}`
   }
-
-  #buildSvgID = (type: string, id: string) => `${type}-${id}`
 }
 
 const isEqualsGradient = (g1: SvgGradient, g2: SvgGradient): boolean => {

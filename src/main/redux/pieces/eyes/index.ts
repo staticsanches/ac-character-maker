@@ -6,6 +6,11 @@ import type { SvgColor } from '@/types/svgColor'
 export type EyesState = {
   readonly variant: EyesVariant
 
+  readonly pr: Partial<State>
+  readonly pl: Partial<State>
+} & State
+
+type State = {
   readonly color: SvgColor
   readonly scleraColor: SvgColor
 
@@ -18,15 +23,8 @@ export type EyesState = {
   readonly lashesColor?: SvgColor
   readonly bottomLashesColor?: SvgColor
   readonly topLashesColor?: SvgColor
-} & Readonly<Partial<CustomType<'color', SvgColor, 'pr' | 'pl'>>> &
-  Readonly<Partial<CustomType<'sclera', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<'iris', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<'outline', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<'lashes', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<'bottomLashes', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<`bottomLash${IntRange<1, 4>}`, SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<'topLashes', SvgColor, 'pr' | 'pl', 'color'>>> &
-  Readonly<Partial<CustomType<`topLash${IntRange<1, 4>}`, SvgColor, 'pr' | 'pl', 'color'>>>
+} & Readonly<Partial<CustomType<`bottomLash${IntRange<1, 4>}Color`, SvgColor>>> &
+  Readonly<Partial<CustomType<`topLash${IntRange<1, 4>}Color`, SvgColor>>>
 
 const initialState: EyesState = {
   variant: 'circle',
@@ -34,7 +32,9 @@ const initialState: EyesState = {
   scleraColor: '#FFFFFF',
   bottomLashes: false,
   topLashes: true,
-}
+  pr: {},
+  pl: {},
+} as const
 
 const slice = createSlice({
   name: 'pieces/eyes',

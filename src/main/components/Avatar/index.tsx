@@ -11,8 +11,8 @@ import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { selectAvatarBackgroundColor, selectAvatarBackgroundRadius, selectAvatarSize } from '@/redux/selectors'
-import { SvgColor } from '@/types/svgColor'
+import { selectors } from '@/redux/selectors'
+import type { SvgColor } from '@/types/svgColor'
 
 export type AvatarProps = {
   size?: number
@@ -51,9 +51,9 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
     },
     ref
   ) => {
-    const sizeFromStore = useRootSelector(selectAvatarSize)
-    const backgroundRadiusFromStore = useRootSelector(selectAvatarBackgroundRadius)
-    const backgroundColorFromStore = useRootSelector(selectAvatarBackgroundColor)
+    const sizeFromStore = useRootSelector(selectors.avatar.selectSize)
+    const backgroundRadiusFromStore = useRootSelector(selectors.avatar.selectBackgroundRadius)
+    const backgroundColorFromStore = useRootSelector(selectors.avatar.selectBackgroundColor)
 
     const defsBuilder = useSvgDefsBuilder()
 

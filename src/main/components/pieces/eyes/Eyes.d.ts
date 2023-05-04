@@ -10,9 +10,11 @@ export type OutlineColorProps = Readonly<CustomType<'outline', SvgColor, 'pr' | 
 export type ScleraColorProps = Readonly<CustomType<'sclera', SvgColor, 'pr' | 'pl', 'color'>>
 
 export type BottomLashesProps = {
-  readonly bottomLashes: boolean
+  readonly prBottomLashes: boolean
+  readonly plBottomLashes: boolean
 } & Readonly<CustomType<`bottomLash${IntRange<1, 4>}`, SvgColor, 'pr' | 'pl', 'color'>>
 
 export type TopLashesProps = {
-  readonly topLashes: boolean
+  readonly prTopLashes: boolean
+  readonly plTopLashes: boolean
 } & Readonly<CustomType<`topLash${IntRange<1, 4>}`, SvgColor, 'pr' | 'pl', 'color'>>

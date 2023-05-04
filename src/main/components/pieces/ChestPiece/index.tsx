@@ -3,7 +3,7 @@ import React from 'react'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { selectChestColor } from '@/redux/selectors'
+import { selectors } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
 
 export type ChestPieceProps = AvatarPieceBaseProps & HandleClickProps
@@ -24,7 +24,7 @@ export const ChestPiece = React.forwardRef<SVGSVGElement, ChestPieceProps>(
 )
 
 const Chest = ({ handleClick }: HandleClickProps): JSX.Element => {
-  const color = useRootSelector(selectChestColor)
+  const color = useRootSelector(selectors.pieces.chest.color.select)
   const defsBuilder = useSvgDefsBuilder()
 
   const filterUrl = defsBuilder.addDef('blur', (id) => (

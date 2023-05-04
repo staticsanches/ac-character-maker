@@ -3,7 +3,7 @@ import React from 'react'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { selectNoseColor, selectNoseVariant } from '@/redux/selectors'
+import { selectors } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
 
 export type NoseVariant = (typeof noseVariants)[number]
@@ -27,8 +27,8 @@ export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(
 )
 
 const Nose = ({ handleClick }: HandleClickProps): JSX.Element => {
-  const variant = useRootSelector(selectNoseVariant)
-  const color = useRootSelector(selectNoseColor)
+  const variant = useRootSelector(selectors.pieces.nose.variant.select)
+  const color = useRootSelector(selectors.pieces.nose.color.select)
 
   const defsBuilder = useSvgDefsBuilder()
 

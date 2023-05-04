@@ -3,12 +3,7 @@ import React from 'react'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import {
-  selectResolvedBlushPlColor,
-  selectResolvedBlushPlSoft,
-  selectResolvedBlushPrColor,
-  selectResolvedBlushPrSoft,
-} from '@/redux/selectors'
+import { selectors } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
 
 export type BlushPieceProps = AvatarPieceBaseProps & HandleClickProps
@@ -29,11 +24,11 @@ export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
 )
 
 const Blush = ({ handleClick }: HandleClickProps): JSX.Element => {
-  const prColor = useRootSelector(selectResolvedBlushPrColor)
-  const plColor = useRootSelector(selectResolvedBlushPlColor)
+  const prColor = useRootSelector(selectors.pieces.blush.pr.color.selectResolved)
+  const plColor = useRootSelector(selectors.pieces.blush.pl.color.selectResolved)
 
-  const prSoft = useRootSelector(selectResolvedBlushPrSoft)
-  const plSoft = useRootSelector(selectResolvedBlushPlSoft)
+  const prSoft = useRootSelector(selectors.pieces.blush.pr.soft.selectResolved)
+  const plSoft = useRootSelector(selectors.pieces.blush.pl.soft.selectResolved)
 
   const defsBuilder = useSvgDefsBuilder()
 

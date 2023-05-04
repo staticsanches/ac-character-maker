@@ -3,7 +3,7 @@ import React from 'react'
 import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { selectMouthAccentColor, selectMouthColor, selectMouthVariant } from '@/redux/selectors'
+import { selectors } from '@/redux/selectors'
 import type { HandleClickProps } from '@/types/react'
 import { SvgColor } from '@/types/svgColor'
 
@@ -37,9 +37,9 @@ export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(
 )
 
 const Mouth = ({ handleClick }: HandleClickProps): JSX.Element => {
-  const variant = useRootSelector(selectMouthVariant)
-  const color = useRootSelector(selectMouthColor)
-  const accentColor = useRootSelector(selectMouthAccentColor)
+  const variant = useRootSelector(selectors.pieces.mouth.variant.select)
+  const color = useRootSelector(selectors.pieces.mouth.color.select)
+  const accentColor = useRootSelector(selectors.pieces.mouth.accentColor.select)
 
   const defsBuilder = useSvgDefsBuilder()
 

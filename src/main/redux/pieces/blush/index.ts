@@ -1,68 +1,28 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
 import type { SvgColor } from '@/types/svgColor'
 
-export type BlushState = {
-  /**
-   * @defaultValue `#FF7E36`
-   */
+export type BlushState = State & {
+  readonly pr: Partial<State>
+  readonly pl: Partial<State>
+}
+
+type State = {
   readonly color: SvgColor
-
-  /**
-   * @defaultValue color
-   */
-  readonly prColor?: SvgColor
-
-  /**
-   * @defaultValue color
-   */
-  readonly plColor?: SvgColor
-
-  /**
-   * @defaultValue `false`
-   */
   readonly soft: boolean
-
-  /**
-   * @defaultValue soft
-   */
-  readonly prSoft?: boolean
-
-  /**
-   * @defaultValue soft
-   */
-  readonly plSoft?: boolean
 }
 
 const initialState: BlushState = {
   color: '#FF7E36',
   soft: true,
-}
+  pr: {},
+  pl: {},
+} as const
 
 const slice = createSlice({
   name: 'pieces/blush',
   initialState,
-  reducers: {
-    changeColor: (state, action: PayloadAction<SvgColor>) => {
-      state.color = action.payload
-    },
-    changePrColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
-      state.prColor = action.payload
-    },
-    changePlColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
-      state.prColor = action.payload
-    },
-
-    changeSoft: (state, action: PayloadAction<boolean>) => {
-      state.soft = action.payload
-    },
-    changePrSoft: (state, action: PayloadAction<Opt<boolean>>) => {
-      state.prSoft = action.payload
-    },
-    changePlSoft: (state, action: PayloadAction<Opt<boolean>>) => {
-      state.plSoft = action.payload
-    },
-  },
+  reducers: {},
 })
 
 export const { reducer: blushReducer, actions: blushActions, getInitialState: getBlushInitialState } = slice
