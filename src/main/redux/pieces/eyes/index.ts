@@ -26,7 +26,7 @@ type State = {
 } & Readonly<Partial<CustomType<`bottomLash${IntRange<1, 4>}Color`, SvgColor>>> &
   Readonly<Partial<CustomType<`topLash${IntRange<1, 4>}Color`, SvgColor>>>
 
-const initialState: EyesState = {
+const getInitialState: () => EyesState = () => ({
   variant: 'circle',
   color: '#275976',
   scleraColor: '#FFFFFF',
@@ -34,11 +34,11 @@ const initialState: EyesState = {
   topLashes: true,
   pr: {},
   pl: {},
-} as const
+})
 
 const slice = createSlice({
   name: 'pieces/eyes',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 

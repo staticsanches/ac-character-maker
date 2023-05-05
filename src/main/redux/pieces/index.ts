@@ -1,6 +1,8 @@
-import { combineReducers, createSlice, Reducer } from '@reduxjs/toolkit'
+import { combineReducers, createSlice, PayloadAction, Reducer } from '@reduxjs/toolkit'
 import reduceReducers from 'reduce-reducers'
 
+import { PieceType } from '@/types/piece'
+import { resetAll } from '../globalActions'
 import { blushActions, blushReducer, BlushState, getBlushInitialState } from './blush'
 import { bodyActions, bodyReducer, BodyState, getBodyInitialState } from './body'
 import { chestActions, chestReducer, ChestState, getChestInitialState } from './chest'
@@ -23,7 +25,7 @@ export type PiecesState = {
   readonly pants: PantsState
 }
 
-const getPiecesInitialState: () => PiecesState = () => ({
+const getInitialState: () => PiecesState = () => ({
   blush: getBlushInitialState(),
   body: getBodyInitialState(),
   chest: getChestInitialState(),
@@ -35,10 +37,19 @@ const getPiecesInitialState: () => PiecesState = () => ({
   pants: getPantsInitialState(),
 })
 
+const resetNestedSlice = <Key extends keyof PiecesState>(key: Key, state: PiecesState) => {
+  state[key] = getInitialState()[key]
+}
+
 const { reducer: originalReducer, actions: originalActions } = createSlice({
   name: 'pieces',
-  initialState: getPiecesInitialState,
-  reducers: {},
+  initialState: getInitialState,
+  reducers: {
+    reset: (state, action: PayloadAction<keyof PiecesState & PieceType>) => resetNestedSlice(action.payload, state),
+  },
+  extraReducers: (builder) => {
+    builder.addCase(resetAll, () => getInitialState())
+  },
 })
 
 const nestedReducer = combineReducers({
@@ -57,6 +68,7 @@ const piecesReducer = reduceReducers(originalReducer, nestedReducer) as Reducer<
 
 const piecesActions = {
   ...originalActions,
+
   blush: blushActions,
   body: bodyActions,
   chest: chestActions,
@@ -68,4 +80,4 @@ const piecesActions = {
   pants: pantsActions,
 }
 
-export { piecesReducer, piecesActions, getPiecesInitialState }
+export { piecesReducer, piecesActions }

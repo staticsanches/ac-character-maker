@@ -8,14 +8,14 @@ export type NoseState = {
   readonly color: SvgColor
 }
 
-const initialState: NoseState = {
+const getInitialState: () => NoseState = () => ({
   variant: 'rectangle',
   color: '#FFBAA5',
-} as const
+})
 
 const slice = createSlice({
   name: 'pieces/nose',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 

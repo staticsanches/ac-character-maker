@@ -12,16 +12,16 @@ type State = {
   readonly soft: boolean
 }
 
-const initialState: BlushState = {
+const getInitialState: () => BlushState = () => ({
   color: '#FF7E36',
   soft: true,
   pr: {},
   pl: {},
-} as const
+})
 
 const slice = createSlice({
   name: 'pieces/blush',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 

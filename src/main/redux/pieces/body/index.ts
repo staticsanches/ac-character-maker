@@ -6,11 +6,11 @@ export type BodyState = {
   readonly color?: SvgColor
 }
 
-const initialState: BodyState = {} as const
+const getInitialState: () => BodyState = () => ({})
 
 const slice = createSlice({
   name: 'pieces/body',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 

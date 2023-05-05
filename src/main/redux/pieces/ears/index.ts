@@ -12,15 +12,15 @@ type State = {
   readonly darkenCoefficient: number
 }
 
-const initialState: EarsState = {
+const getInitialState: () => EarsState = () => ({
   darkenCoefficient: 10,
   pr: {},
   pl: {},
-} as const
+})
 
 const slice = createSlice({
   name: 'pieces/ears',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 

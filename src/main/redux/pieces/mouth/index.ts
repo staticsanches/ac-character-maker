@@ -9,15 +9,15 @@ export type MouthState = {
   readonly accentColor: SvgColor
 }
 
-const initialState: MouthState = {
+const getInitialState: () => MouthState = () => ({
   variant: 'surprise',
   color: '#841616',
   accentColor: '#FFFFFF',
-} as const
+})
 
 const slice = createSlice({
   name: 'pieces/mouth',
-  initialState,
+  initialState: getInitialState,
   reducers: {},
 })
 
