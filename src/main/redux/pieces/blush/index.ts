@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 import type { SvgColor } from '@/types/svgColor'
 
@@ -22,7 +22,14 @@ const getInitialState: () => BlushState = () => ({
 const slice = createSlice({
   name: 'pieces/blush',
   initialState: getInitialState,
-  reducers: {},
+  reducers: {
+    changeSoft: (state, action: PayloadAction<boolean>) => {
+      state.soft = action.payload
+    },
+    changeSidedSoft: (state, action: PayloadAction<[side: 'pr' | 'pl', value: Opt<boolean>]>) => {
+      state[action.payload[0]].soft = action.payload[1]
+    },
+  },
 })
 
 export const { reducer: blushReducer, actions: blushActions, getInitialState: getBlushInitialState } = slice
