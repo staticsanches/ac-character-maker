@@ -17,7 +17,7 @@ const selectResolvedPlDarkenCoefficient: RootSelector<number> = (state) =>
 
 // Skin color
 
-const selectSkinColor: RootSelector<SvgColor> = (state) => selectors.avatar.selectSkinColor(state)
+const selectSkinColor: RootSelector<SvgColor> = (state) => selectors.avatar.skinColor.select(state)
 
 const selectDarkerSkinColor: RootSelector<SvgColor> = createSelector(
   selectSkinColor,

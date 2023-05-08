@@ -6,8 +6,8 @@ export type TooltipToggleButtonProps = ToggleButtonProps & {
 }
 
 export const TooltipToggleButton: React.FC<TooltipToggleButtonProps> = React.forwardRef(
-  ({ TooltipProps, ...props }, ref) => (
-    <Tooltip {...TooltipProps}>
+  ({ TooltipProps: tooltipProps, ...props }, ref) => (
+    <Tooltip {...tooltipProps}>
       <ToggleButton ref={ref} {...props} />
     </Tooltip>
   )

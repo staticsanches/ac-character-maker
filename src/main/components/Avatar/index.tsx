@@ -51,9 +51,9 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
     },
     ref
   ) => {
-    const sizeFromStore = useRootSelector(selectors.avatar.selectSize)
-    const backgroundRadiusFromStore = useRootSelector(selectors.avatar.selectBackgroundRadius)
-    const backgroundColorFromStore = useRootSelector(selectors.avatar.selectBackgroundColor)
+    const sizeFromStore = useRootSelector(selectors.avatar.size.select)
+    const backgroundRadiusFromStore = useRootSelector(selectors.avatar.background.radius.select)
+    const backgroundColorFromStore = useRootSelector(selectors.avatar.background.color.select)
 
     const defsBuilder = useSvgDefsBuilder()
 

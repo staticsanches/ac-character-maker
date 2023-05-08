@@ -1,6 +1,7 @@
 import colorConvert from 'color-convert'
 
 import type { HexColor, Octal, RGBAColor, SvgColor } from '@/types/svgColor'
+import type { Color as ReactColor, RGBColor as ReactRGBColor } from 'react-color'
 
 const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
 export const isHexColor = (color: unknown): color is HexColor => typeof color === 'string' && hexRegex.test(color)
@@ -44,4 +45,23 @@ const toOctal = (value: number): Octal => {
   if (value < 0) return 0
   if (value > 255) return 255
   return (value | 0) as Octal
+}
+
+export const toReactColor = (color: Exclude<SvgColor, 'none'>): ReactColor => {
+  if (typeof color === 'string') {
+    return color
+  }
+  if (isRGBAColor(color)) {
+    return color
+  }
+  throw new Error('Gradient is not supported yet: ' + color)
+}
+
+export const toSvgColor = (color: ReactRGBColor): SvgColor => {
+  return {
+    r: toOctal(color.r),
+    g: toOctal(color.g),
+    b: toOctal(color.b),
+    ...(color.a !== undefined ? { a: color.a } : {}),
+  }
 }
