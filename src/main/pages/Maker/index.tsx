@@ -3,6 +3,7 @@ import { Container, Grid, Typography } from '@mui/material'
 import { Avatar } from '@/components/Avatar'
 import { BooleanControlsWithPerspective } from '@/components/controls/BooleanControlsWithPerspective'
 import { ColorControl } from '@/components/controls/ColorControl'
+import { ColorControlsWithPerspective } from '@/components/controls/ColorControlsWithPerspective'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
@@ -28,6 +29,21 @@ export const MakerPage = () => {
             <Typography variant="h4" textAlign="center" p={3}>
               Controls
             </Typography>
+
+            <ColorControlsWithPerspective
+              title="Color"
+              selector={selectors.pieces.blush.color.select}
+              notNoneSelector={selectors.pieces.blush.color.notNone.select}
+              actionCreator={actions.pieces.blush.changeColor}
+              prSelector={selectors.pieces.blush.pr.color.select}
+              prResolvedSelector={selectors.pieces.blush.pr.color.selectResolved}
+              prNotNoneSelector={selectors.pieces.blush.pr.color.notNone.select}
+              plSelector={selectors.pieces.blush.pl.color.select}
+              plResolvedSelector={selectors.pieces.blush.pl.color.selectResolved}
+              plNotNoneSelector={selectors.pieces.blush.pl.color.notNone.select}
+              sidedActionCreator={actions.pieces.blush.changeSidedColor}
+              presetColors={blushPresetColors}
+            />
 
             <BooleanControlsWithPerspective
               title="Soft"
@@ -83,3 +99,5 @@ const skinPresetColors = [
   '#FFDCBC',
   '#FFE6CF',
 ] as const
+
+const blushPresetColors = ['#FFBAA5', '#FF7E36'] as const

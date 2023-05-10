@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { SvgColor } from '@/types/svgColor'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import { resetAll } from '../globalActions'
 
 export type AvatarState = {
   readonly size: number
 
   readonly skinColor: SvgColor
-  readonly skinColorNotNone: Exclude<SvgColor, 'none'>
+  readonly skinColorNotNone: SvgColorNotNone
 
   readonly backgroundRadius: number
   readonly backgroundColor: SvgColor
@@ -30,9 +30,10 @@ const avatarSlice = createSlice({
     reset: () => getInitialState(),
 
     changeSkinColor: (state, action: PayloadAction<SvgColor>) => {
-      state.skinColor = action.payload
-      if (action.payload !== 'none') {
-        state.skinColorNotNone = action.payload
+      const color = action.payload
+      state.skinColor = color
+      if (color !== 'none') {
+        state.skinColorNotNone = color
       }
     },
   },

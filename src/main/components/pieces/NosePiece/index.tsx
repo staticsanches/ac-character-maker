@@ -12,18 +12,16 @@ export const noseVariants = ['circle', 'oval', 'rectangle', 'triangle'] as const
 export type NosePieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => {
-    return (
-      <AvatarPiece
-        {...avatarPieceProps}
-        ref={ref}
-        pieceType="nose"
-        contentComponent={Nose}
-        highlightOnHover={!!handleClick}
-        handleClick={handleClick}
-      />
-    )
-  }
+  ({ handleClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      {...avatarPieceProps}
+      ref={ref}
+      pieceType="nose"
+      contentComponent={Nose}
+      highlightOnHover={!!handleClick}
+      handleClick={handleClick}
+    />
+  )
 )
 
 const Nose = ({ handleClick }: HandleClickProps): JSX.Element => {

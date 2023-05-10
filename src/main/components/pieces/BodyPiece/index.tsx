@@ -9,18 +9,16 @@ import type { HandleClickProps } from '@/types/react'
 export type BodyPieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const BodyPiece = React.forwardRef<SVGSVGElement, BodyPieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => {
-    return (
-      <AvatarPiece
-        ref={ref}
-        {...avatarPieceProps}
-        pieceType="body"
-        contentComponent={Body}
-        highlightOnHover={!!handleClick}
-        handleClick={handleClick}
-      />
-    )
-  }
+  ({ handleClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      ref={ref}
+      {...avatarPieceProps}
+      pieceType="body"
+      contentComponent={Body}
+      highlightOnHover={!!handleClick}
+      handleClick={handleClick}
+    />
+  )
 )
 
 const Body = ({ handleClick }: HandleClickProps): JSX.Element => {

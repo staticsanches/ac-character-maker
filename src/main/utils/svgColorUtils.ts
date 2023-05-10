@@ -1,6 +1,6 @@
 import colorConvert from 'color-convert'
 
-import type { HexColor, Octal, RGBAColor, SvgColor } from '@/types/svgColor'
+import type { HexColor, Octal, RGBAColor, SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import type { Color as ReactColor, RGBColor as ReactRGBColor } from 'react-color'
 
 const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/
@@ -47,7 +47,7 @@ const toOctal = (value: number): Octal => {
   return (value | 0) as Octal
 }
 
-export const toReactColor = (color: Exclude<SvgColor, 'none'>): ReactColor => {
+export const toReactColor = (color: SvgColorNotNone): ReactColor => {
   if (typeof color === 'string') {
     return color
   }

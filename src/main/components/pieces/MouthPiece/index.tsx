@@ -22,18 +22,16 @@ export const mouthVariants = [
 export type MouthPieceProps = AvatarPieceBaseProps & HandleClickProps
 
 export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => {
-    return (
-      <AvatarPiece
-        {...avatarPieceProps}
-        ref={ref}
-        pieceType="mouth"
-        highlightOnHover={!!handleClick}
-        contentComponent={Mouth}
-        handleClick={handleClick}
-      />
-    )
-  }
+  ({ handleClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      {...avatarPieceProps}
+      ref={ref}
+      pieceType="mouth"
+      highlightOnHover={!!handleClick}
+      contentComponent={Mouth}
+      handleClick={handleClick}
+    />
+  )
 )
 
 const Mouth = ({ handleClick }: HandleClickProps): JSX.Element => {

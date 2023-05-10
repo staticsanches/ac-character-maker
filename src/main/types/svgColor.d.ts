@@ -1,5 +1,7 @@
 export type SvgColor = 'none' | HexColor | RGBAColor | SvgGradient
 
+export type SvgColorNotNone = Exclude<SvgColor, 'none'>
+
 export type HexColor = `#${string}`
 
 export type Octal = EnumerateFromZeroTo<256>

@@ -9,18 +9,16 @@ import type { BottomLashesProps, IrisColorProps, OutlineColorProps, ScleraColorP
 import type { EyesPieceBaseProps } from '../EyesPiece'
 
 export const CircleEyesPiece = React.forwardRef<SVGSVGElement, EyesPieceBaseProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => {
-    return (
-      <AvatarPiece
-        ref={ref}
-        {...avatarPieceProps}
-        pieceType="eyes"
-        contentComponent={CircleEyes}
-        highlightOnHover={!!handleClick}
-        handleClick={handleClick}
-      />
-    )
-  }
+  ({ handleClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      ref={ref}
+      {...avatarPieceProps}
+      pieceType="eyes"
+      contentComponent={CircleEyes}
+      highlightOnHover={!!handleClick}
+      handleClick={handleClick}
+    />
+  )
 )
 
 type CircleEyesProps = OutlineColorProps &

@@ -3,13 +3,13 @@ import { Box, BoxProps, IconButton, Popover, ToggleButtonGroup } from '@mui/mate
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 import { ColorChangeHandler, SketchPicker } from 'react-color'
+import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 import { useDispatch } from 'react-redux'
 
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { RootSelector } from '@/redux/selectors'
-import { SvgColor } from '@/types/svgColor'
+import { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import { toReactColor, toSvgColor } from '@/utils/svgColorUtils'
-import { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 import { ControlLabel } from '../ControlLabel'
 import { SvgColorPreviewIcon } from '../SvgColorPreviewIcon'
 import { TooltipToggleButton } from '../TooltipToggleButton'
@@ -23,7 +23,7 @@ export type ColorControlProps = Pick<BoxProps, 'flex'> &
         readonly title: string
 
         readonly selector: RootSelector<SvgColor>
-        readonly resolvedSelector?: RootSelector<SvgColor> & never
+        readonly resolvedSelector?: never
 
         readonly actionCreator: ActionCreatorWithPayload<SvgColor>
       }
@@ -50,7 +50,7 @@ export type ColorControlProps = Pick<BoxProps, 'flex'> &
         readonly actionCreator: ActionCreatorWithPayload<[side: 'pr' | 'pl', value: Opt<SvgColor>]>
       }
   ) & {
-    readonly notNoneSelector: RootSelector<Exclude<SvgColor, 'none'>>
+    readonly notNoneSelector: RootSelector<SvgColorNotNone>
     readonly presetColors?: readonly PresetColor[]
   }
 
@@ -121,69 +121,66 @@ export const ColorControl = ({
   }
 
   return (
-    <>
-      <Box display="flex" flex={flex as any} justifyContent="space-between" alignItems="center">
-        {side === undefined && <ControlLabel title={title} />}
-        {side !== undefined && <ControlLabel side={side} />}
+    <Box display="flex" flex={flex as any} justifyContent="space-between" alignItems="center">
+      {side === undefined && <ControlLabel title={title} />}
+      {side !== undefined && <ControlLabel side={side} />}
 
-        <Box display="flex" alignItems="center" ml={1}>
-          <IconButton
-            id={popoverID}
-            disabled={color === undefined || color === 'none'}
-            sx={{ mr: 1 }}
-            onClick={handleClick}
-          >
-            <SvgColorPreviewIcon
-              fontSize="inherit"
-              colorSelector={side === undefined && inherit === undefined ? selector : resolvedSelector}
-            />
-          </IconButton>
+      <Box display="flex" alignItems="center" ml={1}>
+        <IconButton
+          id={popoverID}
+          disabled={color === undefined || color === 'none'}
+          sx={{ mr: 1 }}
+          onClick={handleClick}
+        >
+          <SvgColorPreviewIcon
+            fontSize="inherit"
+            colorSelector={side === undefined && inherit === undefined ? selector : resolvedSelector}
+          />
+        </IconButton>
+        <Popover
+          id={popoverID}
+          open={popoverOpen}
+          anchorEl={popoverAnchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        >
+          {color !== undefined && color !== 'none' && (
+            <SketchPicker color={toReactColor(color)} onChange={handleColorChange} presetColors={[...presetColors]} />
+          )}
+        </Popover>
 
-          <ToggleButtonGroup
-            value={color === undefined ? 'inherit' : color === 'none' ? 'none' : 'palette'}
-            onChange={handleChange}
-            exclusive
-            size="small"
-          >
-            {side !== undefined && (
-              <TooltipToggleButton
-                value="inherit"
-                TooltipProps={{ title: 'Inherit', arrow: true, disableInteractive: true }}
-              >
-                <AccountTree fontSize="inherit" />
-              </TooltipToggleButton>
-            )}
-            <TooltipToggleButton value="none" TooltipProps={{ title: 'None', arrow: true, disableInteractive: true }}>
-              <Clear fontSize="inherit" />
-            </TooltipToggleButton>
+        <ToggleButtonGroup
+          value={color === undefined ? 'inherit' : color === 'none' ? 'none' : 'palette'}
+          onChange={handleChange}
+          exclusive
+          size="small"
+        >
+          {side !== undefined && (
             <TooltipToggleButton
-              value="palette"
-              TooltipProps={{ title: 'Palette', arrow: true, disableInteractive: true }}
+              value="inherit"
+              TooltipProps={{ title: 'Inherit', arrow: true, disableInteractive: true }}
             >
-              <Palette fontSize="inherit" />
+              <AccountTree fontSize="inherit" />
             </TooltipToggleButton>
-          </ToggleButtonGroup>
-        </Box>
+          )}
+          <TooltipToggleButton value="none" TooltipProps={{ title: 'None', arrow: true, disableInteractive: true }}>
+            <Clear fontSize="inherit" />
+          </TooltipToggleButton>
+          <TooltipToggleButton
+            value="palette"
+            TooltipProps={{ title: 'Palette', arrow: true, disableInteractive: true }}
+          >
+            <Palette fontSize="inherit" />
+          </TooltipToggleButton>
+        </ToggleButtonGroup>
       </Box>
-
-      <Popover
-        id={popoverID}
-        open={popoverOpen}
-        anchorEl={popoverAnchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-      >
-        {color !== undefined && color !== 'none' && (
-          <SketchPicker color={toReactColor(color)} onChange={handleColorChange} presetColors={[...presetColors]} />
-        )}
-      </Popover>
-    </>
+    </Box>
   )
 }

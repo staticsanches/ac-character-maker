@@ -1,13 +1,18 @@
 import type { RootSelector } from '@/redux/selectors'
-import type { SvgColor } from '@/types/svgColor'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 const selectColor: RootSelector<SvgColor> = (state) => state.pieces.blush.color
+const selectColorNotNone: RootSelector<SvgColorNotNone> = (state) => state.pieces.blush.colorNotNone
 
 const selectPrColor: RootSelector<Opt<SvgColor>> = (state) => state.pieces.blush.pr.color
 const selectResolvedPrColor: RootSelector<SvgColor> = (state) => selectPrColor(state) ?? selectColor(state)
+const selectPrColorNotNone: RootSelector<SvgColorNotNone> = (state) =>
+  state.pieces.blush.pr.colorNotNone ?? selectColorNotNone(state)
 
 const selectPlColor: RootSelector<Opt<SvgColor>> = (state) => state.pieces.blush.pl.color
 const selectResolvedPlColor: RootSelector<SvgColor> = (state) => selectPlColor(state) ?? selectColor(state)
+const selectPlColorNotNone: RootSelector<SvgColorNotNone> = (state) =>
+  state.pieces.blush.pl.colorNotNone ?? selectColorNotNone(state)
 
 const selectSoft: RootSelector<boolean> = (state) => state.pieces.blush.soft
 
@@ -20,6 +25,10 @@ const selectResolvedPlSoft: RootSelector<boolean> = (state) => selectPlSoft(stat
 export const blushSelectors = {
   color: {
     select: selectColor,
+
+    notNone: {
+      select: selectColorNotNone,
+    },
   },
 
   soft: {
@@ -30,6 +39,10 @@ export const blushSelectors = {
     color: {
       select: selectPrColor,
       selectResolved: selectResolvedPrColor,
+
+      notNone: {
+        select: selectPrColorNotNone,
+      },
     },
 
     soft: {
@@ -42,6 +55,10 @@ export const blushSelectors = {
     color: {
       select: selectPlColor,
       selectResolved: selectResolvedPlColor,
+
+      notNone: {
+        select: selectPlColorNotNone,
+      },
     },
 
     soft: {

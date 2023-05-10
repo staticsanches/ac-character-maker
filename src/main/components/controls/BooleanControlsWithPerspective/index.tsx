@@ -1,4 +1,4 @@
-import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material'
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Box, Collapse, IconButton } from '@mui/material'
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
@@ -34,8 +34,8 @@ export const BooleanControlsWithPerspective = ({
       <Box display="flex" flexDirection="row" justifyContent="start" alignItems="center">
         <Box mr={1}>
           <IconButton size="medium" onClick={() => setOpen((previous) => !previous)}>
-            {open && <KeyboardArrowUp fontSize="inherit" />}
-            {!open && <KeyboardArrowDown fontSize="inherit" />}
+            {open && <ExpandLess fontSize="inherit" />}
+            {!open && <ExpandMore fontSize="inherit" />}
           </IconButton>
         </Box>
         <BooleanControl flex={1} title={title} selector={mainSelector} actionCreator={mainActionCreator} />
