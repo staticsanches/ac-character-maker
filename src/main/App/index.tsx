@@ -1,8 +1,9 @@
-import { AboutPage } from '@/pages/About'
-import { MakerPage } from '@/pages/Maker'
 import { Box, useTheme } from '@mui/material'
 import { CSSProperties } from '@mui/styled-engine'
 import { Route, Routes } from 'react-router-dom'
+
+import { AboutPage } from '@/pages/About'
+import { MakerPage } from '@/pages/Maker'
 import { Header } from './Header'
 
 export const App = () => {
@@ -12,7 +13,7 @@ export const App = () => {
       <Header />
       <Box component="main" sx={mainSx(theme.mixins.toolbar)}>
         <Routes>
-          <Route path="" element={<MakerPage />} />
+          <Route path="/*" element={<MakerPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </Box>

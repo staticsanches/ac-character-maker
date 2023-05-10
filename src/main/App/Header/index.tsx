@@ -42,7 +42,7 @@ export const Header = () => {
           </div>
           <div>
             <Box sx={{ display: { xs: 'none', sm: 'block' }, ml: 2 }}>
-              <Button component={Link} to="/" color="secondary" size="large">
+              <Button component={Link} to="/" color="secondary">
                 Maker
               </Button>
               <Button component={Link} to="/about" color="secondary">

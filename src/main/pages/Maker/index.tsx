@@ -1,12 +1,11 @@
-import { Container, Grid, Typography } from '@mui/material'
+import { Container, Grid } from '@mui/material'
 
 import { Avatar } from '@/components/Avatar'
-import { BooleanControlsWithPerspective } from '@/components/controls/BooleanControlsWithPerspective'
-import { ColorControl } from '@/components/controls/ColorControl'
-import { ColorControlsWithPerspective } from '@/components/controls/ColorControlsWithPerspective'
+import { AvatarControls } from '@/components/controls/AvatarControls'
+import { BlushControls } from '@/components/controls/BlushControls'
+import { GlobalControls } from '@/components/controls/GlobalControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
-import { actions } from '@/redux/actions'
-import { selectors } from '@/redux/selectors'
+import { Route, Routes } from 'react-router-dom'
 
 export const MakerPage = () => {
   return (
@@ -16,7 +15,6 @@ export const MakerPage = () => {
           <DownloadableSvg filename="avatar" svgBuilder={(ref) => <Avatar ref={ref} />} />
         </Grid>
         <Grid
-          container
           item
           xs={12}
           sm={6}
@@ -25,79 +23,13 @@ export const MakerPage = () => {
           justifyContent="center"
           overflow="auto"
         >
-          <Grid item width="100%" p={2}>
-            <Typography variant="h4" textAlign="center" p={3}>
-              Controls
-            </Typography>
-
-            <ColorControlsWithPerspective
-              title="Color"
-              selector={selectors.pieces.blush.color.select}
-              notNoneSelector={selectors.pieces.blush.color.notNone.select}
-              actionCreator={actions.pieces.blush.changeColor}
-              prSelector={selectors.pieces.blush.pr.color.select}
-              prResolvedSelector={selectors.pieces.blush.pr.color.selectResolved}
-              prNotNoneSelector={selectors.pieces.blush.pr.color.notNone.select}
-              plSelector={selectors.pieces.blush.pl.color.select}
-              plResolvedSelector={selectors.pieces.blush.pl.color.selectResolved}
-              plNotNoneSelector={selectors.pieces.blush.pl.color.notNone.select}
-              sidedActionCreator={actions.pieces.blush.changeSidedColor}
-              presetColors={blushPresetColors}
-            />
-
-            <BooleanControlsWithPerspective
-              title="Soft"
-              mainSelector={selectors.pieces.blush.soft.select}
-              mainActionCreator={actions.pieces.blush.changeSoft}
-              prSelector={selectors.pieces.blush.pr.soft.select}
-              plSelector={selectors.pieces.blush.pl.soft.select}
-              sidedActionCreator={actions.pieces.blush.changeSidedSoft}
-            />
-
-            <BooleanControlsWithPerspective
-              title="Bottom Lashes"
-              mainSelector={selectors.pieces.eyes.bottomLashes.select}
-              mainActionCreator={actions.pieces.eyes.changeBottomLashes}
-              prSelector={selectors.pieces.eyes.pr.bottomLashes.select}
-              plSelector={selectors.pieces.eyes.pl.bottomLashes.select}
-              sidedActionCreator={actions.pieces.eyes.changeSidedBottomLashes}
-            />
-
-            <BooleanControlsWithPerspective
-              title="Top Lashes"
-              mainSelector={selectors.pieces.eyes.topLashes.select}
-              mainActionCreator={actions.pieces.eyes.changeTopLashes}
-              prSelector={selectors.pieces.eyes.pr.topLashes.select}
-              plSelector={selectors.pieces.eyes.pl.topLashes.select}
-              sidedActionCreator={actions.pieces.eyes.changeSidedTopLashes}
-            />
-
-            <ColorControl
-              title="Skin"
-              selector={selectors.avatar.skinColor.select}
-              actionCreator={actions.avatar.changeSkinColor}
-              notNoneSelector={selectors.avatar.skinColor.notNone.select}
-              presetColors={skinPresetColors}
-            />
-          </Grid>
+          <Routes>
+            <Route path="*" element={<GlobalControls />} />
+            <Route path="/controls/avatar" element={<AvatarControls navigateBackTo="/" />} />
+            <Route path="/controls/blush" element={<BlushControls navigateBackTo="/" />} />
+          </Routes>
         </Grid>
       </Grid>
     </Container>
   )
 }
-
-const skinPresetColors = [
-  '#57280D',
-  '#84401A',
-  '#BA6332',
-  '#D0784E',
-  '#DB8C5D',
-  '#F0A06F',
-  '#FBB985',
-  '#FFC892',
-  '#FFD0B2',
-  '#FFDCBC',
-  '#FFE6CF',
-] as const
-
-const blushPresetColors = ['#FFBAA5', '#FF7E36'] as const

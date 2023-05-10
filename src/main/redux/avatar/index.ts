@@ -11,6 +11,7 @@ export type AvatarState = {
 
   readonly backgroundRadius: number
   readonly backgroundColor: SvgColor
+  readonly backgroundColorNotNone: SvgColorNotNone
 }
 
 const getInitialState: () => AvatarState = () => ({
@@ -21,6 +22,7 @@ const getInitialState: () => AvatarState = () => ({
 
   backgroundRadius: 30,
   backgroundColor: '#2C2B5C',
+  backgroundColorNotNone: '#2C2B5C',
 })
 
 const avatarSlice = createSlice({
@@ -34,6 +36,21 @@ const avatarSlice = createSlice({
       state.skinColor = color
       if (color !== 'none') {
         state.skinColorNotNone = color
+      }
+    },
+
+    changeBackgroundColor: (state, action: PayloadAction<SvgColor>) => {
+      const color = action.payload
+      state.backgroundColor = color
+      if (color !== 'none') {
+        state.backgroundColorNotNone = color
+      }
+    },
+
+    changeBackgroundRadius: (state, action: PayloadAction<number>) => {
+      const radius = action.payload
+      if (radius >= 0 && radius <= 180) {
+        state.backgroundRadius = radius | 0
       }
     },
   },
