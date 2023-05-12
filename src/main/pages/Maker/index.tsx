@@ -3,6 +3,7 @@ import { Container, Grid } from '@mui/material'
 import { Avatar } from '@/components/Avatar'
 import { AvatarControls } from '@/components/controls/AvatarControls'
 import { BlushControls } from '@/components/controls/BlushControls'
+import { EarsControls } from '@/components/controls/EarsControls'
 import { GlobalControls } from '@/components/controls/GlobalControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
 import { Route, Routes } from 'react-router-dom'
@@ -27,6 +28,7 @@ export const MakerPage = () => {
             <Route path="*" element={<GlobalControls />} />
             <Route path="/controls/avatar" element={<AvatarControls navigateBackTo="/" />} />
             <Route path="/controls/blush" element={<BlushControls navigateBackTo="/" />} />
+            <Route path="/controls/ears" element={<EarsControls navigateBackTo="/" />} />
           </Routes>
         </Grid>
       </Grid>

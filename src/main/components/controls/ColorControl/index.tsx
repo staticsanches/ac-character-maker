@@ -162,7 +162,7 @@ export const ColorControl = ({
           exclusive
           size="small"
         >
-          {side !== undefined && (
+          {(side !== undefined || inherit) && (
             <TooltipToggleButton
               value="inherit"
               TooltipProps={{ title: 'Inherit', arrow: true, disableInteractive: true }}

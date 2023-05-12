@@ -20,14 +20,14 @@ export const isRGBAColor = (color: unknown): color is RGBAColor =>
   isOctal(color.b) &&
   (!('a' in color) || color.a === undefined || (typeof color.a === 'number' && color.a >= 0 && color.a <= 1))
 
-export const darken = (color: SvgColor, coefficient: number): SvgColor => {
+export const darken = <Color extends SvgColor>(color: Color, coefficient: number): Color => {
   if (isHexColor(color)) {
     const hsl = colorConvert.hex.hsl(color.substring(1))
     hsl[2] -= coefficient
     if (hsl[2] < 0) {
       hsl[2] = 0
     }
-    return `#${colorConvert.hsl.hex(hsl)}`
+    return `#${colorConvert.hsl.hex(hsl)}` as Color
   }
   if (isRGBAColor(color)) {
     const hsl = colorConvert.rgb.hsl([color.r, color.g, color.b])
@@ -36,7 +36,7 @@ export const darken = (color: SvgColor, coefficient: number): SvgColor => {
       hsl[2] = 0
     }
     const [r, g, b] = colorConvert.hsl.rgb(hsl)
-    return { r: toOctal(r), g: toOctal(g), b: toOctal(b), ...(color.a !== undefined ? { a: color.a } : {}) }
+    return { r: toOctal(r), g: toOctal(g), b: toOctal(b), ...(color.a !== undefined ? { a: color.a } : {}) } as Color
   }
   return color // unable to darken gradient
 }

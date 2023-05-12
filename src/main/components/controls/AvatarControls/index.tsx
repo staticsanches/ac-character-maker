@@ -1,64 +1,48 @@
-import { Box, Slider, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
-import { useRootSelector } from '@/hooks/useRootSelector'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
-import { useDispatch } from 'react-redux'
 import { ColorControl } from '../ColorControl'
-import { ControlLabel } from '../ControlLabel'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
+import { SliderControl } from '../SliderControl'
 
-export const AvatarControls = (props: NavigateBackToProps) => {
-  const backgroundRadius = useRootSelector(selectors.avatar.background.radius.select)
-  const dispatch = useDispatch()
+export const AvatarControls = (props: NavigateBackToProps) => (
+  <ControlPanel title="Avatar" resetActionProvider={() => actions.avatar.reset()} {...props}>
+    <ColorControl
+      title="Skin"
+      selector={selectors.avatar.skinColor.select}
+      notNoneSelector={selectors.avatar.skinColor.notNone.select}
+      actionCreator={actions.avatar.changeSkinColor}
+      presetColors={skinPresetColors}
+    />
 
-  const handleRadius = (_: Event, radius: number | number[]) => {
-    if (typeof radius === 'number') {
-      dispatch(actions.avatar.changeBackgroundRadius(radius))
-    }
-  }
+    <ControlPanelDivider />
 
-  return (
-    <ControlPanel title="Avatar" resetActionProvider={() => actions.avatar.reset()} {...props}>
+    <Typography variant="subtitle1">Background</Typography>
+    <Box pl={4}>
+      <ControlPanelDivider />
+
       <ColorControl
-        title="Skin"
-        selector={selectors.avatar.skinColor.select}
-        notNoneSelector={selectors.avatar.skinColor.notNone.select}
-        actionCreator={actions.avatar.changeSkinColor}
-        presetColors={skinPresetColors}
+        title="Color"
+        selector={selectors.avatar.background.color.select}
+        notNoneSelector={selectors.avatar.background.color.notNone.select}
+        actionCreator={actions.avatar.changeBackgroundColor}
       />
 
       <ControlPanelDivider />
 
-      <Typography variant="subtitle1">Background</Typography>
-      <Box pl={4}>
-        <ControlPanelDivider />
-
-        <ColorControl
-          title="Color"
-          selector={selectors.avatar.background.color.select}
-          notNoneSelector={selectors.avatar.background.color.notNone.select}
-          actionCreator={actions.avatar.changeBackgroundColor}
-        />
-
-        <ControlPanelDivider />
-
-        <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ paddingBlock: 0.75 }}>
-          <ControlLabel title="Radius" />
-          <Slider
-            size="small"
-            sx={{ marginLeft: 2 }}
-            min={0}
-            max={180}
-            value={backgroundRadius}
-            onChange={handleRadius}
-          />
-        </Box>
-      </Box>
-    </ControlPanel>
-  )
-}
+      <SliderControl
+        title="Radius"
+        selector={selectors.avatar.background.radius.select}
+        actionCreator={actions.avatar.changeBackgroundRadius}
+        min={0}
+        max={180}
+        sx={{ paddingBlock: 0.75 }}
+      />
+    </Box>
+  </ControlPanel>
+)
 
 export const skinPresetColors = [
   '#57280D',
