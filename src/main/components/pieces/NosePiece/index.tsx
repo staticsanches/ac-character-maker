@@ -4,27 +4,25 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import type { HandleClickProps } from '@/types/react'
+import type { OnClickProps } from '@/types/react'
 
 export type NoseVariant = (typeof noseVariants)[number]
 export const noseVariants = ['circle', 'oval', 'rectangle', 'triangle'] as const
 
-export type NosePieceProps = AvatarPieceBaseProps & HandleClickProps
+export type NosePieceProps = AvatarPieceBaseProps & OnClickProps
 
-export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => (
-    <AvatarPiece
-      {...avatarPieceProps}
-      ref={ref}
-      pieceType="nose"
-      contentComponent={Nose}
-      highlightOnHover={!!handleClick}
-      handleClick={handleClick}
-    />
-  )
-)
+export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
+  <AvatarPiece
+    {...avatarPieceProps}
+    ref={ref}
+    pieceType="nose"
+    contentComponent={Nose}
+    highlightOnHover={!!onClick}
+    onClick={onClick}
+  />
+))
 
-const Nose = ({ handleClick }: HandleClickProps): JSX.Element => {
+const Nose = ({ onClick }: OnClickProps): JSX.Element => {
   const variant = useRootSelector(selectors.pieces.nose.variant.select)
   const color = useRootSelector(selectors.pieces.nose.color.select)
 
@@ -32,7 +30,7 @@ const Nose = ({ handleClick }: HandleClickProps): JSX.Element => {
 
   return (
     <>
-      {noseElement(variant, defsBuilder.addFillColor(color), handleClick)}
+      {noseElement(variant, defsBuilder.addFillColor(color), onClick)}
       {defsBuilder.build()}
     </>
   )
@@ -41,16 +39,16 @@ const Nose = ({ handleClick }: HandleClickProps): JSX.Element => {
 const noseElement = (
   variant: NoseVariant,
   fillColor: { fill: string; fillOpacity?: number },
-  handleClick?: React.MouseEventHandler
+  onClick?: React.MouseEventHandler
 ): JSX.Element => {
   switch (variant) {
     case 'circle':
-      return <circle cx="17" cy="16" r="7" {...fillColor} onClick={handleClick} />
+      return <circle cx="17" cy="16" r="7" {...fillColor} onClick={onClick} />
     case 'oval':
-      return <ellipse cx="17" cy="16.5" rx="9" ry="5.5" {...fillColor} onClick={handleClick} />
+      return <ellipse cx="17" cy="16.5" rx="9" ry="5.5" {...fillColor} onClick={onClick} />
     case 'rectangle':
-      return <rect x="8" y="12" width="17" height="8" rx="1" {...fillColor} onClick={handleClick} />
+      return <rect x="8" y="12" width="17" height="8" rx="1" {...fillColor} onClick={onClick} />
     case 'triangle':
-      return <path d="M17 3L25.6603 25.5H8.33975L17 3Z" {...fillColor} onClick={handleClick} />
+      return <path d="M17 3L25.6603 25.5H8.33975L17 3Z" {...fillColor} onClick={onClick} />
   }
 }

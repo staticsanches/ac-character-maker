@@ -4,7 +4,7 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import type { HandleClickProps } from '@/types/react'
+import type { OnClickProps } from '@/types/react'
 import { SvgColor } from '@/types/svgColor'
 
 export type MouthVariant = (typeof mouthVariants)[number]
@@ -19,22 +19,20 @@ export const mouthVariants = [
   'wide-smile',
 ] as const
 
-export type MouthPieceProps = AvatarPieceBaseProps & HandleClickProps
+export type MouthPieceProps = AvatarPieceBaseProps & OnClickProps
 
-export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => (
-    <AvatarPiece
-      {...avatarPieceProps}
-      ref={ref}
-      pieceType="mouth"
-      highlightOnHover={!!handleClick}
-      contentComponent={Mouth}
-      handleClick={handleClick}
-    />
-  )
-)
+export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
+  <AvatarPiece
+    {...avatarPieceProps}
+    ref={ref}
+    pieceType="mouth"
+    highlightOnHover={!!onClick}
+    contentComponent={Mouth}
+    onClick={onClick}
+  />
+))
 
-const Mouth = ({ handleClick }: HandleClickProps): JSX.Element => {
+const Mouth = ({ onClick }: OnClickProps): JSX.Element => {
   const variant = useRootSelector(selectors.pieces.mouth.variant.select)
   const color = useRootSelector(selectors.pieces.mouth.color.select)
   const accentColor = useRootSelector(selectors.pieces.mouth.accentColor.select)
@@ -43,7 +41,7 @@ const Mouth = ({ handleClick }: HandleClickProps): JSX.Element => {
 
   return (
     <>
-      {mouthElement(variant, color, accentColor, defsBuilder, handleClick)}
+      {mouthElement(variant, color, accentColor, defsBuilder, onClick)}
       {defsBuilder.build()}
     </>
   )
@@ -54,7 +52,7 @@ const mouthElement = (
   color: SvgColor,
   accentColor: SvgColor,
   defsBuilder: SvgDefsBuilder,
-  handleClick: Opt<React.MouseEventHandler>
+  onClick: Opt<React.MouseEventHandler>
 ): JSX.Element => {
   switch (variant) {
     case 'bunny-smile':
@@ -67,14 +65,14 @@ const mouthElement = (
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="2"
-            onClick={handleClick}
+            onClick={onClick}
           />
           <path
             d="M52 4C52 7.31371 43.4934 10 33 10C22.5066 10 14 7.31371 14 4"
             {...defsBuilder.addStrokeColor(color)}
             strokeLinecap="round"
             strokeWidth="3"
-            onClick={handleClick}
+            onClick={onClick}
           />
         </>
       )
@@ -86,7 +84,7 @@ const mouthElement = (
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="3"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
     case 'drool':
@@ -98,7 +96,7 @@ const mouthElement = (
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="3"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
     case 'kissy':
@@ -109,7 +107,7 @@ const mouthElement = (
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
     case 'laugh':
@@ -121,7 +119,7 @@ const mouthElement = (
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="3"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
     case 'small-smile':
@@ -131,11 +129,11 @@ const mouthElement = (
           {...defsBuilder.addStrokeColor(color)}
           strokeLinecap="round"
           strokeWidth="3"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
     case 'surprise':
-      return <ellipse cx="32.5" cy="7.5" rx="6.5" ry="7.5" {...defsBuilder.addFillColor(color)} onClick={handleClick} />
+      return <ellipse cx="32.5" cy="7.5" rx="6.5" ry="7.5" {...defsBuilder.addFillColor(color)} onClick={onClick} />
     case 'wide-smile':
       return (
         <path
@@ -143,7 +141,7 @@ const mouthElement = (
           {...defsBuilder.addStrokeColor(color)}
           strokeLinecap="round"
           strokeWidth="3"
-          onClick={handleClick}
+          onClick={onClick}
         />
       )
   }

@@ -9,6 +9,7 @@ import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
+import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
@@ -39,10 +40,10 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
       backgroundRadius,
       backgroundColor,
 
-      blush: Blush = BlushPiece,
-      body: Body = BodyPiece,
-      chest: Chest = ChestPiece,
-      ears: Ears = EarsPiece,
+      blush: Blush = withNavigateToOnClick(BlushPiece, '/controls/blush'),
+      body: Body = withNavigateToOnClick(BodyPiece, '/controls/body'),
+      chest: Chest = withNavigateToOnClick(ChestPiece, '/controls/chest'),
+      ears: Ears = withNavigateToOnClick(EarsPiece, '/controls/ears'),
       eyes: Eyes = EyesPiece,
       head: Head = HeadPiece,
       mouth: Mouth = MouthPiece,

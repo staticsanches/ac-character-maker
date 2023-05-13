@@ -4,24 +4,22 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import type { HandleClickProps } from '@/types/react'
+import type { OnClickProps } from '@/types/react'
 
-export type BlushPieceProps = AvatarPieceBaseProps & HandleClickProps
+export type BlushPieceProps = AvatarPieceBaseProps & OnClickProps
 
-export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => (
-    <AvatarPiece
-      ref={ref}
-      {...avatarPieceProps}
-      pieceType="blush"
-      contentComponent={Blush}
-      highlightOnHover={!!handleClick}
-      handleClick={handleClick}
-    />
-  )
-)
+export const BlushPiece = React.forwardRef<SVGSVGElement, BlushPieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
+  <AvatarPiece
+    ref={ref}
+    {...avatarPieceProps}
+    pieceType="blush"
+    contentComponent={Blush}
+    highlightOnHover={!!onClick}
+    onClick={onClick}
+  />
+))
 
-const Blush = ({ handleClick }: HandleClickProps): JSX.Element => {
+const Blush = ({ onClick }: OnClickProps): JSX.Element => {
   const prColor = useRootSelector(selectors.pieces.blush.pr.color.selectResolved)
   const plColor = useRootSelector(selectors.pieces.blush.pl.color.selectResolved)
 
@@ -31,10 +29,10 @@ const Blush = ({ handleClick }: HandleClickProps): JSX.Element => {
   const defsBuilder = useSvgDefsBuilder()
 
   const prSvg = (
-    <ellipse cx="24.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(prColor)} onClick={handleClick} />
+    <ellipse cx="24.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(prColor)} onClick={onClick} />
   )
   const plSvg = (
-    <ellipse cx="144.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(plColor)} onClick={handleClick} />
+    <ellipse cx="144.5" cy="15.5" rx="12.5" ry="10.5" {...defsBuilder.addFillColor(plColor)} onClick={onClick} />
   )
 
   let filterUrl: Opt<string>

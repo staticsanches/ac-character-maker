@@ -7,6 +7,6 @@ declare module 'react' {
   ): (props: P & React.RefAttributes<T>) => React.ReactElement | null
 }
 
-export type HandleClickProps = {
-  readonly handleClick?: React.MouseEventHandler
+export type OnClickProps = {
+  readonly onClick?: React.MouseEventHandler
 }

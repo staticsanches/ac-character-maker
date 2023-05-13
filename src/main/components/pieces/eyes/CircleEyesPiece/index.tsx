@@ -4,19 +4,19 @@ import { AvatarPiece } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import type { HandleClickProps } from '@/types/react'
+import type { OnClickProps } from '@/types/react'
 import type { BottomLashesProps, IrisColorProps, OutlineColorProps, ScleraColorProps, TopLashesProps } from '../Eyes'
 import type { EyesPieceBaseProps } from '../EyesPiece'
 
 export const CircleEyesPiece = React.forwardRef<SVGSVGElement, EyesPieceBaseProps>(
-  ({ handleClick, ...avatarPieceProps }, ref) => (
+  ({ onClick, ...avatarPieceProps }, ref) => (
     <AvatarPiece
       ref={ref}
       {...avatarPieceProps}
       pieceType="eyes"
       contentComponent={CircleEyes}
-      highlightOnHover={!!handleClick}
-      handleClick={handleClick}
+      highlightOnHover={!!onClick}
+      onClick={onClick}
     />
   )
 )
@@ -26,9 +26,9 @@ type CircleEyesProps = OutlineColorProps &
   ScleraColorProps &
   BottomLashesProps &
   TopLashesProps &
-  HandleClickProps
+  OnClickProps
 
-const CircleEyes = ({ handleClick }: HandleClickProps) => {
+const CircleEyes = ({ onClick }: OnClickProps) => {
   const defsBuilder = useSvgDefsBuilder()
 
   const propsFromSelectors: CircleEyesProps = {
@@ -59,7 +59,7 @@ const CircleEyes = ({ handleClick }: HandleClickProps) => {
     plTopLash2Color: useRootSelector(selectors.pieces.eyes.pl.topLash2Color.selectResolved),
     plTopLash3Color: useRootSelector(selectors.pieces.eyes.pl.topLash3Color.selectResolved),
 
-    handleClick,
+    onClick: onClick,
   }
 
   return (
@@ -74,7 +74,7 @@ const CircleEyes = ({ handleClick }: HandleClickProps) => {
 
 const bottomLashes = (
   defsBuilder: SvgDefsBuilder,
-  { prBottomLashes, plBottomLashes, handleClick, ...props }: BottomLashesProps & HandleClickProps
+  { prBottomLashes, plBottomLashes, onClick: handleClick, ...props }: BottomLashesProps & OnClickProps
 ): Opt<JSX.Element> => {
   return (
     <>
@@ -151,7 +151,7 @@ const bottomLashes = (
 
 const topLashes = (
   defsBuilder: SvgDefsBuilder,
-  { prTopLashes, plTopLashes, handleClick, ...props }: TopLashesProps & HandleClickProps
+  { prTopLashes, plTopLashes, onClick: handleClick, ...props }: TopLashesProps & OnClickProps
 ): Opt<JSX.Element> => {
   return (
     <>
@@ -227,7 +227,7 @@ const topLashes = (
 
 const eyes = (
   defsBuilder: SvgDefsBuilder,
-  { handleClick, ...props }: OutlineColorProps & IrisColorProps & ScleraColorProps & HandleClickProps
+  { onClick: handleClick, ...props }: OutlineColorProps & IrisColorProps & ScleraColorProps & OnClickProps
 ): JSX.Element => (
   <>
     <circle
