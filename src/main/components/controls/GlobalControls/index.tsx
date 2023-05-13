@@ -11,6 +11,9 @@ export const GlobalControls = () => (
     <Button component={Link} to="/controls/blush" color="secondary">
       Blush
     </Button>
+    <Button component={Link} to="/controls/body" color="secondary">
+      Body
+    </Button>
     <Button component={Link} to="/controls/ears" color="secondary">
       Ears
     </Button>
