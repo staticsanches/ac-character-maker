@@ -52,6 +52,7 @@ export type ColorControlProps = Pick<BoxProps, 'flex'> &
   ) & {
     readonly notNoneSelector: RootSelector<SvgColorNotNone>
     readonly presetColors?: readonly PresetColor[]
+    readonly disableAlpha?: boolean
   }
 
 export const ColorControl = ({
@@ -63,6 +64,7 @@ export const ColorControl = ({
   resolvedSelector,
   actionCreator,
   presetColors = [],
+  disableAlpha,
   flex,
 }: ColorControlProps) => {
   const color = useRootSelector(selector)
@@ -152,7 +154,12 @@ export const ColorControl = ({
           }}
         >
           {color !== undefined && color !== 'none' && (
-            <SketchPicker color={toReactColor(color)} onChange={handleColorChange} presetColors={[...presetColors]} />
+            <SketchPicker
+              color={toReactColor(color)}
+              onChange={handleColorChange}
+              disableAlpha={disableAlpha}
+              presetColors={[...presetColors]}
+            />
           )}
         </Popover>
 

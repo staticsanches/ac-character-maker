@@ -4,6 +4,7 @@ import { Avatar } from '@/components/Avatar'
 import { AvatarControls } from '@/components/controls/AvatarControls'
 import { BlushControls } from '@/components/controls/BlushControls'
 import { BodyControls } from '@/components/controls/BodyControls'
+import { ChestControls } from '@/components/controls/ChestControls'
 import { EarsControls } from '@/components/controls/EarsControls'
 import { GlobalControls } from '@/components/controls/GlobalControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
@@ -30,6 +31,7 @@ export const MakerPage = () => {
             <Route path="/controls/avatar" element={<AvatarControls navigateBackTo="/" />} />
             <Route path="/controls/blush" element={<BlushControls navigateBackTo="/" />} />
             <Route path="/controls/body" element={<BodyControls navigateBackTo="/" />} />
+            <Route path="/controls/chest" element={<ChestControls navigateBackTo="/" />} />
             <Route path="/controls/ears" element={<EarsControls navigateBackTo="/" />} />
           </Routes>
         </Grid>
