@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { SvgColor } from '@/types/svgColor'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 export type BodyState = {
   readonly color?: SvgColor
-  readonly colorNotNone?: SvgColor
+  readonly colorNotNone?: SvgColorNotNone
 }
 
 const getInitialState: () => BodyState = () => ({})

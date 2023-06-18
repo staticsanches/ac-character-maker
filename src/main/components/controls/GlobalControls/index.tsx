@@ -20,6 +20,9 @@ export const GlobalControls = () => (
     <Button component={Link} to="/controls/ears" color="secondary">
       Ears
     </Button>
+    <Button component={Link} to="/controls/head" color="secondary">
+      Head
+    </Button>
     <Button component={Link} to="/controls/mouth" color="secondary">
       Mouth
     </Button>

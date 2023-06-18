@@ -8,6 +8,7 @@ import { BodyControls } from '@/components/controls/BodyControls'
 import { ChestControls } from '@/components/controls/ChestControls'
 import { EarsControls } from '@/components/controls/EarsControls'
 import { GlobalControls } from '@/components/controls/GlobalControls'
+import { HeadControls } from '@/components/controls/HeadControls'
 import { MouthControls } from '@/components/controls/MouthControls'
 import { NoseControls } from '@/components/controls/NoseControls'
 import { PantsControls } from '@/components/controls/PantsControls'
@@ -36,6 +37,7 @@ export const MakerPage = () => {
             <Route path="/controls/body" element={<BodyControls navigateBackTo="/" />} />
             <Route path="/controls/chest" element={<ChestControls navigateBackTo="/" />} />
             <Route path="/controls/ears" element={<EarsControls navigateBackTo="/" />} />
+            <Route path="/controls/head" element={<HeadControls navigateBackTo="/" />} />
             <Route path="/controls/mouth" element={<MouthControls navigateBackTo="/" />} />
             <Route path="/controls/nose" element={<NoseControls navigateBackTo="/" />} />
             <Route path="/controls/pants" element={<PantsControls navigateBackTo="/" />} />

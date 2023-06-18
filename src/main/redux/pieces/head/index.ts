@@ -1,9 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import type { SvgColor } from '@/types/svgColor'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 export type HeadState = {
   readonly color?: SvgColor
+  readonly colorNotNone?: SvgColorNotNone
 }
 
 const getInitialState: () => HeadState = () => ({})
@@ -11,7 +12,14 @@ const getInitialState: () => HeadState = () => ({})
 const slice = createSlice({
   name: 'pieces/head',
   initialState: getInitialState,
-  reducers: {},
+  reducers: {
+    changeColor: (state, action: PayloadAction<Opt<SvgColor>>) => {
+      state.color = action.payload
+      if (action.payload !== 'none') {
+        state.colorNotNone = action.payload
+      }
+    },
+  },
 })
 
 export const { reducer: headReducer, actions: headActions, getInitialState: getHeadInitialState } = slice
