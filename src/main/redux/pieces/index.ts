@@ -1,7 +1,7 @@
 import { combineReducers, createSlice, PayloadAction, Reducer } from '@reduxjs/toolkit'
 import reduceReducers from 'reduce-reducers'
 
-import { PieceType } from '@/types/piece'
+import type { PieceType } from '@/types/piece'
 import { resetAll } from '../globalActions'
 import { blushActions, blushReducer, BlushState, getBlushInitialState } from './blush'
 import { bodyActions, bodyReducer, BodyState, getBodyInitialState } from './body'

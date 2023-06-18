@@ -1,9 +1,9 @@
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 
-import { RootSelector } from '@/redux/selectors'
-import { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import type { RootSelector } from '@/redux/selectors'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Collapse, IconButton } from '@mui/material'
 import { Box } from '@mui/system'

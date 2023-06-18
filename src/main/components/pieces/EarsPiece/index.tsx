@@ -4,7 +4,7 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import { OnClickProps } from '@/types/react'
+import type { OnClickProps } from '@/types/react'
 
 export type EarsPieceProps = AvatarPieceBaseProps & OnClickProps
 

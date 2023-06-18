@@ -1,5 +1,5 @@
 import { Box, useTheme } from '@mui/material'
-import { CSSProperties } from '@mui/styled-engine'
+import type { CSSProperties } from '@mui/styled-engine'
 import { Route, Routes } from 'react-router-dom'
 
 import { AboutPage } from '@/pages/About'

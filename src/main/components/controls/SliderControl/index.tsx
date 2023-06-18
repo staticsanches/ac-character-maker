@@ -1,10 +1,10 @@
 import { AccountTree, PermDataSetting } from '@mui/icons-material'
 import { Box, BoxProps, Slider, ToggleButtonGroup } from '@mui/material'
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 
 import { useRootSelector } from '@/hooks/useRootSelector'
-import { RootSelector } from '@/redux/selectors'
+import type { RootSelector } from '@/redux/selectors'
 import { ControlLabel } from '../ControlLabel'
 import { TooltipToggleButton } from '../TooltipToggleButton'
 

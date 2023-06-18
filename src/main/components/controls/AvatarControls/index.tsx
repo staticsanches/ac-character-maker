@@ -28,6 +28,7 @@ export const AvatarControls = (props: NavigateBackToProps) => (
         selector={selectors.avatar.background.color.select}
         notNoneSelector={selectors.avatar.background.color.notNone.select}
         actionCreator={actions.avatar.changeBackgroundColor}
+        presetColors={backgroundPresetColors}
       />
 
       <ControlPanelDivider />
@@ -56,4 +57,19 @@ export const skinPresetColors = [
   '#FFD0B2',
   '#FFDCBC',
   '#FFE6CF',
+] as const
+
+const backgroundPresetColors = [
+  '#5A5A5A',
+  '#FFD686',
+  '#5F0932',
+  '#FFD1DF',
+  '#C8DEFE',
+  '#D7FBEB',
+  '#4A2A63',
+  '#FFBE73',
+  '#5F9073',
+  '#2C2B5C',
+  '#8D0C0C',
+  '#FFFFFF',
 ] as const

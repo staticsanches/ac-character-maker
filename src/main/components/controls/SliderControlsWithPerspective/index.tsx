@@ -1,10 +1,10 @@
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Collapse, IconButton } from '@mui/material'
 import { Box } from '@mui/system'
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 
-import { RootSelector } from '@/redux/selectors'
+import type { RootSelector } from '@/redux/selectors'
 import { SliderControl } from '../SliderControl'
 
 export type SliderControlsWithPerspectiveProps = {

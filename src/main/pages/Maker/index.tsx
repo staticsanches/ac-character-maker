@@ -1,4 +1,5 @@
 import { Container, Grid } from '@mui/material'
+import { Route, Routes } from 'react-router-dom'
 
 import { Avatar } from '@/components/Avatar'
 import { AvatarControls } from '@/components/controls/AvatarControls'
@@ -7,8 +8,8 @@ import { BodyControls } from '@/components/controls/BodyControls'
 import { ChestControls } from '@/components/controls/ChestControls'
 import { EarsControls } from '@/components/controls/EarsControls'
 import { GlobalControls } from '@/components/controls/GlobalControls'
+import { NoseControls } from '@/components/controls/NoseControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
-import { Route, Routes } from 'react-router-dom'
 
 export const MakerPage = () => {
   return (
@@ -33,6 +34,7 @@ export const MakerPage = () => {
             <Route path="/controls/body" element={<BodyControls navigateBackTo="/" />} />
             <Route path="/controls/chest" element={<ChestControls navigateBackTo="/" />} />
             <Route path="/controls/ears" element={<EarsControls navigateBackTo="/" />} />
+            <Route path="/controls/nose" element={<NoseControls navigateBackTo="/" />} />
           </Routes>
         </Grid>
       </Grid>

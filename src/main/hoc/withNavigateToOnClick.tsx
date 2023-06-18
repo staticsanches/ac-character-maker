@@ -1,4 +1,3 @@
-import React from 'react'
 import { To, useNavigate } from 'react-router-dom'
 
 import type { OnClickProps } from '@/types/react'

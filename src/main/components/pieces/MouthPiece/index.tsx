@@ -5,7 +5,7 @@ import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
 import type { OnClickProps } from '@/types/react'
-import { SvgColor } from '@/types/svgColor'
+import type { SvgColor } from '@/types/svgColor'
 
 export type MouthVariant = (typeof mouthVariants)[number]
 export const mouthVariants = [

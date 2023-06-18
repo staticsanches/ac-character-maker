@@ -1,4 +1,4 @@
-import { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 
 import { useRootSelector } from '@/hooks/useRootSelector'
 import type { RootSelector } from '@/redux/selectors'

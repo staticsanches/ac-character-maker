@@ -2,7 +2,6 @@ import { ArrowBack, SettingsBackupRestore } from '@mui/icons-material'
 import { IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import type { AnyAction } from '@reduxjs/toolkit'
-import React from 'react'
 import { useDispatch } from 'react-redux'
 import { NavigateOptions, To, useNavigate } from 'react-router-dom'
 
