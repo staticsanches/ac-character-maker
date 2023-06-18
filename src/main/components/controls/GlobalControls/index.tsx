@@ -26,5 +26,8 @@ export const GlobalControls = () => (
     <Button component={Link} to="/controls/nose" color="secondary">
       Nose
     </Button>
+    <Button component={Link} to="/controls/pants" color="secondary">
+      Pants
+    </Button>
   </ControlPanel>
 )

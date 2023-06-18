@@ -48,7 +48,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
       head: Head = HeadPiece,
       mouth: Mouth = withNavigateToOnClick(MouthPiece, '/controls/mouth'),
       nose: Nose = withNavigateToOnClick(NosePiece, '/controls/nose'),
-      pants: Pants = PantsPiece,
+      pants: Pants = withNavigateToOnClick(PantsPiece, '/controls/pants'),
     },
     ref
   ) => {

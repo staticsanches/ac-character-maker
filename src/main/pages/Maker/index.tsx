@@ -10,6 +10,7 @@ import { EarsControls } from '@/components/controls/EarsControls'
 import { GlobalControls } from '@/components/controls/GlobalControls'
 import { MouthControls } from '@/components/controls/MouthControls'
 import { NoseControls } from '@/components/controls/NoseControls'
+import { PantsControls } from '@/components/controls/PantsControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
 
 export const MakerPage = () => {
@@ -37,6 +38,7 @@ export const MakerPage = () => {
             <Route path="/controls/ears" element={<EarsControls navigateBackTo="/" />} />
             <Route path="/controls/mouth" element={<MouthControls navigateBackTo="/" />} />
             <Route path="/controls/nose" element={<NoseControls navigateBackTo="/" />} />
+            <Route path="/controls/pants" element={<PantsControls navigateBackTo="/" />} />
           </Routes>
         </Grid>
       </Grid>
