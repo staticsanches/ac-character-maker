@@ -8,21 +8,21 @@ import { SelectControl } from '../SelectControl'
 
 export const NoseControls = (props: NavigateBackToProps) => (
   <ControlPanel title="Nose" resetActionProvider={() => actions.pieces.reset('nose')} {...props}>
+    <SelectControl
+      title="Variant"
+      selector={selectors.pieces.nose.variant.select}
+      actionCreator={actions.pieces.nose.changeVariant}
+      availableValues={noseVariants}
+    />
+
+    <ControlPanelDivider />
+
     <ColorControl
       title="Color"
       selector={selectors.pieces.nose.color.select}
       notNoneSelector={selectors.pieces.nose.color.notNone.select}
       actionCreator={actions.pieces.nose.changeColor}
       presetColors={nosePresetColors}
-    />
-
-    <ControlPanelDivider />
-
-    <SelectControl
-      title="Variant"
-      selector={selectors.pieces.nose.variant.select}
-      actionCreator={actions.pieces.nose.changeVariant}
-      availableValues={noseVariants}
     />
   </ControlPanel>
 )
