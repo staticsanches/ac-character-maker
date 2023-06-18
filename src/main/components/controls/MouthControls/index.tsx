@@ -26,6 +26,7 @@ export const MouthControls = (props: NavigateBackToProps) => {
         selector={selectors.pieces.mouth.color.select}
         notNoneSelector={selectors.pieces.mouth.color.notNone.select}
         actionCreator={actions.pieces.mouth.changeColor}
+        presetColors={mouthPresetColors}
       />
 
       {showAccentColorControl(variant) && (
@@ -47,3 +48,5 @@ export const MouthControls = (props: NavigateBackToProps) => {
 
 const showAccentColorControl = (variant: MouthVariant) =>
   variant === 'bunny-smile' || variant === 'drool' || variant === 'laugh'
+
+const mouthPresetColors = ['#8C501D', '#000000', '#FFBAA5', '#FF7E36', '#841616'] as const
