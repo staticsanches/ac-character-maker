@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/ac-character-maker/static/css/main.c38d2c5c.css",
-    "main.js": "/ac-character-maker/static/js/main.72608d80.js",
+    "main.css": "/ac-character-maker/static/css/main.66acf36b.css",
+    "main.js": "/ac-character-maker/static/js/main.c40ffbcc.js",
     "static/js/787.ac1e15f5.chunk.js": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js",
     "static/media/leaf.svg": "/ac-character-maker/static/media/leaf.a29be146402979cd2857a80609243244.svg",
     "static/media/svgFileIcon.svg": "/ac-character-maker/static/media/svgFileIcon.0f63b52c9d87cb7d2d82af606b607c9c.svg",
     "static/media/jpgFileIcon.svg": "/ac-character-maker/static/media/jpgFileIcon.ac4ebee906b1d9595fad6bfa94a17ea3.svg",
     "static/media/pngFileIcon.svg": "/ac-character-maker/static/media/pngFileIcon.1ba35816bae3dc780160d62ded7af57d.svg",
     "index.html": "/ac-character-maker/index.html",
-    "main.c38d2c5c.css.map": "/ac-character-maker/static/css/main.c38d2c5c.css.map",
-    "main.72608d80.js.map": "/ac-character-maker/static/js/main.72608d80.js.map",
+    "main.66acf36b.css.map": "/ac-character-maker/static/css/main.66acf36b.css.map",
+    "main.c40ffbcc.js.map": "/ac-character-maker/static/js/main.c40ffbcc.js.map",
     "787.ac1e15f5.chunk.js.map": "/ac-character-maker/static/js/787.ac1e15f5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c38d2c5c.css",
-    "static/js/main.72608d80.js"
+    "static/css/main.66acf36b.css",
+    "static/js/main.c40ffbcc.js"
   ]
 }
