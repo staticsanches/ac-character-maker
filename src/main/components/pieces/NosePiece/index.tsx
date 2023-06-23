@@ -4,23 +4,24 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
+
 import type { OnClickProps } from '@/types/react'
 
 export type NoseVariant = (typeof noseVariants)[number]
 export const noseVariants = ['circle', 'oval', 'rectangle', 'triangle'] as const
 
-export type NosePieceProps = AvatarPieceBaseProps & OnClickProps
-
-export const NosePiece = React.forwardRef<SVGSVGElement, NosePieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
-  <AvatarPiece
-    {...avatarPieceProps}
-    ref={ref}
-    pieceType="nose"
-    contentComponent={Nose}
-    highlightOnHover={!!onClick}
-    onClick={onClick}
-  />
-))
+export const NosePiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
+  ({ onClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      {...avatarPieceProps}
+      ref={ref}
+      pieceType="nose"
+      contentComponent={Nose}
+      highlightOnHover={!!onClick}
+      onClick={onClick}
+    />
+  )
+)
 
 const Nose = ({ onClick }: OnClickProps): JSX.Element => {
   const variant = useRootSelector(selectors.pieces.nose.variant.select)

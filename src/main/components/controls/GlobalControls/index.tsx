@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom'
+
 import { actions } from '@/redux/actions'
 import { Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+
 import { ControlPanel } from '../ControlPanel'
 
 export const GlobalControls = () => (
@@ -19,6 +21,9 @@ export const GlobalControls = () => (
     </Button>
     <Button component={Link} to="/controls/ears" color="secondary">
       Ears
+    </Button>
+    <Button component={Link} to="/controls/hair" color="secondary">
+      Hair
     </Button>
     <Button component={Link} to="/controls/head" color="secondary">
       Head

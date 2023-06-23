@@ -1,15 +1,14 @@
-import { Button, SxProps, Theme } from '@mui/material'
 import { Buffer } from 'buffer'
 import React, { useRef } from 'react'
 
 import { convertSvgToImage } from '@/utils/convertSvgToImage'
 import { prettifyXml } from '@/utils/prettifyXml'
+import { Button, SxProps, Theme } from '@mui/material'
 
+import classes from './DownloadableSvg.module.css'
 import { ReactComponent as JpgFileIcon } from './jpgFileIcon.svg'
 import { ReactComponent as PngFileIcon } from './pngFileIcon.svg'
 import { ReactComponent as SvgFileIcon } from './svgFileIcon.svg'
-
-import classes from './DownloadableSvg.module.css'
 
 export type DownloadableSvgProps = {
   readonly filename: string

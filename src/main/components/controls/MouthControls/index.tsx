@@ -2,6 +2,7 @@ import { MouthVariant, mouthVariants } from '@/components/pieces/MouthPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'

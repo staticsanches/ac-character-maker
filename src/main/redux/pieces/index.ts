@@ -1,17 +1,20 @@
-import { combineReducers, createSlice, PayloadAction, Reducer } from '@reduxjs/toolkit'
 import reduceReducers from 'reduce-reducers'
 
-import type { PieceType } from '@/types/piece'
+import { combineReducers, createSlice, PayloadAction, Reducer } from '@reduxjs/toolkit'
+
 import { resetAll } from '../globalActions'
 import { blushActions, blushReducer, BlushState, getBlushInitialState } from './blush'
 import { bodyActions, bodyReducer, BodyState, getBodyInitialState } from './body'
 import { chestActions, chestReducer, ChestState, getChestInitialState } from './chest'
 import { earsActions, earsReducer, EarsState, getEarsInitialState } from './ears'
 import { eyesActions, eyesReducer, EyesState, getEyesInitialState } from './eyes'
+import { getHairInitialState, hairActions, hairReducer, HairState } from './hair'
 import { getHeadInitialState, headActions, headReducer, HeadState } from './head'
 import { getMouthInitialState, mouthActions, mouthReducer, MouthState } from './mouth'
 import { getNoseInitialState, noseActions, noseReducer, NoseState } from './nose'
 import { getPantsInitialState, pantsActions, pantsReducer, PantsState } from './pants'
+
+import type { PieceType } from '@/types/piece'
 
 export type PiecesState = {
   readonly blush: BlushState
@@ -19,6 +22,7 @@ export type PiecesState = {
   readonly chest: ChestState
   readonly ears: EarsState
   readonly eyes: EyesState
+  readonly hair: HairState
   readonly head: HeadState
   readonly mouth: MouthState
   readonly nose: NoseState
@@ -31,6 +35,7 @@ const getInitialState: () => PiecesState = () => ({
   chest: getChestInitialState(),
   ears: getEarsInitialState(),
   eyes: getEyesInitialState(),
+  hair: getHairInitialState(),
   head: getHeadInitialState(),
   mouth: getMouthInitialState(),
   nose: getNoseInitialState(),
@@ -58,6 +63,7 @@ const nestedReducer = combineReducers({
   chest: chestReducer,
   ears: earsReducer,
   eyes: eyesReducer,
+  hair: hairReducer,
   head: headReducer,
   mouth: mouthReducer,
   nose: noseReducer,
@@ -74,6 +80,7 @@ const piecesActions = {
   chest: chestActions,
   ears: earsActions,
   eyes: eyesActions,
+  hair: hairActions,
   head: headActions,
   mouth: mouthActions,
   nose: noseActions,

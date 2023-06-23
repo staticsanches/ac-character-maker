@@ -1,13 +1,16 @@
 import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
+
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import { Collapse, IconButton } from '@mui/material'
+import { Box } from '@mui/system'
+
+import { ColorControl } from '../ColorControl'
+
 import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 
 import type { RootSelector } from '@/redux/selectors'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
-import { ExpandLess, ExpandMore } from '@mui/icons-material'
-import { Collapse, IconButton } from '@mui/material'
-import { Box } from '@mui/system'
-import { ColorControl } from '../ColorControl'
 
 export type ColorControlsWithPerspectiveProps = {
   readonly title: string

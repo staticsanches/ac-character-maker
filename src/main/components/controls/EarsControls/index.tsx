@@ -1,6 +1,7 @@
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+
 import { skinPresetColors } from '../AvatarControls'
 import { ColorControlsWithPerspective } from '../ColorControlsWithPerspective'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'

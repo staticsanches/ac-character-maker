@@ -4,16 +4,15 @@ import classes from '@/css/HighlightOnHover.module.css'
 
 import type { PieceType } from '@/types/piece'
 
-export type AvatarPieceBaseProps = {
-  readonly width?: number
-  readonly height?: number
-
+export type AvatarPieceBaseProps = Partial<Dimension> & {
   readonly omitXY?: boolean
 }
 
 type AvatarPieceWithComponentBaseProps<P extends React.ElementType> = AvatarPieceBaseProps & {
   readonly pieceType: PieceType
   readonly contentComponent: P
+
+  readonly viewBoxDimension?: Dimension
 
   readonly highlightOnHover?: boolean
 }
@@ -27,32 +26,28 @@ const _AvatarPiece = <P extends React.ElementType>(
     contentComponent,
     width,
     height,
+    viewBoxDimension = defaultViewBoxDimension(pieceType),
     highlightOnHover = false,
     omitXY = false,
     ...contentProps
   }: AvatarPieceProps<P>,
   ref: React.ForwardedRef<SVGSVGElement>
-): JSX.Element => {
-  const dimension = defaultDimension(pieceType)
-  const pieceElement = React.createElement(contentComponent, contentProps)
+): JSX.Element => (
+  <svg
+    ref={ref}
+    viewBox={`0 0 ${viewBoxDimension.width} ${viewBoxDimension.height}`}
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    width={width ?? viewBoxDimension.width}
+    height={height ?? viewBoxDimension.height}
+    {...(omitXY ? {} : defaultPosition(pieceType))}
+    className={highlightOnHover ? classes.highlightOnHover : ''}
+  >
+    {React.createElement(contentComponent, contentProps)}
+  </svg>
+)
 
-  return (
-    <svg
-      ref={ref}
-      viewBox={`0 0 ${dimension.width} ${dimension.height}`}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      width={width ?? dimension.width}
-      height={height ?? dimension.height}
-      {...(omitXY ? {} : defaultPosition(pieceType))}
-      className={highlightOnHover ? classes.highlightOnHover : ''}
-    >
-      {pieceElement}
-    </svg>
-  )
-}
-
-const defaultDimension = (type: PieceType): { width: number; height: number } => {
+const defaultViewBoxDimension = (type: PieceType): Dimension => {
   switch (type) {
     case 'blush':
       return { width: 169, height: 31 }
@@ -64,6 +59,8 @@ const defaultDimension = (type: PieceType): { width: number; height: number } =>
       return { width: 213, height: 38 }
     case 'eyes':
       return { width: 134, height: 59 }
+    case 'hair':
+      return { width: 295, height: 331 }
     case 'head':
       return { width: 170, height: 167 }
     case 'mouth':
@@ -86,9 +83,11 @@ const defaultPosition = (type: PieceType): { x: number; y: number } => {
     case 'chest':
       return { x: 149, y: 207 }
     case 'ears':
-      return { x: 72, y: 125 }
+      return { x: 72, y: 124 }
     case 'eyes':
       return { x: 113, y: 101 }
+    case 'hair':
+      return { x: 32, y: 4 }
     case 'head':
       return { x: 94, y: 43 }
     case 'mouth':

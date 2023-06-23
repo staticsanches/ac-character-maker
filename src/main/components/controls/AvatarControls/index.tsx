@@ -1,7 +1,7 @@
-import { Box, Typography } from '@mui/material'
-
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+import { Box, Typography } from '@mui/material'
+
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'

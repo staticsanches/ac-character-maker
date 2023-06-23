@@ -1,10 +1,12 @@
-import { ExpandLess, ExpandMore } from '@mui/icons-material'
-import { Box, Collapse, IconButton } from '@mui/material'
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 
-import type { RootSelector } from '@/redux/selectors'
+import { ExpandLess, ExpandMore } from '@mui/icons-material'
+import { Box, Collapse, IconButton } from '@mui/material'
+
 import { BooleanControl } from '../BooleanControl'
+
+import type { RootSelector } from '@/redux/selectors'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 
 export type BooleanControlsWithPerspectiveProps = {
   readonly title: string

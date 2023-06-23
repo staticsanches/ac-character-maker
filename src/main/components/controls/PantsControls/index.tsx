@@ -1,5 +1,6 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
 

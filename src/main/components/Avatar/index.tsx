@@ -5,6 +5,7 @@ import { BodyPiece } from '@/components/pieces/BodyPiece'
 import { ChestPiece } from '@/components/pieces/ChestPiece'
 import { EarsPiece } from '@/components/pieces/EarsPiece'
 import { EyesPiece } from '@/components/pieces/eyes/EyesPiece'
+import { HairPiece } from '@/components/pieces/HairPiece'
 import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
@@ -13,6 +14,7 @@ import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
+
 import type { SvgColor } from '@/types/svgColor'
 
 export type AvatarProps = {
@@ -26,6 +28,7 @@ export type AvatarProps = {
   chest?: React.ElementType<{}>
   ears?: React.ElementType<{}>
   eyes?: React.ElementType<{}>
+  hair?: React.ElementType<{}>
   head?: React.ElementType<{}>
   mouth?: React.ElementType<{}>
   nose?: React.ElementType<{}>
@@ -45,6 +48,7 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
       chest: Chest = withNavigateToOnClick(ChestPiece, '/controls/chest'),
       ears: Ears = withNavigateToOnClick(EarsPiece, '/controls/ears'),
       eyes: Eyes = EyesPiece,
+      hair: Hair = withNavigateToOnClick(HairPiece, '/controls/hair'),
       head: Head = withNavigateToOnClick(HeadPiece, '/controls/head'),
       mouth: Mouth = withNavigateToOnClick(MouthPiece, '/controls/mouth'),
       nose: Nose = withNavigateToOnClick(NosePiece, '/controls/nose'),
@@ -89,14 +93,15 @@ export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
             {...defsBuilder.addFillColor(backgroundColor ?? backgroundColorFromStore)}
           />
           <Ears />
-          <Body />
           <Head />
-          <Chest />
-          <Pants />
           <Blush />
           <Eyes />
           <Nose />
           <Mouth />
+          <Hair />
+          <Body />
+          <Chest />
+          <Pants />
         </g>
 
         {defsBuilder.build()}

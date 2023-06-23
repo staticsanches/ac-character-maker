@@ -3,6 +3,7 @@ import { bodySelectors } from './body/selectors'
 import { chestSelectors } from './chest/selectors'
 import { earsSelectors } from './ears/selectors'
 import { eyesSelectors } from './eyes/selectors'
+import { hairSelectors } from './hair/selectors'
 import { headSelectors } from './head/selectors'
 import { mouthSelectors } from './mouth/selectors'
 import { noseSelectors } from './nose/selectors'
@@ -14,6 +15,7 @@ export const piecesSelectors = {
   chest: chestSelectors,
   ears: earsSelectors,
   eyes: eyesSelectors,
+  hair: hairSelectors,
   head: headSelectors,
   mouth: mouthSelectors,
   nose: noseSelectors,

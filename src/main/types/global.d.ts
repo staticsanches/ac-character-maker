@@ -35,4 +35,9 @@ declare global {
 
   type DeepReadonly<T> = { readonly [Key in keyof T]: DeepReadonly<T[Key]> }
   type DeepMutable<T> = { -readonly [Key in keyof T]: DeepMutable<T[Key]> }
+
+  type Dimension = {
+    readonly width: number
+    readonly height: number
+  }
 }

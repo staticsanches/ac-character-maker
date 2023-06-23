@@ -4,20 +4,21 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
+
 import type { OnClickProps } from '@/types/react'
 
-export type PantsPieceProps = AvatarPieceBaseProps & OnClickProps
-
-export const PantsPiece = React.forwardRef<SVGSVGElement, PantsPieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
-  <AvatarPiece
-    ref={ref}
-    {...avatarPieceProps}
-    pieceType="pants"
-    contentComponent={Pants}
-    highlightOnHover={!!onClick}
-    onClick={onClick}
-  />
-))
+export const PantsPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
+  ({ onClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      ref={ref}
+      {...avatarPieceProps}
+      pieceType="pants"
+      contentComponent={Pants}
+      highlightOnHover={!!onClick}
+      onClick={onClick}
+    />
+  )
+)
 
 const Pants = ({ onClick }: OnClickProps): JSX.Element => {
   const color = useRootSelector(selectors.pieces.pants.color.select)

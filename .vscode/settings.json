@@ -17,5 +17,6 @@
   "[xml]": {
     "editor.defaultFormatter": "mikeburgh.xml-format"
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "importSorter.generalConfiguration.sortOnBeforeSave": true
 }

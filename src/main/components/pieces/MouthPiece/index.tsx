@@ -4,6 +4,7 @@ import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
+
 import type { OnClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
 
@@ -19,18 +20,18 @@ export const mouthVariants = [
   'wide-smile',
 ] as const
 
-export type MouthPieceProps = AvatarPieceBaseProps & OnClickProps
-
-export const MouthPiece = React.forwardRef<SVGSVGElement, MouthPieceProps>(({ onClick, ...avatarPieceProps }, ref) => (
-  <AvatarPiece
-    {...avatarPieceProps}
-    ref={ref}
-    pieceType="mouth"
-    highlightOnHover={!!onClick}
-    contentComponent={Mouth}
-    onClick={onClick}
-  />
-))
+export const MouthPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
+  ({ onClick, ...avatarPieceProps }, ref) => (
+    <AvatarPiece
+      {...avatarPieceProps}
+      ref={ref}
+      pieceType="mouth"
+      highlightOnHover={!!onClick}
+      contentComponent={Mouth}
+      onClick={onClick}
+    />
+  )
+)
 
 const Mouth = ({ onClick }: OnClickProps): JSX.Element => {
   const variant = useRootSelector(selectors.pieces.mouth.variant.select)

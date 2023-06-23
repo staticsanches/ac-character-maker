@@ -1,11 +1,13 @@
+import { useState } from 'react'
+
 import { ExpandLess, ExpandMore } from '@mui/icons-material'
 import { Collapse, IconButton } from '@mui/material'
 import { Box } from '@mui/system'
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
-import { useState } from 'react'
+
+import { SliderControl } from '../SliderControl'
 
 import type { RootSelector } from '@/redux/selectors'
-import { SliderControl } from '../SliderControl'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 
 export type SliderControlsWithPerspectiveProps = {
   readonly title: string

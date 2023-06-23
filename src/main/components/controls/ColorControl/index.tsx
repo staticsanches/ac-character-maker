@@ -1,18 +1,20 @@
-import { AccountTree, Clear, Palette } from '@mui/icons-material'
-import { Box, BoxProps, IconButton, Popover, ToggleButtonGroup } from '@mui/material'
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useState } from 'react'
 import { ColorChangeHandler, SketchPicker } from 'react-color'
-import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 import { useDispatch } from 'react-redux'
 
 import { useRootSelector } from '@/hooks/useRootSelector'
-import type { RootSelector } from '@/redux/selectors'
-import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import { toReactColor, toSvgColor } from '@/utils/svgColorUtils'
+import { AccountTree, Clear, Palette } from '@mui/icons-material'
+import { Box, BoxProps, IconButton, Popover, ToggleButtonGroup } from '@mui/material'
+
 import { ControlLabel } from '../ControlLabel'
 import { SvgColorPreviewIcon } from '../SvgColorPreviewIcon'
 import { TooltipToggleButton } from '../TooltipToggleButton'
+
+import type { RootSelector } from '@/redux/selectors'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
 
 export type ColorControlProps = Pick<BoxProps, 'flex'> &
   (

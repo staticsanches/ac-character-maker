@@ -1,3 +1,6 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+
 import { Menu as MenuIcon } from '@mui/icons-material'
 import {
   AppBar,
@@ -12,9 +15,7 @@ import {
   ListItemText,
   Toolbar,
 } from '@mui/material'
-import { useState } from 'react'
 
-import { Link } from 'react-router-dom'
 import leaf from './leaf.svg'
 
 export const Header = () => {

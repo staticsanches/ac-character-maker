@@ -1,5 +1,6 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+
 import { skinPresetColors } from '../AvatarControls'
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'

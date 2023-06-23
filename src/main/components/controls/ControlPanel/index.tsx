@@ -1,9 +1,11 @@
+import { useDispatch } from 'react-redux'
+import { NavigateOptions, To, useNavigate } from 'react-router-dom'
+
 import { ArrowBack, SettingsBackupRestore } from '@mui/icons-material'
 import { IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import { Box } from '@mui/system'
+
 import type { AnyAction } from '@reduxjs/toolkit'
-import { useDispatch } from 'react-redux'
-import { NavigateOptions, To, useNavigate } from 'react-router-dom'
 
 export type ControlPanelProps = {
   readonly title: string

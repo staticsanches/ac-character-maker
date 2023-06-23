@@ -1,4 +1,3 @@
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
   FLUSH,
   PAUSE,
@@ -13,6 +12,8 @@ import {
 import storage from 'redux-persist/lib/storage'
 
 import { autoMergeDeep } from '@/utils/autoMergeDeep'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
+
 import { avatarReducer } from './avatar'
 import { piecesReducer } from './pieces'
 

@@ -1,5 +1,5 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
-import { amber, purple } from '@mui/material/colors'
+import './index.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
@@ -8,7 +8,9 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import { App } from '@/App'
 import { persistor, store } from '@/redux'
-import './index.css'
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
+import { amber, purple } from '@mui/material/colors'
+
 import reportWebVitals from './reportWebVitals'
 
 const theme = createTheme({

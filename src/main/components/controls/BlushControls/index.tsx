@@ -1,5 +1,6 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+
 import { BooleanControlsWithPerspective } from '../BooleanControlsWithPerspective'
 import { ColorControlsWithPerspective } from '../ColorControlsWithPerspective'
 import { ControlPanel, NavigateBackToProps } from '../ControlPanel'

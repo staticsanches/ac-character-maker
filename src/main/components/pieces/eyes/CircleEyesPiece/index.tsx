@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { AvatarPiece } from '@/components/AvatarPiece'
+import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
+
 import type { OnClickProps } from '@/types/react'
 import type { BottomLashesProps, IrisColorProps, OutlineColorProps, ScleraColorProps, TopLashesProps } from '../Eyes'
-import type { EyesPieceBaseProps } from '../EyesPiece'
 
-export const CircleEyesPiece = React.forwardRef<SVGSVGElement, EyesPieceBaseProps>(
+export const CircleEyesPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => (
     <AvatarPiece
       ref={ref}
