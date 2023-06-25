@@ -14,8 +14,8 @@ import storage from 'redux-persist/lib/storage'
 import { autoMergeDeep } from '@/utils/autoMergeDeep'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
-import { avatarReducer } from './avatar'
-import { piecesReducer } from './pieces'
+import { avatarReducer, getAvatarInitialState } from './avatar'
+import { getPiecesInitialState, piecesReducer } from './pieces'
 
 const rootReducer = combineReducers({
   pieces: piecesReducer,
@@ -42,5 +42,10 @@ export const store = configureStore({
 
 export const persistor = persistStore(store)
 
-export type RootState = ReturnType<typeof store.getState>
+export type RootState = Readonly<Pick<ReturnType<typeof store.getState>, 'avatar' | 'pieces'>>
 export type AppDispatch = typeof store.dispatch
+
+export const getInitialRootState = (): RootState => ({
+  avatar: getAvatarInitialState(),
+  pieces: getPiecesInitialState(),
+})

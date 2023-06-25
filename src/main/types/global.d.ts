@@ -35,9 +35,19 @@ declare global {
 
   type DeepReadonly<T> = { readonly [Key in keyof T]: DeepReadonly<T[Key]> }
   type DeepMutable<T> = { -readonly [Key in keyof T]: DeepMutable<T[Key]> }
+  type DeepPartial<T> = T extends object
+    ? {
+        [P in keyof T]?: DeepPartial<T[P]>
+      }
+    : T
 
   type Dimension = {
     readonly width: number
     readonly height: number
+  }
+
+  type XYPosition = {
+    readonly x: number
+    readonly y: number
   }
 }

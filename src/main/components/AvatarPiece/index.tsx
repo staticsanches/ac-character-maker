@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import classes from '@/css/HighlightOnHover.module.css'
+import classes from '@/css/HighlightOnHover.module.css';
+import { SvgIcon, SvgIconProps } from '@mui/material';
 
 import type { PieceType } from '@/types/piece'
-
 export type AvatarPieceBaseProps = Partial<Dimension> & {
   readonly omitXY?: boolean
 }
@@ -13,6 +13,7 @@ type AvatarPieceWithComponentBaseProps<P extends React.ElementType> = AvatarPiec
   readonly contentComponent: P
 
   readonly viewBoxDimension?: Dimension
+  readonly position?: XYPosition
 
   readonly highlightOnHover?: boolean
 }
@@ -29,6 +30,7 @@ const _AvatarPiece = <P extends React.ElementType>(
     viewBoxDimension = defaultViewBoxDimension(pieceType),
     highlightOnHover = false,
     omitXY = false,
+    position = defaultPosition(pieceType),
     ...contentProps
   }: AvatarPieceProps<P>,
   ref: React.ForwardedRef<SVGSVGElement>
@@ -40,7 +42,7 @@ const _AvatarPiece = <P extends React.ElementType>(
     fill="none"
     width={width ?? viewBoxDimension.width}
     height={height ?? viewBoxDimension.height}
-    {...(omitXY ? {} : defaultPosition(pieceType))}
+    {...(omitXY ? {} : position)}
     className={highlightOnHover ? classes.highlightOnHover : ''}
   >
     {React.createElement(contentComponent, contentProps)}
@@ -74,7 +76,7 @@ const defaultViewBoxDimension = (type: PieceType): Dimension => {
   }
 }
 
-const defaultPosition = (type: PieceType): { x: number; y: number } => {
+const defaultPosition = (type: PieceType): XYPosition => {
   switch (type) {
     case 'blush':
       return { x: 95, y: 145 }
@@ -102,3 +104,23 @@ const defaultPosition = (type: PieceType): { x: number; y: number } => {
 }
 
 export const AvatarPiece = React.forwardRef(_AvatarPiece)
+
+export type AvatarPieceIconBaseProps = Omit<SvgIconProps, 'viewBox' | 'children'>
+
+type AvatarPieceIconProps = AvatarPieceIconBaseProps & {
+  readonly pieceType: PieceType
+  readonly viewBoxDimension?: Dimension
+
+  readonly children: Exclude<React.ReactNode, null | undefined>
+}
+
+export const AvatarPieceIcon = ({
+  pieceType,
+  viewBoxDimension = defaultViewBoxDimension(pieceType),
+  children,
+  ...svgIconProps
+}: AvatarPieceIconProps): JSX.Element => (
+  <SvgIcon {...svgIconProps} viewBox={`0 0 ${viewBoxDimension.width} ${viewBoxDimension.height}`}>
+    {children}
+  </SvgIcon>
+)

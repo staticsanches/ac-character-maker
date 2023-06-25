@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-import { resetAll } from '../globalActions'
+import { applyPreset, resetAll } from '../globalActions'
 
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
@@ -15,7 +15,7 @@ export type AvatarState = {
   readonly backgroundColorNotNone: SvgColorNotNone
 }
 
-const getInitialState: () => AvatarState = () => ({
+export const getAvatarInitialState: () => AvatarState = () => ({
   size: 360,
 
   skinColor: '#84401A',
@@ -28,9 +28,9 @@ const getInitialState: () => AvatarState = () => ({
 
 const avatarSlice = createSlice({
   name: 'avatar',
-  initialState: getInitialState,
+  initialState: getAvatarInitialState,
   reducers: {
-    reset: () => getInitialState(),
+    reset: () => getAvatarInitialState(),
 
     changeSkinColor: (state, action: PayloadAction<SvgColor>) => {
       const color = action.payload
@@ -56,7 +56,9 @@ const avatarSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(resetAll, () => getInitialState())
+    builder
+      .addCase(applyPreset, (state, action) => ({ ...action.payload.avatar, size: state.size }))
+      .addCase(resetAll, (state) => ({ ...getAvatarInitialState(), size: state.size }))
   },
 })
 

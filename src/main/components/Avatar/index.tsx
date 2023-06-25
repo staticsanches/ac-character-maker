@@ -14,14 +14,10 @@ import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-
-import type { SvgColor } from '@/types/svgColor'
+import { SvgIcon, SvgIconProps } from '@mui/material'
 
 export type AvatarProps = {
-  size?: number
-
-  backgroundRadius?: number
-  backgroundColor?: SvgColor
+  withoutNavigateToOnClick?: boolean
 
   blush?: React.ElementType<{}>
   body?: React.ElementType<{}>
@@ -35,77 +31,64 @@ export type AvatarProps = {
   pants?: React.ElementType<{}>
 }
 
-export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>(
-  (
-    {
-      size,
+export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>((props, ref) => {
+  const size = useRootSelector(selectors.avatar.size.select)
 
-      backgroundRadius,
-      backgroundColor,
+  return (
+    <svg ref={ref} viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" fill="none" width={size} height={size}>
+      <AvatarContent {...props} />
+    </svg>
+  )
+})
 
-      blush: Blush = withNavigateToOnClick(BlushPiece, '/controls/blush'),
-      body: Body = withNavigateToOnClick(BodyPiece, '/controls/body'),
-      chest: Chest = withNavigateToOnClick(ChestPiece, '/controls/chest'),
-      ears: Ears = withNavigateToOnClick(EarsPiece, '/controls/ears'),
-      eyes: Eyes = EyesPiece,
-      hair: Hair = withNavigateToOnClick(HairPiece, '/controls/hair'),
-      head: Head = withNavigateToOnClick(HeadPiece, '/controls/head'),
-      mouth: Mouth = withNavigateToOnClick(MouthPiece, '/controls/mouth'),
-      nose: Nose = withNavigateToOnClick(NosePiece, '/controls/nose'),
-      pants: Pants = withNavigateToOnClick(PantsPiece, '/controls/pants'),
-    },
-    ref
-  ) => {
-    const sizeFromStore = useRootSelector(selectors.avatar.size.select)
-    const backgroundRadiusFromStore = useRootSelector(selectors.avatar.background.radius.select)
-    const backgroundColorFromStore = useRootSelector(selectors.avatar.background.color.select)
-
-    const defsBuilder = useSvgDefsBuilder()
-
-    const clipPathUrl = defsBuilder.addDef('clip-path', (id) => (
-      <clipPath id={id}>
-        <rect
-          x={0}
-          y={0}
-          width={360}
-          height={360}
-          rx={backgroundRadius ?? backgroundRadiusFromStore}
-          ry={backgroundRadius ?? backgroundRadiusFromStore}
-        />
-      </clipPath>
-    ))
-
-    return (
-      <svg
-        ref={ref}
-        viewBox="0 0 360 360"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        width={size ?? sizeFromStore}
-        height={size ?? sizeFromStore}
-      >
-        <g clipPath={clipPathUrl}>
-          <rect
-            x={0}
-            y={0}
-            width={360}
-            height={360}
-            {...defsBuilder.addFillColor(backgroundColor ?? backgroundColorFromStore)}
-          />
-          <Ears />
-          <Head />
-          <Blush />
-          <Eyes />
-          <Nose />
-          <Mouth />
-          <Hair />
-          <Body />
-          <Chest />
-          <Pants />
-        </g>
-
-        {defsBuilder.build()}
-      </svg>
-    )
-  }
+export const AvatarIcon = (props: Omit<SvgIconProps, 'viewBox' | 'children'>) => (
+  <SvgIcon {...props} viewBox="0 0 360 360">
+    <AvatarContent withoutNavigateToOnClick />
+  </SvgIcon>
 )
+
+const AvatarContent = ({
+  withoutNavigateToOnClick = false,
+
+  blush: Blush = withoutNavigateToOnClick ? BlushPiece : withNavigateToOnClick(BlushPiece, '/controls/blush'),
+  body: Body = withoutNavigateToOnClick ? BodyPiece : withNavigateToOnClick(BodyPiece, '/controls/body'),
+  chest: Chest = withoutNavigateToOnClick ? ChestPiece : withNavigateToOnClick(ChestPiece, '/controls/chest'),
+  ears: Ears = withoutNavigateToOnClick ? EarsPiece : withNavigateToOnClick(EarsPiece, '/controls/ears'),
+  eyes: Eyes = EyesPiece,
+  hair: Hair = withoutNavigateToOnClick ? HairPiece : withNavigateToOnClick(HairPiece, '/controls/hair'),
+  head: Head = withoutNavigateToOnClick ? HeadPiece : withNavigateToOnClick(HeadPiece, '/controls/head'),
+  mouth: Mouth = withoutNavigateToOnClick ? MouthPiece : withNavigateToOnClick(MouthPiece, '/controls/mouth'),
+  nose: Nose = withoutNavigateToOnClick ? NosePiece : withNavigateToOnClick(NosePiece, '/controls/nose'),
+  pants: Pants = withoutNavigateToOnClick ? PantsPiece : withNavigateToOnClick(PantsPiece, '/controls/pants'),
+}: AvatarProps) => {
+  const backgroundRadius = useRootSelector(selectors.avatar.background.radius.select)
+  const backgroundColor = useRootSelector(selectors.avatar.background.color.select)
+
+  const defsBuilder = useSvgDefsBuilder()
+
+  const clipPathUrl = defsBuilder.addDef('clip-path', (id) => (
+    <clipPath id={id}>
+      <rect x={0} y={0} width={360} height={360} rx={backgroundRadius} ry={backgroundRadius} />
+    </clipPath>
+  ))
+
+  return (
+    <>
+      <g clipPath={clipPathUrl}>
+        <rect x={0} y={0} width={360} height={360} {...defsBuilder.addFillColor(backgroundColor)} />
+        <Ears />
+        <Head />
+        <Blush />
+        <Eyes />
+        <Nose />
+        <Mouth />
+        <Hair />
+        <Body />
+        <Chest />
+        <Pants />
+      </g>
+
+      {defsBuilder.build()}
+    </>
+  )
+}
