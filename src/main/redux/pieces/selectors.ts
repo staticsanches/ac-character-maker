@@ -8,6 +8,7 @@ import { headSelectors } from './head/selectors'
 import { mouthSelectors } from './mouth/selectors'
 import { noseSelectors } from './nose/selectors'
 import { pantsSelectors } from './pants/selectors'
+import { topSelectors } from './top/selectors'
 
 export const piecesSelectors = {
   blush: blushSelectors,
@@ -20,4 +21,5 @@ export const piecesSelectors = {
   mouth: mouthSelectors,
   nose: noseSelectors,
   pants: pantsSelectors,
+  top: topSelectors,
 } as const

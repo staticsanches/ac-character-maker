@@ -10,6 +10,7 @@ import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
+import { TopPiece } from '@/components/pieces/top/TopPiece'
 import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
@@ -29,6 +30,7 @@ export type AvatarProps = {
   mouth?: React.ElementType<{}>
   nose?: React.ElementType<{}>
   pants?: React.ElementType<{}>
+  top?: React.ElementType<{}>
 }
 
 export const Avatar = React.forwardRef<SVGSVGElement, AvatarProps>((props, ref) => {
@@ -60,6 +62,7 @@ const AvatarContent = ({
   mouth: Mouth = withoutNavigateToOnClick ? MouthPiece : withNavigateToOnClick(MouthPiece, '/controls/mouth'),
   nose: Nose = withoutNavigateToOnClick ? NosePiece : withNavigateToOnClick(NosePiece, '/controls/nose'),
   pants: Pants = withoutNavigateToOnClick ? PantsPiece : withNavigateToOnClick(PantsPiece, '/controls/pants'),
+  top: Top = TopPiece,
 }: AvatarProps) => {
   const backgroundRadius = useRootSelector(selectors.avatar.background.radius.select)
   const backgroundColor = useRootSelector(selectors.avatar.background.color.select)
@@ -86,6 +89,7 @@ const AvatarContent = ({
         <Body />
         <Chest />
         <Pants />
+        <Top />
       </g>
 
       {defsBuilder.build()}

@@ -1,6 +1,6 @@
-<svg width="213" height="163" viewBox="0 0 213 163" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <g mask="url(#mask0)">
-    <rect y="7" width="213" height="163" fill="#FFE27D" />
+<svg width="173" height="125" viewBox="0 0 173 125" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g mask="url(#mask0)" transform="translate(-20)">
+    <rect x="20" width="173" height="125" fill="#FFE27D" />
     <g filter="url(#dropShadow1)">
       <path
         d="M107.5 88C120.753 88 132 78.6332 132 66.5C132 54.3668 120.753 45 107.5 45C94.2473 45 83 54.3668 83 66.5C83 78.6332 94.2473 88 107.5 88Z"

@@ -13,9 +13,9 @@ import { getHeadInitialState, headActions, headReducer, HeadState } from './head
 import { getMouthInitialState, mouthActions, mouthReducer, MouthState } from './mouth'
 import { getNoseInitialState, noseActions, noseReducer, NoseState } from './nose'
 import { getPantsInitialState, pantsActions, pantsReducer, PantsState } from './pants'
+import { getTopInitialState, topActions, topReducer, TopState } from './top'
 
 import type { PieceType } from '@/types/piece'
-
 export type PiecesState = {
   readonly blush: BlushState
   readonly body: BodyState
@@ -27,6 +27,7 @@ export type PiecesState = {
   readonly mouth: MouthState
   readonly nose: NoseState
   readonly pants: PantsState
+  readonly top: TopState
 }
 
 export const getPiecesInitialState: () => PiecesState = () => ({
@@ -40,6 +41,7 @@ export const getPiecesInitialState: () => PiecesState = () => ({
   mouth: getMouthInitialState(),
   nose: getNoseInitialState(),
   pants: getPantsInitialState(),
+  top: getTopInitialState(),
 })
 
 const resetNestedSlice = <Key extends keyof PiecesState>(key: Key, state: PiecesState) => {
@@ -68,6 +70,7 @@ const nestedReducer = combineReducers({
   mouth: mouthReducer,
   nose: noseReducer,
   pants: pantsReducer,
+  top: topReducer,
 })
 
 const piecesReducer = reduceReducers(originalReducer, nestedReducer) as Reducer<PiecesState>
@@ -85,6 +88,7 @@ const piecesActions = {
   mouth: mouthActions,
   nose: noseActions,
   pants: pantsActions,
+  top: topActions,
 }
 
 export { piecesReducer, piecesActions }

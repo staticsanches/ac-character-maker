@@ -1,7 +1,6 @@
 import { AvatarIcon } from '@/components/Avatar'
 import { HairVariant, hairVariants } from '@/components/pieces/HairPiece'
-import { withRootStateContext } from '@/hoc/withRootStateContext'
-import { useRootSelector } from '@/hooks/useRootSelector'
+import { RootStateProvider, useRootSelector } from '@/hooks/useRootSelector'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
 import { Grid } from '@mui/material'
@@ -55,10 +54,11 @@ const hairPresetColors = [
 
 const AvatarGridElement = ({ state }: { state: DeepPartial<RootState> }) => {
   const baseState = useRootSelector((state) => state)
-  const Avatar = withRootStateContext(AvatarIcon, state, baseState)
   return (
     <Grid container item xs={4}>
-      <Avatar sx={{ width: '100%', height: '100%' }} />
+      <RootStateProvider base={baseState} override={state}>
+        <AvatarIcon sx={{ width: '100%', height: '100%' }} />
+      </RootStateProvider>
     </Grid>
   )
 }

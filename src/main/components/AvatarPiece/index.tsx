@@ -1,9 +1,10 @@
-import React from 'react';
+import React from 'react'
 
-import classes from '@/css/HighlightOnHover.module.css';
-import { SvgIcon, SvgIconProps } from '@mui/material';
+import classes from '@/css/HighlightOnHover.module.css'
+import { SvgIcon, SvgIconProps } from '@mui/material'
 
 import type { PieceType } from '@/types/piece'
+
 export type AvatarPieceBaseProps = Partial<Dimension> & {
   readonly omitXY?: boolean
 }

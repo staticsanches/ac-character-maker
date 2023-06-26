@@ -12,6 +12,7 @@ import { HeadControls } from '@/components/controls/HeadControls'
 import { MouthControls } from '@/components/controls/MouthControls'
 import { NoseControls } from '@/components/controls/NoseControls'
 import { PantsControls } from '@/components/controls/PantsControls'
+import { TopControls } from '@/components/controls/TopControls'
 import { DownloadableSvg } from '@/components/DownloadableSvg'
 import { Container, Grid } from '@mui/material'
 
@@ -43,6 +44,7 @@ export const MakerPage = () => {
             <Route path="/controls/mouth" element={<MouthControls navigateBackTo="/" />} />
             <Route path="/controls/nose" element={<NoseControls navigateBackTo="/" />} />
             <Route path="/controls/pants" element={<PantsControls navigateBackTo="/" />} />
+            <Route path="/controls/top" element={<TopControls navigateBackTo="/" />} />
           </Routes>
         </Grid>
       </Grid>

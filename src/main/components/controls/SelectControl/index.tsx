@@ -47,5 +47,9 @@ export const SelectControl = <V extends string>({
   )
 }
 
-const defaultLabelFactory = (value: string) =>
-  value.replace(/^[-_]*(.)/, (_, c) => c.toUpperCase()).replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase())
+export const defaultLabelFactory = (value: string) =>
+  value
+    .replace(/--/, ':-')
+    .replace(/__/, ':_')
+    .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())
+    .replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase())
