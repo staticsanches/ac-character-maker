@@ -1,10 +1,10 @@
-<svg width="213" height="163" viewBox="0 0 213 163" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="173" height="125" viewBox="0 0 173 125" fill="none" xmlns="http://www.w3.org/2000/svg">
   <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="31" y="10" width="153" height="105">
     <path fill-rule="evenodd"
       d="M80.015 10.0121C68.1474 10.5893 37.7066 31.6923 31 45.5C33.1667 55 46.5 66.5 50.5 68.5C53.5 66.5 59.9 62.1 61.5 60.5C62.5541 59.4459 61.1082 71.3087 59.5779 83.8635C58.2047 95.1296 56.7635 106.953 57 110.5C68 113 92.9 114.5 106.5 114.5C120.1 114.5 146.5 112.5 157.5 110.5C157.736 106.953 156.295 95.1296 154.922 83.8635C153.392 71.3087 151.946 59.4459 153 60.5C154.6 62.1 161 66.5 164 68.5C168 66.5 181.333 55 183.5 45.5C176.792 31.6903 146.344 10.5832 134.48 10.0118L103 28.5L80.015 10.0121Z"
       fill="black" />
   </mask>
-  <g mask="url(#mask0)">
+  <g mask="url(#mask0)" transform="translate(-20)">
     <rect x="31" y="10" width="72" height="105" fill="#FFF4DF" />
     <g filter="url(#filter0_f)">
       <path fill-rule="evenodd"
