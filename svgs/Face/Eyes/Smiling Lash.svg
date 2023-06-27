@@ -1,16 +1,46 @@
 <svg width="134" height="59" viewBox="0 0 134 59" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path
     d="M15.7104 32.6339C17.476 30.1115 23.2411 25.2621 32.1772 26.0439C41.1133 26.8258 45.5107 32.5642 46.5924 35.3357"
-    stroke="#8C501D" stroke-width="4" stroke-linecap="round" />
+    stroke="#8C501D"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
   <path
     d="M86.4076 35.3357C87.7083 32.545 92.5438 26.7683 101.48 25.9865C110.416 25.2047 115.743 30.0923 117.29 32.6339"
-    stroke="#8C501D" stroke-width="4" stroke-linecap="round" />
-  <line x1="1.5" y1="-1.5" x2="8.5" y2="-1.5" transform="matrix(0 1 1 0 33 17)" stroke="#8C501D" stroke-width="3"
-    stroke-linecap="round" />
-  <line x1="1.5" y1="-1.5" x2="8.5" y2="-1.5" transform="matrix(-0.5 0.866025 0.866025 0.5 45.5 20.6699)"
-    stroke="#8C501D" stroke-width="3" stroke-linecap="round" />
-  <line x1="1.5" y1="-1.5" x2="8.5" y2="-1.5" transform="matrix(0.5 0.866025 0.866025 -0.5 19.5 17.6699)"
-    stroke="#8C501D" stroke-width="3" stroke-linecap="round" />
+    stroke="#8C501D"
+    stroke-width="4"
+    stroke-linecap="round"
+  />
+  <line
+    x1="1.5"
+    y1="-1.5"
+    x2="8.5"
+    y2="-1.5"
+    transform="matrix(0 1 1 0 33 17)"
+    stroke="#8C501D"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <line
+    x1="1.5"
+    y1="-1.5"
+    x2="8.5"
+    y2="-1.5"
+    transform="matrix(-0.5 0.866025 0.866025 0.5 45.5 20.6699)"
+    stroke="#8C501D"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
+  <line
+    x1="1.5"
+    y1="-1.5"
+    x2="8.5"
+    y2="-1.5"
+    transform="matrix(0.5 0.866025 0.866025 -0.5 19.5 17.6699)"
+    stroke="#8C501D"
+    stroke-width="3"
+    stroke-linecap="round"
+  />
   <line x1="102" y1="18.5" x2="102" y2="25.5" stroke="#8C501D" stroke-width="3" stroke-linecap="round" />
   <line x1="90.049" y1="21.2189" x2="93.549" y2="27.2811" stroke="#8C501D" stroke-width="3" stroke-linecap="round" />
   <line x1="114.549" y1="19.7189" x2="111.049" y2="25.7811" stroke="#8C501D" stroke-width="3" stroke-linecap="round" />

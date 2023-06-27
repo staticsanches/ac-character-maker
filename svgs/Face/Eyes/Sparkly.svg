@@ -5,8 +5,16 @@
   <circle cx="101.5" cy="21.5" r="5.5" fill="white" />
   <ellipse cx="35.5" cy="37" rx="2.5" ry="3" fill="white" />
   <ellipse cx="111.5" cy="37" rx="2.5" ry="3" fill="white" />
-  <path d="M14 13C14 13.6667 14.7 16.2 15.5 17C16.5 18 18 18.5 19.5 18" stroke="#8C501D" stroke-width="2"
-    stroke-linecap="round" />
-  <path d="M90 13C90 13.6667 90.7 16.2 91.5 17C92.5 18 94 18.5 95.5 18" stroke="#8C501D" stroke-width="2"
-    stroke-linecap="round" />
+  <path
+    d="M14 13C14 13.6667 14.7 16.2 15.5 17C16.5 18 18 18.5 19.5 18"
+    stroke="#8C501D"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+  <path
+    d="M90 13C90 13.6667 90.7 16.2 91.5 17C92.5 18 94 18.5 95.5 18"
+    stroke="#8C501D"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
 </svg>

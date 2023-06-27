@@ -1,168 +1,549 @@
 <svg width="213" height="164" viewBox="0 0 213 164" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="3" y="10" width="209" height="154">
+  <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="3" y="10" width="209" height="154">
     <path
       d="M41 38.3815C51.1212 25.5 71 10.8815 82.5 10.8815C87.3664 12.8544 100.438 14.9153 105.94 17.3276C107.091 19.4389 107.097 20.6283 107.41 20.941C107.723 20.6283 107.902 19.4389 109.054 17.3276C114.555 14.9153 127.634 12.8544 132.5 10.8815C144 10.8815 164.665 26.5 174 38.3815C185 52.3815 209.5 80 211.5 82C210.5 84.1667 207.6 89.2 204 92C200.4 94.8 189.5 102.5 187 102.5C177.167 89 156.7 61.7 153.5 60.5C159 92 170 156.7 170 163.5H45.5C44.7 155.9 55.8333 91.6667 61.5 60.5C58.3 61.7 37.8333 89 28 102.5C25.5 102.5 14.6 94.8 11 92C7.4 89.2 4.5 84.1667 3.5 82C5.5 80 30 52.3815 41 38.3815Z"
-      fill="black" />
+      fill="black"
+    />
   </mask>
   <g mask="url(#mask0)">
     <rect width="213" height="163" fill="#8A4C03" />
-    <mask id="mask1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="1" y="4" width="98" height="172">
+    <mask id="mask1" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="1" y="4" width="98" height="172">
       <path
         d="M88.1039 167.88C82.4952 156.93 92.6667 59.6027 98.4535 12.3078L72.4134 4.96313L1.6377 71.7324V95.1017L44.3702 175.893L88.1039 167.88Z"
-        fill="#C4C4C4" />
+        fill="#C4C4C4"
+      />
     </mask>
     <g mask="url(#mask1)">
-      <rect x="75" y="8.27762" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="60" y="8.27759" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="45" y="8.27759" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="30" y="42.3539" width="4" height="61.7616" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="15" y="57.0432" width="4" height="47.0724" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="90" y="8.27762" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="213" y="79.2994" width="4" height="213" transform="rotate(90 213 79.2994)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="34.2995" width="4" height="164.767" transform="rotate(90 191.641 34.2995)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="204.283" y="64.2995" width="4" height="193.965" transform="rotate(90 204.283 64.2995)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="19.2995" width="4" height="164.767" transform="rotate(90 191.641 19.2995)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="207.955" y="94.2994" width="4" height="196.636" transform="rotate(90 207.955 94.2994)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="49.2995" width="4" height="164.767" transform="rotate(90 191.641 49.2995)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="109.3" width="4" height="164.767" transform="rotate(90 191.641 109.3)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="124.3" width="4" height="164.767" transform="rotate(90 191.641 124.3)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="139.3" width="4" height="164.767" transform="rotate(90 191.641 139.3)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="191.641" y="154.3" width="4" height="164.767" transform="rotate(90 191.641 154.3)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
+      <rect
+        x="75"
+        y="8.27762"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="60"
+        y="8.27759"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="45"
+        y="8.27759"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="30"
+        y="42.3539"
+        width="4"
+        height="61.7616"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="15"
+        y="57.0432"
+        width="4"
+        height="47.0724"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="90"
+        y="8.27762"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="213"
+        y="79.2994"
+        width="4"
+        height="213"
+        transform="rotate(90 213 79.2994)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="34.2995"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 34.2995)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="204.283"
+        y="64.2995"
+        width="4"
+        height="193.965"
+        transform="rotate(90 204.283 64.2995)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="19.2995"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 19.2995)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="207.955"
+        y="94.2994"
+        width="4"
+        height="196.636"
+        transform="rotate(90 207.955 94.2994)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="49.2995"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 49.2995)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="109.3"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 109.3)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="124.3"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 124.3)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="139.3"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 139.3)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="191.641"
+        y="154.3"
+        width="4"
+        height="164.767"
+        transform="rotate(90 191.641 154.3)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
     </g>
     <g filter="url(#filter0_d)">
       <path
         d="M88.1038 167.88C82.4951 156.93 92.6666 59.6027 98.4534 12.3078L124.16 8.63544L154.873 12.3078L213.631 77.074V89.0925L184.252 108.789L176.24 167.88C149.198 172.443 93.7126 178.83 88.1038 167.88Z"
-        fill="#9B5401" />
+        fill="#9B5401"
+      />
     </g>
-    <mask id="mask2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="86" y="8" width="128" height="166">
+    <mask id="mask2" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="86" y="8" width="128" height="166">
       <path
         d="M88.1038 167.88C82.4951 156.93 92.6666 59.6027 98.4534 12.3078L124.16 8.63544L154.873 12.3078L213.631 77.074V89.0925L184.252 108.789L176.24 167.88C149.198 172.443 93.7126 178.83 88.1038 167.88Z"
-        fill="#C4C4C4" />
+        fill="#C4C4C4"
+      />
     </mask>
     <g mask="url(#mask2)">
-      <rect x="91" y="14.6207" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="106" y="14.6207" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="121" y="14.6207" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="136" y="14.6207" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="151" y="14.6207" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="166" y="28.6662" width="4" height="150.721" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="181" y="49.0309" width="4" height="63.097" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="196" y="49.0309" width="4" height="63.097" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="214" y="85.6425" width="4" height="213" transform="rotate(90 214 85.6425)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="40.6425" width="4" height="164.767" transform="rotate(90 192.641 40.6425)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="205.283" y="70.6426" width="4" height="193.965" transform="rotate(90 205.283 70.6426)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="25.6425" width="4" height="164.767" transform="rotate(90 192.641 25.6425)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="208.955" y="100.643" width="4" height="196.636" transform="rotate(90 208.955 100.643)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="55.6425" width="4" height="164.767" transform="rotate(90 192.641 55.6425)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="115.643" width="4" height="164.767" transform="rotate(90 192.641 115.643)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="130.643" width="4" height="164.767" transform="rotate(90 192.641 130.643)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="145.643" width="4" height="164.767" transform="rotate(90 192.641 145.643)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="192.641" y="160.643" width="4" height="164.767" transform="rotate(90 192.641 160.643)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
+      <rect
+        x="91"
+        y="14.6207"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="106"
+        y="14.6207"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="121"
+        y="14.6207"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="136"
+        y="14.6207"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="151"
+        y="14.6207"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="166"
+        y="28.6662"
+        width="4"
+        height="150.721"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="181"
+        y="49.0309"
+        width="4"
+        height="63.097"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="196"
+        y="49.0309"
+        width="4"
+        height="63.097"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="214"
+        y="85.6425"
+        width="4"
+        height="213"
+        transform="rotate(90 214 85.6425)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="40.6425"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 40.6425)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="205.283"
+        y="70.6426"
+        width="4"
+        height="193.965"
+        transform="rotate(90 205.283 70.6426)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="25.6425"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 25.6425)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="208.955"
+        y="100.643"
+        width="4"
+        height="196.636"
+        transform="rotate(90 208.955 100.643)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="55.6425"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 55.6425)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="115.643"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 115.643)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="130.643"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 130.643)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="145.643"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 145.643)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="192.641"
+        y="160.643"
+        width="4"
+        height="164.767"
+        transform="rotate(90 192.641 160.643)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
     </g>
     <g filter="url(#filter1_d)">
       <path
         d="M97.7672 68.4997C95.6284 70.1039 49.3435 58.7705 26.4684 52.9032C23.2405 37.573 60.4946 13.9372 79.5252 4.03557L107.5 10.5385V21.105C105.147 36.2348 99.906 66.8955 97.7672 68.4997Z"
-        fill="#A55C07" />
+        fill="#A55C07"
+      />
     </g>
-    <mask id="mask3" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="26" y="3" width="82" height="66">
+    <mask id="mask3" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="26" y="3" width="82" height="66">
       <path
         d="M97.7057 68.3888C95.5669 69.993 49.282 58.6595 26.4069 52.7923C23.179 37.4621 60.4331 13.8262 79.4636 3.92462L107.439 10.4276V20.994C105.085 36.1239 99.8445 66.7846 97.7057 68.3888Z"
-        fill="#BE6B0A" />
+        fill="#BE6B0A"
+      />
     </mask>
     <g mask="url(#mask3)">
-      <rect x="45.8843" y="24.6813" width="4" height="35.9825" transform="rotate(15.1239 45.8843 24.6813)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="65.6187" y="9.15398" width="4" height="54.1" transform="rotate(15.1239 65.6187 9.15398)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="81.6016" y="7.50949" width="4" height="59.213" transform="rotate(15.1239 81.6016 7.50949)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="96.8296" y="8.65668" width="4" height="62.5665" transform="rotate(15.1239 96.8296 8.65668)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="101.245" y="67.947" width="4" height="80.7015" transform="rotate(105.124 101.245 67.947)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="163.097" y="38.049" width="4" height="164.767" transform="rotate(105.124 163.097 38.049)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="106.353" y="53.7892" width="4" height="72.9405" transform="rotate(105.124 106.353 53.7892)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="105.625" y="38.0543" width="4" height="62.7495" transform="rotate(105.124 105.625 38.0543)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
+      <rect
+        x="45.8843"
+        y="24.6813"
+        width="4"
+        height="35.9825"
+        transform="rotate(15.1239 45.8843 24.6813)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="65.6187"
+        y="9.15398"
+        width="4"
+        height="54.1"
+        transform="rotate(15.1239 65.6187 9.15398)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="81.6016"
+        y="7.50949"
+        width="4"
+        height="59.213"
+        transform="rotate(15.1239 81.6016 7.50949)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="96.8296"
+        y="8.65668"
+        width="4"
+        height="62.5665"
+        transform="rotate(15.1239 96.8296 8.65668)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="101.245"
+        y="67.947"
+        width="4"
+        height="80.7015"
+        transform="rotate(105.124 101.245 67.947)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="163.097"
+        y="38.049"
+        width="4"
+        height="164.767"
+        transform="rotate(105.124 163.097 38.049)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="106.353"
+        y="53.7892"
+        width="4"
+        height="72.9405"
+        transform="rotate(105.124 106.353 53.7892)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="105.625"
+        y="38.0543"
+        width="4"
+        height="62.7495"
+        transform="rotate(105.124 105.625 38.0543)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
     </g>
     <g filter="url(#filter2_d)">
       <path
         d="M117.233 68.4997C119.372 70.1039 165.656 58.7705 188.532 52.9032C191.759 37.573 154.505 13.9372 135.475 4.03558L107.5 10.5385V21.105C109.853 36.2348 115.094 66.8955 117.233 68.4997Z"
-        fill="#A55C07" />
+        fill="#A55C07"
+      />
     </g>
-    <mask id="mask4" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="107" y="3" width="82" height="66">
+    <mask id="mask4" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="107" y="3" width="82" height="66">
       <path
         d="M117.294 68.3888C119.433 69.993 165.718 58.6595 188.593 52.7923C191.821 37.4621 154.567 13.8262 135.536 3.92462L107.561 10.4276V20.994C109.915 36.1239 115.155 66.7846 117.294 68.3888Z"
-        fill="#BE6B0A" />
+        fill="#BE6B0A"
+      />
     </mask>
     <g mask="url(#mask4)">
-      <rect width="4" height="35.9825" transform="matrix(-0.965364 0.260907 0.260907 0.965364 169.116 24.6813)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="54.1" transform="matrix(-0.965364 0.260907 0.260907 0.965364 149.381 9.15398)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="59.213" transform="matrix(-0.965364 0.260907 0.260907 0.965364 133.398 7.50949)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="62.5665" transform="matrix(-0.965364 0.260907 0.260907 0.965364 118.17 8.65668)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="80.7015" transform="matrix(0.260907 0.965364 0.965364 -0.260907 113.755 67.947)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="164.767" transform="matrix(0.260907 0.965364 0.965364 -0.260907 51.9028 38.049)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="72.9405" transform="matrix(0.260907 0.965364 0.965364 -0.260907 108.647 53.7892)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect width="4" height="62.7495" transform="matrix(0.260907 0.965364 0.965364 -0.260907 109.375 38.0543)"
-        fill="#FFD79B" fill-opacity="0.2" style="mix-blend-mode:overlay" />
+      <rect
+        width="4"
+        height="35.9825"
+        transform="matrix(-0.965364 0.260907 0.260907 0.965364 169.116 24.6813)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="54.1"
+        transform="matrix(-0.965364 0.260907 0.260907 0.965364 149.381 9.15398)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="59.213"
+        transform="matrix(-0.965364 0.260907 0.260907 0.965364 133.398 7.50949)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="62.5665"
+        transform="matrix(-0.965364 0.260907 0.260907 0.965364 118.17 8.65668)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="80.7015"
+        transform="matrix(0.260907 0.965364 0.965364 -0.260907 113.755 67.947)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="164.767"
+        transform="matrix(0.260907 0.965364 0.965364 -0.260907 51.9028 38.049)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="72.9405"
+        transform="matrix(0.260907 0.965364 0.965364 -0.260907 108.647 53.7892)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        width="4"
+        height="62.7495"
+        transform="matrix(0.260907 0.965364 0.965364 -0.260907 109.375 38.0543)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
     </g>
     <g filter="url(#filter3_i)">
       <path
         d="M36.8665 96.8325C32.4999 94.8477 13.6438 79.2667 8.58234 71.9227L0.643066 80.7553L10.865 95.3439L29.4233 105.764L36.8665 96.8325Z"
-        fill="#854903" />
+        fill="#854903"
+      />
     </g>
     <g filter="url(#filter4_i)">
       <path
         d="M178.062 96.8325C182.428 94.8477 201.284 79.2667 206.346 71.9227L214.285 80.7553L204.063 95.3439L185.505 105.764L178.062 96.8325Z"
-        fill="#854903" />
+        fill="#854903"
+      />
     </g>
     <g filter="url(#filter5_d)">
       <path
         d="M85.7908 24.5941C84.6012 29.3591 86.0879 34.8969 86.6829 35.9272C97.0919 37.3438 103.335 37.203 107.499 37.203L107.415 37.203C111.579 37.203 117.908 37.3438 128.317 35.9272C128.912 34.8969 130.398 29.3591 129.209 24.5941C121.774 23.1774 112.555 23.1774 107.499 23.1774L107.555 23.1774C102.499 23.1774 93.2256 23.1774 85.7908 24.5941Z"
-        fill="#8A4C03" />
+        fill="#8A4C03"
+      />
     </g>
     <g filter="url(#filter6_d)">
       <circle cx="120.32" cy="29.7317" r="4.34471" fill="#583408" />
@@ -173,147 +554,339 @@
     <g filter="url(#filter8_d)">
       <path
         d="M105.829 87.2598C95.5798 87.2598 65.0553 86.5398 53.0239 81.5L50.7954 96.1394C62.8268 101.179 95.5798 101.899 105.829 101.899C116.078 101.899 157.743 97.8193 164.205 96.1394L162.422 81.5C155.961 83.1799 116.078 87.2598 105.829 87.2598Z"
-        fill="#935309" />
+        fill="#935309"
+      />
     </g>
-    <mask id="mask5" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="50" y="81" width="115" height="21">
+    <mask id="mask5" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="50" y="81" width="115" height="21">
       <path
         d="M105.829 87.2598C95.5798 87.2598 65.0553 86.5398 53.0239 81.5L50.7954 96.1394C62.8268 101.179 95.5798 101.899 105.829 101.899C116.078 101.899 157.743 97.8193 164.205 96.1394L162.422 81.5C155.961 83.1799 116.078 87.2598 105.829 87.2598Z"
-        fill="#7D4400" />
+        fill="#7D4400"
+      />
     </mask>
     <g mask="url(#mask5)">
-      <rect x="68.3232" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="53.3232" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="83.3232" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="98.3232" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="113.323" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="128.323" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="143.323" y="-22.7972" width="4" height="164.767" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="158.323" y="-8.75167" width="4" height="150.721" fill="#FFD79B" fill-opacity="0.2"
-        style="mix-blend-mode:overlay" />
-      <rect x="184.964" y="78.2248" width="4" height="164.767" transform="rotate(90 184.964 78.2248)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
-      <rect x="184.964" y="93.2248" width="4" height="164.767" transform="rotate(90 184.964 93.2248)" fill="#FFD79B"
-        fill-opacity="0.2" style="mix-blend-mode:overlay" />
+      <rect
+        x="68.3232"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="53.3232"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="83.3232"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="98.3232"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="113.323"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="128.323"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="143.323"
+        y="-22.7972"
+        width="4"
+        height="164.767"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="158.323"
+        y="-8.75167"
+        width="4"
+        height="150.721"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="184.964"
+        y="78.2248"
+        width="4"
+        height="164.767"
+        transform="rotate(90 184.964 78.2248)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
+      <rect
+        x="184.964"
+        y="93.2248"
+        width="4"
+        height="164.767"
+        transform="rotate(90 184.964 93.2248)"
+        fill="#FFD79B"
+        fill-opacity="0.2"
+        style="mix-blend-mode: overlay"
+      />
     </g>
     <g filter="url(#filter9_d)">
-      <rect x="100.214" y="85.0948" width="14.5718" height="19.4825" stroke="#583408" stroke-width="5"
-        stroke-linecap="round" stroke-linejoin="round" />
+      <rect
+        x="100.214"
+        y="85.0948"
+        width="14.5718"
+        height="19.4825"
+        stroke="#583408"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </g>
   </g>
   <defs>
-    <filter id="filter0_d" x="80.4702" y="8.63544" width="135.16" height="173.291" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter0_d"
+      x="80.4702"
+      y="8.63544"
+      width="135.16"
+      height="173.291"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dx="-2" dy="4" />
       <feGaussianBlur stdDeviation="2" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.458824 0 0 0 0 0.258824 0 0 0 0 0.027451 0 0 0 0.7 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter1_d" x="23.2715" y="3.03557" width="87.2285" height="70.618" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter1_d"
+      x="23.2715"
+      y="3.03557"
+      width="87.2285"
+      height="70.618"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="2" />
       <feGaussianBlur stdDeviation="1.5" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.458333 0 0 0 0 0.2602 0 0 0 0 0.0286458 0 0 0 0.8 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter2_d" x="104.5" y="3.03558" width="87.2285" height="70.618" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter2_d"
+      x="104.5"
+      y="3.03558"
+      width="87.2285"
+      height="70.618"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="2" />
       <feGaussianBlur stdDeviation="1.5" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.458824 0 0 0 0 0.258824 0 0 0 0 0.027451 0 0 0 0.8 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter3_i" x="0.643066" y="71.9227" width="36.2236" height="34.8416" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter3_i"
+      x="0.643066"
+      y="71.9227"
+      width="36.2236"
+      height="34.8416"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
       <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="1" />
       <feGaussianBlur stdDeviation="2" />
       <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.395833 0 0 0 0 0.228362 0 0 0 0 0.0313368 0 0 0 0.8 0" />
       <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
     </filter>
-    <filter id="filter4_i" x="178.062" y="71.9227" width="36.2236" height="34.8416" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter4_i"
+      x="178.062"
+      y="71.9227"
+      width="36.2236"
+      height="34.8416"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
       <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="1" />
       <feGaussianBlur stdDeviation="2" />
       <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.395833 0 0 0 0 0.228362 0 0 0 0 0.0313368 0 0 0 0.8 0" />
       <feBlend mode="normal" in2="shape" result="effect1_innerShadow" />
     </filter>
-    <filter id="filter5_d" x="82.3423" y="21.1774" width="50.3149" height="20.0295" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter5_d"
+      x="82.3423"
+      y="21.1774"
+      width="50.3149"
+      height="20.0295"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="1" />
       <feGaussianBlur stdDeviation="1.5" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.454167 0 0 0 0 0.24433 0 0 0 0 0 0 0 0 0.7 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter6_d" x="113.976" y="24.387" width="12.6895" height="12.6894" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter6_d"
+      x="113.976"
+      y="24.387"
+      width="12.6895"
+      height="12.6894"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="1" />
       <feGaussianBlur stdDeviation="1" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.345098 0 0 0 0 0.203922 0 0 0 0 0.0313726 0 0 0 0.4 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter7_d" x="88.3525" y="24.387" width="12.6895" height="12.6894" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter7_d"
+      x="88.3525"
+      y="24.387"
+      width="12.6895"
+      height="12.6894"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="1" />
       <feGaussianBlur stdDeviation="1" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.345098 0 0 0 0 0.203922 0 0 0 0 0.0313726 0 0 0 0.4 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter8_d" x="47.7954" y="80.5" width="119.409" height="26.3992" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter8_d"
+      x="47.7954"
+      y="80.5"
+      width="119.409"
+      height="26.3992"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="2" />
       <feGaussianBlur stdDeviation="1.5" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.345098 0 0 0 0 0.203922 0 0 0 0 0.0313726 0 0 0 0.6 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter9_d" x="95.7139" y="80.5948" width="25.5718" height="30.4825" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter9_d"
+      x="95.7139"
+      y="80.5948"
+      width="25.5718"
+      height="30.4825"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dx="1" dy="1" />
       <feGaussianBlur stdDeviation="1.5" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.345098 0 0 0 0 0.203922 0 0 0 0 0.0313726 0 0 0 0.5 0" />
