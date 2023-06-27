@@ -7,12 +7,13 @@ import { useRootSelector } from '@/hooks/useRootSelector'
 import { selectors } from '@/redux/selectors'
 
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
+import { TeeDots } from '../TeeDots'
 import { TeeSingleColor } from '../TeeSingleColor'
 
 import type { OnClickProps } from '@/types/react'
 
 export type TopVariant = (typeof topVariants)[number]
-export const topVariants = ['tee--single-color', 'tee--adventure-awaits'] as const
+export const topVariants = ['tee--adventure-awaits', 'tee--dots', 'tee--single-color'] as const
 
 export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => {
@@ -44,10 +45,12 @@ export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
 
 const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.Element => {
   switch (variant) {
-    case 'tee--single-color':
-      return <TeeSingleColor onClick={onClick} />
     case 'tee--adventure-awaits':
       return <TeeAdventureAwaits onClick={onClick} />
+    case 'tee--dots':
+      return <TeeDots onClick={onClick} />
+    case 'tee--single-color':
+      return <TeeSingleColor onClick={onClick} />
   }
 }
 
