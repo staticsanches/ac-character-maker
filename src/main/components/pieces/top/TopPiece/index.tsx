@@ -8,12 +8,12 @@ import { selectors } from '@/redux/selectors'
 
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
+import { TeeFlames } from '../TeeFlames'
 import { TeeSingleColor } from '../TeeSingleColor'
 
 import type { OnClickProps } from '@/types/react'
-
 export type TopVariant = (typeof topVariants)[number]
-export const topVariants = ['tee--adventure-awaits', 'tee--dots', 'tee--single-color'] as const
+export const topVariants = ['tee--adventure-awaits', 'tee--dots', 'tee--flames', 'tee--single-color'] as const
 
 export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => {
@@ -49,6 +49,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <TeeAdventureAwaits onClick={onClick} />
     case 'tee--dots':
       return <TeeDots onClick={onClick} />
+    case 'tee--flames':
+      return <TeeFlames onClick={onClick} />
     case 'tee--single-color':
       return <TeeSingleColor onClick={onClick} />
   }
