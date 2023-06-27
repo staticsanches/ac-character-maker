@@ -1,22 +1,34 @@
 <svg width="134" height="59" viewBox="0 0 134 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="83" y="10" width="44" height="39">
+  <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="83" y="10" width="44" height="39">
     <ellipse cx="105" cy="29.5" rx="22" ry="19.5" fill="white" />
   </mask>
   <g mask="url(#mask0)">
     <path
       d="M126 29.5C126 39.6073 116.715 48 105 48C93.2852 48 84 39.6073 84 29.5C84 19.3927 93.2852 11 105 11C116.715 11 126 19.3927 126 29.5Z"
-      fill="white" stroke="#8C501D" stroke-width="2" />
+      fill="white"
+      stroke="#8C501D"
+      stroke-width="2"
+    />
     <ellipse cx="110.5" cy="28" rx="17.5" ry="18" fill="#8C501D" />
-    <rect x="91.6039" y="0.724915" width="45.7598" height="19.0733" transform="rotate(21.9769 91.6039 0.724915)"
-      fill="#FFAFA4" />
+    <rect
+      x="91.6039"
+      y="0.724915"
+      width="45.7598"
+      height="19.0733"
+      transform="rotate(21.9769 91.6039 0.724915)"
+      fill="#FFAFA4"
+    />
   </g>
-  <mask id="mask1" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="7" y="10" width="44" height="39">
+  <mask id="mask1" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="7" y="10" width="44" height="39">
     <ellipse cx="29" cy="29.5" rx="22" ry="19.5" fill="white" />
   </mask>
   <g mask="url(#mask1)">
     <path
       d="M50 29.5C50 39.6073 40.7148 48 29 48C17.2852 48 8 39.6073 8 29.5C8 19.3927 17.2852 11 29 11C40.7148 11 50 19.3927 50 29.5Z"
-      fill="white" stroke="#8C501D" stroke-width="2" />
+      fill="white"
+      stroke="#8C501D"
+      stroke-width="2"
+    />
     <ellipse cx="34.5" cy="28" rx="17.5" ry="18" fill="#8C501D" />
     <rect y="17.8511" width="45.7598" height="19.0733" transform="rotate(-21.98 0 17.8511)" fill="#FFAFA4" />
   </g>

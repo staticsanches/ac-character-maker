@@ -1,69 +1,122 @@
 <svg width="213" height="163" viewBox="0 0 213 163" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <mask id="mask0" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="56" y="10" width="103" height="105">
+  <mask id="mask0" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="56" y="10" width="103" height="105">
     <path
       d="M107.5 17.5C93 17.5 88.6666 13 82.4999 10.5C79.6666 11.1667 72.8999 13.4 70.4999 15C70.2053 27.4692 69.8464 52.163 64.9999 57C64 62 56.5051 103.077 57 110.5C68 113 93.8999 114.5 107.5 114.5C121.1 114.5 147 113 158 110.5C159.2 104.5 153.333 72 150.5 57C146.5 51 145.167 26.5 145 15C142.6 13.4 135.333 11.1667 132.5 10.5C126.333 13 122 17.5 107.5 17.5Z"
-      fill="black" />
+      fill="black"
+    />
   </mask>
   <g mask="url(#mask0)">
     <rect width="213" height="163" fill="#0E9152" />
     <path d="M62 116.5C72.4 115.7 72.6667 47.5 71.5 13.5H68L54 108.5L62 116.5Z" fill="#066A46" />
-    <path d="M152.972 116.5C142.572 115.7 142.306 47.5 143.472 13.5H146.972L160.972 108.5L152.972 116.5Z"
-      fill="#066A46" />
+    <path
+      d="M152.972 116.5C142.572 115.7 142.306 47.5 143.472 13.5H146.972L160.972 108.5L152.972 116.5Z"
+      fill="#066A46"
+    />
     <g filter="url(#filter0_d)">
-      <path fill-rule="evenodd"
+      <path
+        fill-rule="evenodd"
         d="M130.66 93.46C132.631 91.9816 132.402 80.9672 131.61 71.6083C127.602 73.1975 86.9569 73.5948 83.4343 71.6083C82.7677 80.932 82.7321 91.8841 84.308 93.46C86.427 95.579 128.012 95.4466 130.66 93.46Z"
-        fill="#F2FFF9" />
-      <path fill-rule="evenodd"
+        fill="#F2FFF9"
+      />
+      <path
+        fill-rule="evenodd"
         d="M130.66 63C118.741 64.3243 96.2271 64.3243 84.308 63C83.9686 65.3758 83.664 68.3954 83.4343 71.6083C86.9569 73.5948 127.602 73.1975 131.61 71.6083C131.338 68.3919 130.999 65.3711 130.66 63Z"
-        fill="#F34C4C" />
-      <path d="M90 77C92.1667 77.3333 96.5 77.5 98.5 77.5C96.6667 80.1667 93.5 87 92.5 89.5" stroke="#024930"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        fill="#F34C4C"
+      />
+      <path
+        d="M90 77C92.1667 77.3333 96.5 77.5 98.5 77.5C96.6667 80.1667 93.5 87 92.5 89.5"
+        stroke="#024930"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
       <path
         d="M116 77.9513C118.19 78.0401 122.515 77.7207 124.503 77.4969C122.979 80.352 120.597 87.4968 119.883 90.093"
-        stroke="#024930" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        stroke="#024930"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
       <path
         d="M110.091 77.9621C108.931 76.9395 106.113 75.8585 104.124 79.7152C102.309 83.2331 102.613 87.9179 105.615 89.5121M105.615 89.5121C106.727 90.1025 108.689 90.3454 110.1 89.1367C112.949 86.611 112.577 83.2213 109.096 83.6595C105.615 84.0978 101.107 85.8691 105.615 89.5121Z"
-        stroke="#024930" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        stroke="#024930"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
     </g>
     <path
       d="M132.667 30H128.083C129.194 31.2273 131.417 33.8455 131.417 34.5C131.417 35.1545 129.194 37.7727 128.083 39H132.667C133.778 37.7727 136 35.1545 136 34.5C136 33.8455 133.778 31.2273 132.667 30Z"
-      fill="#96EDC4" />
+      fill="#96EDC4"
+    />
     <path
       d="M121 30H125.583C126.694 31.2273 128.917 33.8455 128.917 34.5C128.917 35.1545 126.694 37.7727 125.583 39H121C122.111 37.7727 124.333 35.1545 124.333 34.5C124.333 33.8455 122.111 31.2273 121 30Z"
-      fill="#96EDC4" />
+      fill="#96EDC4"
+    />
     <path
       d="M132.667 30H128.083C129.194 31.2273 131.417 33.8455 131.417 34.5C131.417 35.1545 129.194 37.7727 128.083 39H132.667C133.778 37.7727 136 35.1545 136 34.5C136 33.8455 133.778 31.2273 132.667 30Z"
-      stroke="#96EDC4" stroke-linecap="round" stroke-linejoin="round" />
+      stroke="#96EDC4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
     <path
       d="M121 30H125.583C126.694 31.2273 128.917 33.8455 128.917 34.5C128.917 35.1545 126.694 37.7727 125.583 39H121C122.111 37.7727 124.333 35.1545 124.333 34.5C124.333 33.8455 122.111 31.2273 121 30Z"
-      stroke="#96EDC4" stroke-linecap="round" stroke-linejoin="round" />
+      stroke="#96EDC4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
     <path d="M77 8C81.8333 11.5 94.6 19 107 19C119.4 19 133.833 11 138.5 7.5" stroke="#066A46" stroke-width="3" />
     <g filter="url(#filter1_d)">
       <path
         d="M157.875 58.5116C119.747 63.2303 89.3712 23.4834 78.9494 3.02004L67.4588 9.10012C79.6235 35.763 115.601 85.806 162.192 72.6751L157.875 58.5116Z"
-        fill="#AAFF76" />
+        fill="#AAFF76"
+      />
       <path
         d="M157.875 58.5116C119.747 63.2303 89.3712 23.4834 78.9494 3.02004L67.4588 9.10012C79.6235 35.763 115.601 85.806 162.192 72.6751L157.875 58.5116Z"
-        stroke="#75DB37" stroke-width="3" />
+        stroke="#75DB37"
+        stroke-width="3"
+      />
     </g>
   </g>
   <defs>
-    <filter id="filter0_d" x="82" y="62" width="53.1895" height="36" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter0_d"
+      x="82"
+      y="62"
+      width="53.1895"
+      height="36"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dx="1" dy="1" />
       <feGaussianBlur stdDeviation="1" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.0238194 0 0 0 0 0.408333 0 0 0 0 0.269908 0 0 0 0.4 0" />
       <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
       <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
     </filter>
-    <filter id="filter1_d" x="61.5071" y="-1.01837" width="106.567" height="83.3514" filterUnits="userSpaceOnUse"
-      color-interpolation-filters="sRGB">
+    <filter
+      id="filter1_d"
+      x="61.5071"
+      y="-1.01837"
+      width="106.567"
+      height="83.3514"
+      filterUnits="userSpaceOnUse"
+      color-interpolation-filters="sRGB"
+    >
       <feFlood flood-opacity="0" result="BackgroundImageFix" />
-      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        result="hardAlpha" />
+      <feColorMatrix
+        in="SourceAlpha"
+        type="matrix"
+        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        result="hardAlpha"
+      />
       <feOffset dy="2" />
       <feGaussianBlur stdDeviation="2" />
       <feColorMatrix type="matrix" values="0 0 0 0 0.103924 0 0 0 0 0.608333 0 0 0 0 0.367769 0 0 0 0.3 0" />

@@ -9,23 +9,29 @@ import { selectors } from '@/redux/selectors'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeSingleColor } from '../TeeSingleColor'
 
+import type { OnClickProps } from '@/types/react'
+
 export type TopVariant = (typeof topVariants)[number]
 export const topVariants = ['tee--single-color', 'tee--adventure-awaits'] as const
 
-export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps>((avatarPieceProps, ref) => {
-  const variant = useRootSelector(selectors.pieces.top.variant.select)
-  return (
-    <AvatarPiece
-      ref={ref}
-      {...avatarPieceProps}
-      pieceType="top"
-      viewBoxDimension={viewBoxDimension(variant)}
-      position={position(variant)}
-      contentComponent={Top}
-      variant={variant}
-    />
-  )
-})
+export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
+  ({ onClick, ...avatarPieceProps }, ref) => {
+    const variant = useRootSelector(selectors.pieces.top.variant.select)
+    return (
+      <AvatarPiece
+        ref={ref}
+        {...avatarPieceProps}
+        pieceType="top"
+        viewBoxDimension={viewBoxDimension(variant)}
+        position={position(variant)}
+        highlightOnHover={!!onClick}
+        contentComponent={Top}
+        variant={variant}
+        onClick={onClick}
+      />
+    )
+  }
+)
 
 export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
   const variant = useRootSelector(selectors.pieces.top.variant.select)
@@ -36,12 +42,12 @@ export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
   )
 }
 
-const Top = ({ variant }: { variant: TopVariant }): JSX.Element => {
+const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.Element => {
   switch (variant) {
     case 'tee--single-color':
-      return <TeeSingleColor />
+      return <TeeSingleColor onClick={onClick} />
     case 'tee--adventure-awaits':
-      return <TeeAdventureAwaits />
+      return <TeeAdventureAwaits onClick={onClick} />
   }
 }
 
