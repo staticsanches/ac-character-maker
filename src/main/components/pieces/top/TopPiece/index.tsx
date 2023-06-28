@@ -1,8 +1,6 @@
 import React from 'react'
 
-import {
-    AvatarPiece, AvatarPieceBaseProps, AvatarPieceIcon, AvatarPieceIconBaseProps
-} from '@/components/AvatarPiece'
+import { AvatarPiece, AvatarPieceBaseProps, AvatarPieceIcon, AvatarPieceIconBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { selectors } from '@/redux/selectors'
 
@@ -11,9 +9,11 @@ import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
 import { TeeFroggy } from '../TeeFroggy'
 import { TeeNookIncAloha } from '../TeeNookIncAloha'
+import { TeePeanutButterAndJelly } from '../TeePeanutButterAndJelly'
 import { TeeSingleColor } from '../TeeSingleColor'
 
 import type { OnClickProps } from '@/types/react'
+
 export type TopVariant = (typeof topVariants)[number]
 export const topVariants = [
   'tee--adventure-awaits',
@@ -21,6 +21,7 @@ export const topVariants = [
   'tee--flames',
   'tee--froggy',
   'tee--nook-inc-aloha',
+  'tee--peanut-butter-and-jelly',
   'tee--single-color',
 ] as const
 
@@ -64,6 +65,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <TeeFroggy onClick={onClick} />
     case 'tee--nook-inc-aloha':
       return <TeeNookIncAloha onClick={onClick} />
+    case 'tee--peanut-butter-and-jelly':
+      return <TeePeanutButterAndJelly onClick={onClick} />
     case 'tee--single-color':
       return <TeeSingleColor onClick={onClick} />
   }
