@@ -38,8 +38,8 @@ export const TopControls = (props: NavigateBackToProps) => {
       <ControlPanelDivider />
 
       <Grid container spacing={2} alignItems="center">
-        {states.map((state, index) => (
-          <TopGridElement key={index} state={state} />
+        {topVariants.map((variant, index) => (
+          <TopGridElement key={index} variant={variant} />
         ))}
       </Grid>
     </ControlPanel>
@@ -61,25 +61,21 @@ const topPresetColors = [
   '#F22929',
 ] as const
 
-const TopGridElement = ({ state }: { state: DeepPartial<RootState> }) => {
-  const baseState = useRootSelector((state) => state)
+const TopGridElement = ({ variant }: { variant: TopVariant }) => {
+  const base = useRootSelector((state) => state)
+  const override: DeepPartial<RootState> = {
+    pieces: {
+      top: {
+        variant,
+        color: base.pieces.top.colorNotNone,
+      },
+    },
+  }
   return (
     <Grid container item xs={4}>
-      <RootStateProvider base={baseState} override={state}>
+      <RootStateProvider base={base} override={override}>
         <TopPieceIcon sx={{ width: '100%', height: '100%' }} />
       </RootStateProvider>
     </Grid>
   )
 }
-
-const createState = (variant: TopVariant): DeepPartial<RootState> => {
-  return {
-    pieces: {
-      top: {
-        variant,
-      },
-    },
-  }
-}
-
-const states = topVariants.map(createState)

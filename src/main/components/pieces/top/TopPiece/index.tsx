@@ -10,6 +10,7 @@ import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
 import { TeeFroggy } from '../TeeFroggy'
+import { TeeNookIncAloha } from '../TeeNookIncAloha'
 import { TeeSingleColor } from '../TeeSingleColor'
 
 import type { OnClickProps } from '@/types/react'
@@ -19,6 +20,7 @@ export const topVariants = [
   'tee--dots',
   'tee--flames',
   'tee--froggy',
+  'tee--nook-inc-aloha',
   'tee--single-color',
 ] as const
 
@@ -60,6 +62,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <TeeFlames onClick={onClick} />
     case 'tee--froggy':
       return <TeeFroggy onClick={onClick} />
+    case 'tee--nook-inc-aloha':
+      return <TeeNookIncAloha onClick={onClick} />
     case 'tee--single-color':
       return <TeeSingleColor onClick={onClick} />
   }

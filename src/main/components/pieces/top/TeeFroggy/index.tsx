@@ -31,19 +31,19 @@ export const TeeFroggy = ({ onClick }: OnClickProps) => {
             d="M107.5 88C120.753 88 132 78.6332 132 66.5C132 54.3668 120.753 45 107.5 45C94.2473 45 83 54.3668 83 66.5C83 78.6332 94.2473 88 107.5 88Z"
             fill="#8C501D"
             stroke="#8C501D"
-            stroke-width="4"
+            strokeWidth="4"
           />
           <path
             d="M96.5 62C103.31 62 109 56.7183 109 50C109 43.2817 103.31 38 96.5 38C89.6895 38 84 43.2817 84 50C84 56.7183 89.6895 62 96.5 62Z"
             fill="#8C501D"
             stroke="#8C501D"
-            stroke-width="4"
+            strokeWidth="4"
           />
           <path
             d="M119.5 62C126.31 62 132 56.7183 132 50C132 43.2817 126.31 38 119.5 38C112.69 38 107 43.2817 107 50C107 56.7183 112.69 62 119.5 62Z"
             fill="#8C501D"
             stroke="#8C501D"
-            stroke-width="4"
+            strokeWidth="4"
           />
         </g>
         <g
@@ -67,9 +67,9 @@ export const TeeFroggy = ({ onClick }: OnClickProps) => {
         <path
           d="M99 68.4062C100.735 70.2059 105.384 73.5578 110.098 72.5686C114.812 71.5793 117.564 67.7774 118.351 66"
           stroke="#8C501D"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <ellipse cx="99" cy="47.5" rx="5" ry="4.5" fill="white" />
         <ellipse cx="117" cy="47.5" rx="5" ry="4.5" fill="white" />
