@@ -10,7 +10,10 @@ import { TeeFlames } from '../TeeFlames'
 import { TeeFroggy } from '../TeeFroggy'
 import { TeeNookIncAloha } from '../TeeNookIncAloha'
 import { TeePeanutButterAndJelly } from '../TeePeanutButterAndJelly'
+import { TeeSailor } from '../TeeSailor'
 import { TeeSingleColor } from '../TeeSingleColor'
+import { TeeSpringPlaid } from '../TeeSpringPlaid'
+import { TeeStar } from '../TeeStar'
 
 import type { OnClickProps } from '@/types/react'
 
@@ -22,7 +25,10 @@ export const topVariants = [
   'tee--froggy',
   'tee--nook-inc-aloha',
   'tee--peanut-butter-and-jelly',
+  'tee--sailor',
   'tee--single-color',
+  'tee--spring-plaid',
+  'tee--star',
 ] as const
 
 export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
@@ -67,8 +73,14 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <TeeNookIncAloha onClick={onClick} />
     case 'tee--peanut-butter-and-jelly':
       return <TeePeanutButterAndJelly onClick={onClick} />
+    case 'tee--sailor':
+      return <TeeSailor onClick={onClick} />
     case 'tee--single-color':
       return <TeeSingleColor onClick={onClick} />
+    case 'tee--spring-plaid':
+      return <TeeSpringPlaid onClick={onClick} />
+    case 'tee--star':
+      return <TeeStar onClick={onClick} />
   }
 }
 
