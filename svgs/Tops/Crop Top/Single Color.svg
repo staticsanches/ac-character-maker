@@ -1,10 +1,6 @@
 <svg width="173" height="100" viewBox="0 0 173 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0)" transform="translate(-20)">
-    <rect width="213" height="163" fill="#585858" />
-    <rect x="33.8103" y="83.33" width="152" height="14" transform="rotate(-37.2842 33.8103 83.33)" fill="#FFD029" />
-    <rect x="16.8486" y="61.0521" width="152" height="14" transform="rotate(-37.2842 16.8486 61.0521)" fill="#FFD029" />
-    <rect x="50.7717" y="105.608" width="152" height="14" transform="rotate(-37.2842 50.7717 105.608)" fill="#FFD029" />
-    <rect x="67.7334" y="127.886" width="152" height="14" transform="rotate(-37.2842 67.7334 127.886)" fill="#FFD029" />
+    <rect width="213" height="163" fill="#A51C45" />
   </g>
 
   <defs>
