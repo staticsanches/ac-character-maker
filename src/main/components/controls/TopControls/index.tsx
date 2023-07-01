@@ -61,18 +61,18 @@ const topPresetColors = [
 ] as const
 
 const TopGridElement = ({ variant }: { variant: TopVariant }) => {
-  const base = useRootSelector((state) => state)
+  const color = useRootSelector(selectors.pieces.top.color.notNone.select)
   const override: DeepPartial<RootState> = {
     pieces: {
       top: {
         variant,
-        color: base.pieces.top.colorNotNone,
+        color,
       },
     },
   }
   return (
     <Grid container item xs={4}>
-      <RootStateProvider base={base} override={override}>
+      <RootStateProvider override={override}>
         <TopPieceIcon sx={{ width: '100%', height: '100%' }} />
       </RootStateProvider>
     </Grid>

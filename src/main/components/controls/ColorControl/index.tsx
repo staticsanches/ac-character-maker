@@ -5,9 +5,9 @@ import { toReactColor, toSvgColor } from '@/utils/svgColorUtils'
 import { AccountTree, Clear, Palette } from '@mui/icons-material'
 import { Box, IconButton, Popover, ToggleButtonGroup, type BoxProps } from '@mui/material'
 import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
-import { useState } from 'react'
-import { SketchPicker, type ColorChangeHandler } from 'react-color'
-import type { PresetColor } from 'react-color/lib/components/sketch/Sketch'
+import { Suspense, lazy, useState, type ComponentType } from 'react'
+import type { ColorChangeHandler } from 'react-color'
+import type { PresetColor, SketchPickerProps } from 'react-color/lib/components/sketch/Sketch'
 import { useDispatch } from 'react-redux'
 import { ControlLabel } from '../ControlLabel'
 import { SvgColorPreviewIcon } from '../SvgColorPreviewIcon'
@@ -153,12 +153,14 @@ export const ColorControl = ({
           }}
         >
           {color !== undefined && color !== 'none' && (
-            <SketchPicker
-              color={toReactColor(color)}
-              onChange={handleColorChange}
-              disableAlpha={disableAlpha}
-              presetColors={[...presetColors]}
-            />
+            <Suspense>
+              <SketchPicker
+                color={toReactColor(color)}
+                onChange={handleColorChange}
+                disableAlpha={disableAlpha}
+                presetColors={[...presetColors]}
+              />
+            </Suspense>
           )}
         </Popover>
 
@@ -190,3 +192,8 @@ export const ColorControl = ({
     </Box>
   )
 }
+
+const SketchPicker = lazy(async () => {
+  const { SketchPicker } = await import('react-color')
+  return { default: SketchPicker as ComponentType<SketchPickerProps> }
+})
