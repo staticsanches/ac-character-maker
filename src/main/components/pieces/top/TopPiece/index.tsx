@@ -7,11 +7,12 @@ import {
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { selectors } from '@/redux/selectors'
 import type { OnClickProps } from '@/types/react'
-import React from 'react'
+import React, { type ComponentType } from 'react'
 import { CropTopBunnyPlaid } from '../CropTopBunnyPlaid'
 import { CropTopCloudy } from '../CropTopCloudy'
 import { CropTopDangerZone } from '../CropTopDangerZone'
 import { CropTopFlowerPower } from '../CropTopFlowerPower'
+import { CropTopGigaPudding } from '../CropTopGigaPudding'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -29,6 +30,7 @@ export const topVariants = [
   'crop-top--cloudy',
   'crop-top--danger-zone',
   'crop-top--flower-power',
+  'crop-top--giga-pudding',
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -44,6 +46,7 @@ export const topVariants = [
 export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => {
     const variant = useRootSelector(selectors.pieces.top.variant.select)
+    const Top = top(variant)
     return (
       <AvatarPiece
         ref={ref}
@@ -52,7 +55,6 @@ export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & O
         viewBoxDimension={viewBoxDimension(variant)}
         highlightOnHover={!!onClick}
         contentComponent={Top}
-        variant={variant}
         onClick={onClick}
       />
     )
@@ -61,43 +63,47 @@ export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & O
 
 export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
   const variant = useRootSelector(selectors.pieces.top.variant.select)
+  const Top = top(variant)
   return (
     <AvatarPieceIcon {...props} pieceType="top" viewBoxDimension={viewBoxDimension(variant)}>
-      <Top variant={variant} />
+      <Top />
     </AvatarPieceIcon>
   )
 }
 
-const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.Element => {
+const top = (variant: TopVariant): ComponentType<OnClickProps> => {
   switch (variant) {
     case 'crop-top--bunny-plaid':
-      return <CropTopBunnyPlaid onClick={onClick} />
+      return CropTopBunnyPlaid
     case 'crop-top--cloudy':
-      return <CropTopCloudy onClick={onClick} />
+      return CropTopCloudy
     case 'crop-top--danger-zone':
-      return <CropTopDangerZone onClick={onClick} />
+      return CropTopDangerZone
     case 'crop-top--flower-power':
-      return <CropTopFlowerPower onClick={onClick} />
+      return CropTopFlowerPower
+    case 'crop-top--giga-pudding':
+      return CropTopGigaPudding
+
     case 'tee--adventure-awaits':
-      return <TeeAdventureAwaits onClick={onClick} />
+      return TeeAdventureAwaits
     case 'tee--dots':
-      return <TeeDots onClick={onClick} />
+      return TeeDots
     case 'tee--flames':
-      return <TeeFlames onClick={onClick} />
+      return TeeFlames
     case 'tee--froggy':
-      return <TeeFroggy onClick={onClick} />
+      return TeeFroggy
     case 'tee--nook-inc-aloha':
-      return <TeeNookIncAloha onClick={onClick} />
+      return TeeNookIncAloha
     case 'tee--peanut-butter-and-jelly':
-      return <TeePeanutButterAndJelly onClick={onClick} />
+      return TeePeanutButterAndJelly
     case 'tee--sailor':
-      return <TeeSailor onClick={onClick} />
+      return TeeSailor
     case 'tee--single-color':
-      return <TeeSingleColor onClick={onClick} />
+      return TeeSingleColor
     case 'tee--spring-plaid':
-      return <TeeSpringPlaid onClick={onClick} />
+      return TeeSpringPlaid
     case 'tee--star':
-      return <TeeStar onClick={onClick} />
+      return TeeStar
   }
 }
 
