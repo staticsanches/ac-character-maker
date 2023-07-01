@@ -8,6 +8,7 @@ import { useRootSelector } from '@/hooks/useRootSelector'
 import { selectors } from '@/redux/selectors'
 import type { OnClickProps } from '@/types/react'
 import React from 'react'
+import { CropTopBunnyPlaid } from '../CropTopBunnyPlaid'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -21,6 +22,7 @@ import { TeeStar } from '../TeeStar'
 
 export type TopVariant = (typeof topVariants)[number]
 export const topVariants = [
+  'crop-top--bunny-plaid',
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -42,7 +44,6 @@ export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & O
         {...avatarPieceProps}
         pieceType="top"
         viewBoxDimension={viewBoxDimension(variant)}
-        position={position(variant)}
         highlightOnHover={!!onClick}
         contentComponent={Top}
         variant={variant}
@@ -63,6 +64,8 @@ export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
 
 const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.Element => {
   switch (variant) {
+    case 'crop-top--bunny-plaid':
+      return <CropTopBunnyPlaid onClick={onClick} />
     case 'tee--adventure-awaits':
       return <TeeAdventureAwaits onClick={onClick} />
     case 'tee--dots':
@@ -87,13 +90,10 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
 }
 
 const viewBoxDimension = (variant: TopVariant): Opt<Dimension> => {
+  if (variant.startsWith('crop-top--')) {
+    return { width: 173, height: 100 }
+  }
   if (variant.startsWith('tee--')) {
     return { width: 173, height: 125 }
-  }
-}
-
-const position = (variant: TopVariant): Opt<XYPosition> => {
-  if (variant.startsWith('tee--')) {
-    return { x: 92.5, y: 198 }
   }
 }

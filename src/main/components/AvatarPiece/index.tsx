@@ -98,7 +98,7 @@ const defaultPosition = (type: PieceType): XYPosition => {
     case 'pants':
       return { x: 130, y: 304 }
     case 'top':
-      return { x: 72.5, y: 198 }
+      return { x: 92.5, y: 198 }
   }
 }
 
