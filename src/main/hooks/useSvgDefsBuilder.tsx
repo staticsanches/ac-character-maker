@@ -1,9 +1,7 @@
-import React, { useMemo } from 'react'
-
+import type { SvgColor, SvgGradient, SvgGradientStop, SvgLinearGradient, SvgRadialGradient } from '@/types/svgColor'
 import { isRGBAColor } from '@/utils/svgColorUtils'
 import { uniqueID } from '@/utils/uniqueID'
-
-import type { SvgColor, SvgGradient, SvgGradientStop, SvgLinearGradient, SvgRadialGradient } from '@/types/svgColor'
+import React, { useMemo } from 'react'
 
 type URL = `url(#${string})`
 

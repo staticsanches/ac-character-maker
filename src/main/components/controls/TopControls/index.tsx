@@ -1,15 +1,14 @@
-import { TopPieceIcon, TopVariant, topVariants } from '@/components/pieces/top/TopPiece'
+import { TopPieceIcon, topVariants, type TopVariant } from '@/components/pieces/top/TopPiece'
 import { RootStateProvider, useRootSelector } from '@/hooks/useRootSelector'
+import type { RootState } from '@/redux'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
 import { Grid } from '@mui/material'
-
 import { ColorControl } from '../ColorControl'
-import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
+import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
 import { SelectControl } from '../SelectControl'
 
-import type { RootState } from '@/redux'
 export const TopControls = (props: NavigateBackToProps) => {
   const variant = useRootSelector(selectors.pieces.top.variant.select)
   return (

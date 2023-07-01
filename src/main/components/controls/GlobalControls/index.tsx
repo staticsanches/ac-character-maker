@@ -1,8 +1,6 @@
-import { Link } from 'react-router-dom'
-
 import { actions } from '@/redux/actions'
 import { Button } from '@mui/material'
-
+import { Link } from 'react-router-dom'
 import { ControlPanel } from '../ControlPanel'
 
 export const GlobalControls = () => (

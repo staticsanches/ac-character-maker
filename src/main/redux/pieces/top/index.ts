@@ -1,7 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import type { TopVariant } from '@/components/pieces/top/TopPiece'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type TopState = {
   readonly variant: TopVariant

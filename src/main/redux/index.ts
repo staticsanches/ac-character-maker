@@ -1,19 +1,17 @@
+import { autoMergeDeep } from '@/utils/autoMergeDeep'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import {
   FLUSH,
   PAUSE,
   PERSIST,
-  PersistConfig,
-  persistReducer,
-  persistStore,
   PURGE,
   REGISTER,
   REHYDRATE,
+  persistReducer,
+  persistStore,
+  type PersistConfig,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
-import { autoMergeDeep } from '@/utils/autoMergeDeep'
-import { combineReducers, configureStore } from '@reduxjs/toolkit'
-
 import { avatarReducer, getAvatarInitialState } from './avatar'
 import { getPiecesInitialState, piecesReducer } from './pieces'
 

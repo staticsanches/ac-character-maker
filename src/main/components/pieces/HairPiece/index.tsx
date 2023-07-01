@@ -1,11 +1,14 @@
-import React from 'react'
-
-import { AvatarPiece, AvatarPieceBaseProps, AvatarPieceIcon, AvatarPieceIconBaseProps } from '@/components/AvatarPiece'
+import {
+  AvatarPiece,
+  AvatarPieceIcon,
+  type AvatarPieceBaseProps,
+  type AvatarPieceIconBaseProps,
+} from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-
 import type { OnClickProps } from '@/types/react'
+import React from 'react'
 
 export type HairVariant = (typeof hairVariants)[number]
 export const hairVariants = [

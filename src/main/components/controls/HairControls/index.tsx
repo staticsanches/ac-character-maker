@@ -1,16 +1,15 @@
 import { AvatarIcon } from '@/components/Avatar'
-import { HairVariant, hairVariants } from '@/components/pieces/HairPiece'
+import { hairVariants, type HairVariant } from '@/components/pieces/HairPiece'
 import { RootStateProvider, useRootSelector } from '@/hooks/useRootSelector'
+import type { RootState } from '@/redux'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
 import { Grid } from '@mui/material'
-
 import { ColorControl } from '../ColorControl'
-import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
+import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
 import { SelectControl } from '../SelectControl'
 
-import type { RootState } from '@/redux'
 export const HairControls = (props: NavigateBackToProps) => (
   <ControlPanel title="Hair" resetActionProvider={() => actions.pieces.reset('hair')} {...props}>
     <SelectControl

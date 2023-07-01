@@ -1,6 +1,5 @@
+import { uniqueID } from '@/utils/uniqueID'
 import { useMemo } from 'react'
-
-import { uniqueID } from '../utils/uniqueID'
 
 export const useUniqueLazyID = (prefix = '') => {
   const lazyID = useMemo(() => {

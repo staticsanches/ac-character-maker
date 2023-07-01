@@ -1,7 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import type { MouthVariant } from '@/components/pieces/MouthPiece'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type MouthState = {
   readonly variant: MouthVariant

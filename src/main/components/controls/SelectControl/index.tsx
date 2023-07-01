@@ -1,13 +1,9 @@
-import { useDispatch } from 'react-redux'
-
 import { useRootSelector } from '@/hooks/useRootSelector'
-import { Box, BoxProps, MenuItem, Select, SelectChangeEvent } from '@mui/material'
-
-import { ControlLabel } from '../ControlLabel'
-
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
-
 import type { RootSelector } from '@/redux/selectors'
+import { Box, MenuItem, Select, type BoxProps, type SelectChangeEvent } from '@mui/material'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
+import { ControlLabel } from '../ControlLabel'
 
 export type SelectControlProps<V extends string> = Pick<BoxProps, 'flex'> & {
   readonly title: string

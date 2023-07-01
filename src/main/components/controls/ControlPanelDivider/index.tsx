@@ -1,4 +1,4 @@
-import { Divider, SxProps, Theme } from '@mui/material'
+import { Divider, type SxProps, type Theme } from '@mui/material'
 
 export type ControlPanelDividerProps = {
   readonly sx?: SxProps<Theme>

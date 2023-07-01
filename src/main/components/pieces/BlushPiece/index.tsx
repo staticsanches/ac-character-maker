@@ -1,11 +1,9 @@
-import React from 'react'
-
-import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
+import { AvatarPiece, type AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-
 import type { OnClickProps } from '@/types/react'
+import React from 'react'
 
 export const BlushPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => (

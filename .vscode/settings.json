@@ -19,5 +19,6 @@
   },
   "editor.tabSize": 2,
   "importSorter.generalConfiguration.sortOnBeforeSave": true,
-  "importSorter.importStringConfiguration.hasSemicolon": false
+  "importSorter.importStringConfiguration.hasSemicolon": false,
+  "formatFiles.runOrganizeImports": true
 }

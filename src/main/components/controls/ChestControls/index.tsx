@@ -1,8 +1,7 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
-
 import { ColorControl } from '../ColorControl'
-import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
+import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 
 export const ChestControls = (props: NavigateBackToProps) => (
   <ControlPanel title="Chest" resetActionProvider={() => actions.pieces.reset('chest')} {...props}>

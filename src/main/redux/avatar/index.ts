@@ -1,8 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-import { applyPreset, resetAll } from '../globalActions'
-
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { applyPreset, resetAll } from '../globalActions'
 
 export type AvatarState = {
   readonly size: number

@@ -1,7 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import type { EyesVariant } from '@/components/pieces/eyes/Eyes'
 import type { SvgColor } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type EyesState = {
   readonly variant: EyesVariant

@@ -1,5 +1,4 @@
-import { RootSelector, selectors } from '@/redux/selectors'
-
+import { selectors, type RootSelector } from '@/redux/selectors'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 const selectColor: RootSelector<Opt<SvgColor>> = (state) => state.pieces.head.color

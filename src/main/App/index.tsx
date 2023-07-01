@@ -1,12 +1,9 @@
-import { Route, Routes } from 'react-router-dom'
-
 import { AboutPage } from '@/pages/About'
 import { MakerPage } from '@/pages/Maker'
 import { Box, useTheme } from '@mui/material'
-
-import { Header } from './Header'
-
 import type { CSSProperties } from '@mui/styled-engine'
+import { Route, Routes } from 'react-router-dom'
+import { Header } from './Header'
 
 export const App = () => {
   const theme = useTheme()

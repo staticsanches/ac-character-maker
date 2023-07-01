@@ -1,12 +1,10 @@
-import React from 'react'
-
-import { AvatarPiece, AvatarPieceBaseProps } from '@/components/AvatarPiece'
+import { AvatarPiece, type AvatarPieceBaseProps } from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
-import { SvgDefsBuilder, useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
+import { useSvgDefsBuilder, type SvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-
 import type { OnClickProps } from '@/types/react'
 import type { SvgColor } from '@/types/svgColor'
+import React from 'react'
 
 export type MouthVariant = (typeof mouthVariants)[number]
 export const mouthVariants = [

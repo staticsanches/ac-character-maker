@@ -1,7 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import type { HairVariant } from '@/components/pieces/HairPiece'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type HairState = {
   readonly variant: HairVariant

@@ -1,10 +1,9 @@
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-import { Clear } from '@mui/icons-material'
-import { SvgIcon, SvgIconProps } from '@mui/material'
-
 import type { RootSelector } from '@/redux/selectors'
 import type { SvgColor } from '@/types/svgColor'
+import { Clear } from '@mui/icons-material'
+import { SvgIcon, type SvgIconProps } from '@mui/material'
 
 export type SvgColorPreviewIconProps = Omit<SvgIconProps, 'viewBox'> & {
   readonly colorSelector: RootSelector<SvgColor>

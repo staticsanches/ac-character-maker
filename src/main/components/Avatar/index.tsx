@@ -1,21 +1,20 @@
-import React from 'react'
-
 import { BlushPiece } from '@/components/pieces/BlushPiece'
 import { BodyPiece } from '@/components/pieces/BodyPiece'
 import { ChestPiece } from '@/components/pieces/ChestPiece'
 import { EarsPiece } from '@/components/pieces/EarsPiece'
-import { EyesPiece } from '@/components/pieces/eyes/EyesPiece'
 import { HairPiece } from '@/components/pieces/HairPiece'
 import { HeadPiece } from '@/components/pieces/HeadPiece'
 import { MouthPiece } from '@/components/pieces/MouthPiece'
 import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
+import { EyesPiece } from '@/components/pieces/eyes/EyesPiece'
 import { TopPiece } from '@/components/pieces/top/TopPiece'
 import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-import { SvgIcon, SvgIconProps } from '@mui/material'
+import { SvgIcon, type SvgIconProps } from '@mui/material'
+import React from 'react'
 
 export type AvatarProps = {
   withoutNavigateToOnClick?: boolean

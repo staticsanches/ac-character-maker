@@ -1,9 +1,8 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
 import { Box, Typography } from '@mui/material'
-
 import { ColorControl } from '../ColorControl'
-import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
+import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
 import { SliderControl } from '../SliderControl'
 

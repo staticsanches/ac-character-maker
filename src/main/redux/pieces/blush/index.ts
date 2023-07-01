@@ -1,6 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type BlushState = State & {
   readonly pr: Partial<State>

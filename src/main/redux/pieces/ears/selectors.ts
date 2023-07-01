@@ -1,8 +1,7 @@
-import { RootSelector, selectors } from '@/redux/selectors'
+import { selectors, type RootSelector } from '@/redux/selectors'
+import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 import { darken } from '@/utils/svgColorUtils'
 import { createSelector } from '@reduxjs/toolkit'
-
-import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 // Darken coefficient
 

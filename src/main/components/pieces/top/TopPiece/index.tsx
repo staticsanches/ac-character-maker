@@ -1,9 +1,13 @@
-import React from 'react'
-
-import { AvatarPiece, AvatarPieceBaseProps, AvatarPieceIcon, AvatarPieceIconBaseProps } from '@/components/AvatarPiece'
+import {
+  AvatarPiece,
+  AvatarPieceIcon,
+  type AvatarPieceBaseProps,
+  type AvatarPieceIconBaseProps,
+} from '@/components/AvatarPiece'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { selectors } from '@/redux/selectors'
-
+import type { OnClickProps } from '@/types/react'
+import React from 'react'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -14,8 +18,6 @@ import { TeeSailor } from '../TeeSailor'
 import { TeeSingleColor } from '../TeeSingleColor'
 import { TeeSpringPlaid } from '../TeeSpringPlaid'
 import { TeeStar } from '../TeeStar'
-
-import type { OnClickProps } from '@/types/react'
 
 export type TopVariant = (typeof topVariants)[number]
 export const topVariants = [

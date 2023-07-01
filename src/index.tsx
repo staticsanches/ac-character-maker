@@ -1,16 +1,13 @@
-import './index.css'
-
+import { App } from '@/App'
+import { persistor, store } from '@/redux'
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material'
+import { amber, purple } from '@mui/material/colors'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import { PersistGate } from 'redux-persist/integration/react'
-
-import { App } from '@/App'
-import { persistor, store } from '@/redux'
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
-import { amber, purple } from '@mui/material/colors'
-
+import './index.css'
 import reportWebVitals from './reportWebVitals'
 
 const theme = createTheme({

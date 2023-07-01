@@ -1,16 +1,12 @@
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
-
-import { useDispatch } from 'react-redux'
-
 import { useRootSelector } from '@/hooks/useRootSelector'
+import type { RootSelector } from '@/redux/selectors'
 import { AccountTree, Check, Clear } from '@mui/icons-material'
-import { BoxProps, ToggleButtonGroup } from '@mui/material'
+import { ToggleButtonGroup, type BoxProps } from '@mui/material'
 import { Box } from '@mui/system'
-
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 import { ControlLabel } from '../ControlLabel'
 import { TooltipToggleButton } from '../TooltipToggleButton'
-
-import type { RootSelector } from '@/redux/selectors'
 
 export type BooleanControlProps = Pick<BoxProps, 'flex'> &
   (

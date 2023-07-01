@@ -1,9 +1,8 @@
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
-
 import { skinPresetColors } from '../AvatarControls'
 import { ColorControl } from '../ColorControl'
-import { ControlPanel, NavigateBackToProps } from '../ControlPanel'
+import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 
 export const BodyControls = (props: NavigateBackToProps) => (
   <ControlPanel title="Body" resetActionProvider={() => actions.pieces.reset('body')} {...props}>

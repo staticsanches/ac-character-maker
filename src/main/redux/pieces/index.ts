@@ -1,21 +1,19 @@
-import reduceReducers from 'reduce-reducers'
-
-import { combineReducers, createSlice, PayloadAction, Reducer } from '@reduxjs/toolkit'
-
-import { applyPreset, resetAll } from '../globalActions'
-import { blushActions, blushReducer, BlushState, getBlushInitialState } from './blush'
-import { bodyActions, bodyReducer, BodyState, getBodyInitialState } from './body'
-import { chestActions, chestReducer, ChestState, getChestInitialState } from './chest'
-import { earsActions, earsReducer, EarsState, getEarsInitialState } from './ears'
-import { eyesActions, eyesReducer, EyesState, getEyesInitialState } from './eyes'
-import { getHairInitialState, hairActions, hairReducer, HairState } from './hair'
-import { getHeadInitialState, headActions, headReducer, HeadState } from './head'
-import { getMouthInitialState, mouthActions, mouthReducer, MouthState } from './mouth'
-import { getNoseInitialState, noseActions, noseReducer, NoseState } from './nose'
-import { getPantsInitialState, pantsActions, pantsReducer, PantsState } from './pants'
-import { getTopInitialState, topActions, topReducer, TopState } from './top'
-
 import type { PieceType } from '@/types/piece'
+import { combineReducers, createSlice, type PayloadAction, type Reducer } from '@reduxjs/toolkit'
+import reduceReducers from 'reduce-reducers'
+import { applyPreset, resetAll } from '../globalActions'
+import { blushActions, blushReducer, getBlushInitialState, type BlushState } from './blush'
+import { bodyActions, bodyReducer, getBodyInitialState, type BodyState } from './body'
+import { chestActions, chestReducer, getChestInitialState, type ChestState } from './chest'
+import { earsActions, earsReducer, getEarsInitialState, type EarsState } from './ears'
+import { eyesActions, eyesReducer, getEyesInitialState, type EyesState } from './eyes'
+import { getHairInitialState, hairActions, hairReducer, type HairState } from './hair'
+import { getHeadInitialState, headActions, headReducer, type HeadState } from './head'
+import { getMouthInitialState, mouthActions, mouthReducer, type MouthState } from './mouth'
+import { getNoseInitialState, noseActions, noseReducer, type NoseState } from './nose'
+import { getPantsInitialState, pantsActions, pantsReducer, type PantsState } from './pants'
+import { getTopInitialState, topActions, topReducer, type TopState } from './top'
+
 export type PiecesState = {
   readonly blush: BlushState
   readonly body: BodyState
@@ -91,4 +89,4 @@ const piecesActions = {
   top: topActions,
 }
 
-export { piecesReducer, piecesActions }
+export { piecesActions, piecesReducer }

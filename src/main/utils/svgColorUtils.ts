@@ -1,6 +1,5 @@
-import colorConvert from 'color-convert'
-
 import type { HexColor, Octal, RGBAColor, SvgColor, SvgColorNotNone } from '@/types/svgColor'
+import colorConvert from 'color-convert'
 import type { Color as ReactColor, RGBColor as ReactRGBColor } from 'react-color'
 
 const hexRegex = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/

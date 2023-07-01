@@ -1,6 +1,5 @@
-import { Link as RouterLink } from 'react-router-dom'
-
 import { Container, Link, Typography } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 
 export const AboutPage = () => (
   <Container maxWidth="lg" sx={{ mt: 4 }}>

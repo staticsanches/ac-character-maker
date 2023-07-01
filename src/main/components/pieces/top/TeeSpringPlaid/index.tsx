@@ -1,5 +1,4 @@
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
-
 import type { OnClickProps } from '@/types/react'
 
 export const TeeSpringPlaid = ({ onClick }: OnClickProps) => {

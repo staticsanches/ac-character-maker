@@ -1,6 +1,5 @@
-import { To, useNavigate } from 'react-router-dom'
-
 import type { OnClickProps } from '@/types/react'
+import { useNavigate, type To } from 'react-router-dom'
 
 export const withNavigateToOnClick = <P extends OnClickProps>(Component: React.ComponentType<P>, to: To) => {
   const ComponentWithNavigateToOnClick = (props: Omit<P, keyof OnClickProps>) => {

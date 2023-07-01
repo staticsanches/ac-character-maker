@@ -1,7 +1,6 @@
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
 import { selectors } from '@/redux/selectors'
-
 import type { OnClickProps } from '@/types/react'
 
 export const TeeSingleColor = ({ onClick }: OnClickProps) => {

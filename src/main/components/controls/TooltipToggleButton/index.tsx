@@ -1,6 +1,5 @@
+import { ToggleButton, Tooltip, type ToggleButtonProps, type TooltipProps } from '@mui/material'
 import React from 'react'
-
-import { ToggleButton, ToggleButtonProps, Tooltip, TooltipProps } from '@mui/material'
 
 export type TooltipToggleButtonProps = ToggleButtonProps & {
   TooltipProps: Omit<TooltipProps, 'children'>

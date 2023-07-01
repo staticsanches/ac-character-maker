@@ -1,10 +1,8 @@
-import { createContext, useContext } from 'react'
-import { EqualityFn, useSelector } from 'react-redux'
-import merge from 'ts-deepmerge'
-
-import { getInitialRootState, RootState } from '@/redux'
-
+import { getInitialRootState, type RootState } from '@/redux'
 import type { RootSelector } from '@/redux/selectors'
+import { createContext, useContext } from 'react'
+import { useSelector, type EqualityFn } from 'react-redux'
+import merge from 'ts-deepmerge'
 
 const RootStateContext = createContext<RootState | null>(null)
 

@@ -1,14 +1,11 @@
-import { useDispatch } from 'react-redux'
-
 import { useRootSelector } from '@/hooks/useRootSelector'
+import type { RootSelector } from '@/redux/selectors'
 import { AccountTree, PermDataSetting } from '@mui/icons-material'
-import { Box, BoxProps, Slider, ToggleButtonGroup } from '@mui/material'
-
+import { Box, Slider, ToggleButtonGroup, type BoxProps } from '@mui/material'
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 import { ControlLabel } from '../ControlLabel'
 import { TooltipToggleButton } from '../TooltipToggleButton'
-
-import type { RootSelector } from '@/redux/selectors'
-import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 
 export type SliderControlProps = (
   | {
