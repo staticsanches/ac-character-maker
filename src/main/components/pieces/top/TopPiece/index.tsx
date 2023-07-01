@@ -11,6 +11,7 @@ import React from 'react'
 import { CropTopBunnyPlaid } from '../CropTopBunnyPlaid'
 import { CropTopCloudy } from '../CropTopCloudy'
 import { CropTopDangerZone } from '../CropTopDangerZone'
+import { CropTopFlowerPower } from '../CropTopFlowerPower'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -27,6 +28,7 @@ export const topVariants = [
   'crop-top--bunny-plaid',
   'crop-top--cloudy',
   'crop-top--danger-zone',
+  'crop-top--flower-power',
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -74,6 +76,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <CropTopCloudy onClick={onClick} />
     case 'crop-top--danger-zone':
       return <CropTopDangerZone onClick={onClick} />
+    case 'crop-top--flower-power':
+      return <CropTopFlowerPower onClick={onClick} />
     case 'tee--adventure-awaits':
       return <TeeAdventureAwaits onClick={onClick} />
     case 'tee--dots':
