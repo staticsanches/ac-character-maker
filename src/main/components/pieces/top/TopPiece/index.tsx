@@ -13,6 +13,7 @@ import { CropTopCloudy } from '../CropTopCloudy'
 import { CropTopDangerZone } from '../CropTopDangerZone'
 import { CropTopFlowerPower } from '../CropTopFlowerPower'
 import { CropTopGigaPudding } from '../CropTopGigaPudding'
+import { CropTopSecretCat } from '../CropTopSecretCat'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -31,6 +32,8 @@ export const topVariants = [
   'crop-top--danger-zone',
   'crop-top--flower-power',
   'crop-top--giga-pudding',
+  'crop-top--secret-cat',
+
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -83,6 +86,8 @@ const top = (variant: TopVariant): ComponentType<OnClickProps> => {
       return CropTopFlowerPower
     case 'crop-top--giga-pudding':
       return CropTopGigaPudding
+    case 'crop-top--secret-cat':
+      return CropTopSecretCat
 
     case 'tee--adventure-awaits':
       return TeeAdventureAwaits
