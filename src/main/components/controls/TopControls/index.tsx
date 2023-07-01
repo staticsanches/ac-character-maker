@@ -44,7 +44,8 @@ export const TopControls = (props: NavigateBackToProps) => {
     </ControlPanel>
   )
 }
-const showColorControl = (variant: TopVariant): boolean => variant === 'tee--single-color'
+const showColorControl = (variant: TopVariant): boolean =>
+  variant === 'tee--single-color' || variant === 'crop-top--single-color'
 
 const topPresetColors = [
   '#212121',
