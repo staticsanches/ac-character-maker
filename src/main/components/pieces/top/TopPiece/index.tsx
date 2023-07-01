@@ -10,6 +10,7 @@ import type { OnClickProps } from '@/types/react'
 import React from 'react'
 import { CropTopBunnyPlaid } from '../CropTopBunnyPlaid'
 import { CropTopCloudy } from '../CropTopCloudy'
+import { CropTopDangerZone } from '../CropTopDangerZone'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -25,6 +26,7 @@ export type TopVariant = (typeof topVariants)[number]
 export const topVariants = [
   'crop-top--bunny-plaid',
   'crop-top--cloudy',
+  'crop-top--danger-zone',
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -70,6 +72,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
       return <CropTopBunnyPlaid onClick={onClick} />
     case 'crop-top--cloudy':
       return <CropTopCloudy onClick={onClick} />
+    case 'crop-top--danger-zone':
+      return <CropTopDangerZone onClick={onClick} />
     case 'tee--adventure-awaits':
       return <TeeAdventureAwaits onClick={onClick} />
     case 'tee--dots':
