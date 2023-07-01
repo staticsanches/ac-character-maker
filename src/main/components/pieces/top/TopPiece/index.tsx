@@ -9,6 +9,7 @@ import { selectors } from '@/redux/selectors'
 import type { OnClickProps } from '@/types/react'
 import React from 'react'
 import { CropTopBunnyPlaid } from '../CropTopBunnyPlaid'
+import { CropTopCloudy } from '../CropTopCloudy'
 import { TeeAdventureAwaits } from '../TeeAdventureAwaits'
 import { TeeDots } from '../TeeDots'
 import { TeeFlames } from '../TeeFlames'
@@ -23,6 +24,7 @@ import { TeeStar } from '../TeeStar'
 export type TopVariant = (typeof topVariants)[number]
 export const topVariants = [
   'crop-top--bunny-plaid',
+  'crop-top--cloudy',
   'tee--adventure-awaits',
   'tee--dots',
   'tee--flames',
@@ -66,6 +68,8 @@ const Top = ({ variant, onClick }: { variant: TopVariant } & OnClickProps): JSX.
   switch (variant) {
     case 'crop-top--bunny-plaid':
       return <CropTopBunnyPlaid onClick={onClick} />
+    case 'crop-top--cloudy':
+      return <CropTopCloudy onClick={onClick} />
     case 'tee--adventure-awaits':
       return <TeeAdventureAwaits onClick={onClick} />
     case 'tee--dots':
