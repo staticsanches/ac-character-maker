@@ -1,6 +1,9 @@
-import { hairVariants } from '@/components/pieces/HairPiece'
+import { HairPieceIcon, hairVariants, type HairVariant } from '@/components/pieces/HairPiece'
+import { RootStateProvider } from '@/hooks/useRootSelector'
+import type { RootState } from '@/redux'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
+import { Grid } from '@mui/material'
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
@@ -24,6 +27,14 @@ export const HairControls = (props: NavigateBackToProps) => (
       actionCreator={actions.pieces.hair.changeColor}
       presetColors={hairPresetColors}
     />
+
+    <ControlPanelDivider />
+
+    <Grid container spacing={2} alignItems="center">
+      {hairVariants.map((variant, index) => (
+        <HairGridElement key={index} variant={variant} />
+      ))}
+    </Grid>
   </ControlPanel>
 )
 
@@ -38,3 +49,21 @@ const hairPresetColors = [
   '#C4C4C4',
   '#ECECEC',
 ] as const
+
+const HairGridElement = ({ variant }: { variant: HairVariant }) => {
+  const override: DeepPartial<RootState> = {
+    pieces: {
+      hair: {
+        variant,
+        color: '#ffffff',
+      },
+    },
+  }
+  return (
+    <Grid container item xs={4}>
+      <RootStateProvider override={override}>
+        <HairPieceIcon sx={{ width: '100%', height: '100%' }} />
+      </RootStateProvider>
+    </Grid>
+  )
+}
