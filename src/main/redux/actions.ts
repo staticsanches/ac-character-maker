@@ -1,5 +1,5 @@
 import { avatarActions } from './avatar'
-import { applyPreset, resetAll } from './globalActions'
+import { applyPreset, resetAll, resetAvatarControls } from './globalActions'
 import { piecesActions } from './pieces'
 
 export const actions = {
@@ -8,4 +8,5 @@ export const actions = {
 
   applyPreset,
   resetAll,
+  resetAvatarControls,
 } as const

@@ -1,7 +1,7 @@
 import type { PieceType } from '@/types/piece'
 import { combineReducers, createSlice, type PayloadAction, type Reducer } from '@reduxjs/toolkit'
 import reduceReducers from 'reduce-reducers'
-import { applyPreset, resetAll } from '../globalActions'
+import { applyPreset, resetAll, resetAvatarControls } from '../globalActions'
 import { blushActions, blushReducer, getBlushInitialState, type BlushState } from './blush'
 import { bodyActions, bodyReducer, getBodyInitialState, type BodyState } from './body'
 import { chestActions, chestReducer, getChestInitialState, type ChestState } from './chest'
@@ -42,18 +42,22 @@ export const getPiecesInitialState: () => PiecesState = () => ({
   top: getTopInitialState(),
 })
 
-const resetNestedSlice = <Key extends keyof PiecesState>(key: Key, state: PiecesState) => {
-  state[key] = getPiecesInitialState()[key]
+const resetNestedSlice = <Key extends keyof PiecesState>(state: PiecesState, ...keys: Key[]) => {
+  const originalState = getPiecesInitialState()
+  keys.forEach((key) => (state[key] = originalState[key]))
 }
 
 const { reducer: originalReducer, actions: originalActions } = createSlice({
   name: 'pieces',
   initialState: getPiecesInitialState,
   reducers: {
-    reset: (state, action: PayloadAction<keyof PiecesState & PieceType>) => resetNestedSlice(action.payload, state),
+    reset: (state, action: PayloadAction<keyof PiecesState & PieceType>) => resetNestedSlice(state, action.payload),
   },
   extraReducers: (builder) => {
-    builder.addCase(applyPreset, (_, action) => action.payload.pieces).addCase(resetAll, () => getPiecesInitialState())
+    builder
+      .addCase(applyPreset, (_, action) => action.payload.pieces)
+      .addCase(resetAll, () => getPiecesInitialState())
+      .addCase(resetAvatarControls, (state) => resetNestedSlice(state, 'body', 'chest', 'ears', 'head'))
   },
 })
 

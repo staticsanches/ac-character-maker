@@ -11,20 +11,8 @@ export const GlobalControls = () => (
     <Button component={Link} to="/controls/blush" color="secondary">
       Blush
     </Button>
-    <Button component={Link} to="/controls/body" color="secondary">
-      Body
-    </Button>
-    <Button component={Link} to="/controls/chest" color="secondary">
-      Chest
-    </Button>
-    <Button component={Link} to="/controls/ears" color="secondary">
-      Ears
-    </Button>
     <Button component={Link} to="/controls/hair" color="secondary">
       Hair
-    </Button>
-    <Button component={Link} to="/controls/head" color="secondary">
-      Head
     </Button>
     <Button component={Link} to="/controls/mouth" color="secondary">
       Mouth

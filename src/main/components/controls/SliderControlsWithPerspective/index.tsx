@@ -26,6 +26,8 @@ export type SliderControlsWithPerspectiveProps = {
   readonly disabled?: boolean
   readonly prDisabled?: boolean
   readonly plDisabled?: boolean
+
+  readonly nested?: boolean
 }
 
 export const SliderControlsWithPerspective = ({
@@ -42,11 +44,12 @@ export const SliderControlsWithPerspective = ({
   disabled = false,
   prDisabled = false,
   plDisabled = false,
+  nested = false,
 }: SliderControlsWithPerspectiveProps) => {
   const [open, setOpen] = useState(false)
 
   return (
-    <Box>
+    <Box ml={nested ? -6 : 0}>
       <Box display="flex" flexDirection="row" justifyContent="start" alignItems="center">
         <Box mr={1}>
           <IconButton size="medium" onClick={() => setOpen((previous) => !previous)}>

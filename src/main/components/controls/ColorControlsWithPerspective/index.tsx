@@ -24,6 +24,8 @@ export type ColorControlsWithPerspectiveProps = {
   readonly sidedActionCreator: ActionCreatorWithPayload<[side: 'pr' | 'pl', value: Opt<SvgColor>]>
 
   readonly presetColors?: readonly PresetColor[]
+
+  readonly nested?: boolean
 } & (
   | {
       readonly inherit?: never
@@ -45,6 +47,7 @@ export type ColorControlsWithPerspectiveProps = {
 
 export const ColorControlsWithPerspective = ({
   inherit,
+  nested = false,
 
   title,
 
@@ -69,7 +72,7 @@ export const ColorControlsWithPerspective = ({
   const [open, setOpen] = useState(false)
 
   return (
-    <Box>
+    <Box ml={nested ? -6 : 0}>
       <Box display="flex" flexDirection="row" justifyContent="start" alignItems="center">
         <Box mr={1}>
           <IconButton size="medium" onClick={() => setOpen((previous) => !previous)}>
