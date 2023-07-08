@@ -4,6 +4,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 export type HairState = {
   readonly variant: HairVariant
+  readonly variantPreview: Opt<HairVariant>
 
   readonly color: SvgColor
   readonly colorNotNone: SvgColorNotNone
@@ -11,6 +12,8 @@ export type HairState = {
 
 const getInitialState: () => HairState = () => ({
   variant: 'chill',
+  variantPreview: undefined,
+
   color: '#161515',
   colorNotNone: '#161515',
 })
@@ -21,6 +24,9 @@ const slice = createSlice({
   reducers: {
     changeVariant: (state, action: PayloadAction<HairVariant>) => {
       state.variant = action.payload
+    },
+    changeVariantPreview: (state, action: PayloadAction<Opt<HairVariant>>) => {
+      state.variantPreview = action.payload
     },
 
     changeColor: (state, action: PayloadAction<SvgColor>) => {

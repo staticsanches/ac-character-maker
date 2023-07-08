@@ -3,6 +3,8 @@ import type { RootSelector } from '@/redux/selectors'
 import type { SvgColor, SvgColorNotNone } from '@/types/svgColor'
 
 const selectVariant: RootSelector<TopVariant> = (state) => state.pieces.top.variant
+const selectVariantConsideringPreview: RootSelector<TopVariant> = (state) =>
+  state.pieces.top.variantPreview ?? state.pieces.top.variant
 
 const selectColor: RootSelector<SvgColor> = (state) => state.pieces.top.color
 const selectColorNotNone: RootSelector<SvgColorNotNone> = (state) => state.pieces.top.colorNotNone
@@ -10,6 +12,7 @@ const selectColorNotNone: RootSelector<SvgColorNotNone> = (state) => state.piece
 export const topSelectors = {
   variant: {
     select: selectVariant,
+    selectConsideringPreview: selectVariantConsideringPreview,
   },
   color: {
     select: selectColor,

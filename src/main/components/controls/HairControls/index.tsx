@@ -3,7 +3,8 @@ import { RootStateProvider } from '@/hooks/useRootSelector'
 import type { RootState } from '@/redux'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
-import { Grid } from '@mui/material'
+import { Grid, IconButton } from '@mui/material'
+import { useDispatch } from 'react-redux'
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
@@ -51,6 +52,8 @@ const hairPresetColors = [
 ] as const
 
 const HairGridElement = ({ variant }: { variant: HairVariant }) => {
+  const dispatch = useDispatch()
+
   const override: DeepPartial<RootState> = {
     pieces: {
       hair: {
@@ -59,10 +62,21 @@ const HairGridElement = ({ variant }: { variant: HairVariant }) => {
       },
     },
   }
+
+  const handleClick = () => dispatch(actions.pieces.hair.changeVariant(variant))
+  const handleMouseEnter = () => dispatch(actions.pieces.hair.changeVariantPreview(variant))
+  const handleMouseLeave = () => dispatch(actions.pieces.hair.changeVariantPreview(undefined))
+
   return (
     <Grid container item xs={4}>
       <RootStateProvider override={override}>
-        <HairPieceIcon sx={{ width: '100%', height: '100%' }} />
+        <IconButton sx={{ width: '100%', height: '100%' }} onClick={handleClick}>
+          <HairPieceIcon
+            sx={{ width: '100%', height: '100%' }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        </IconButton>
       </RootStateProvider>
     </Grid>
   )

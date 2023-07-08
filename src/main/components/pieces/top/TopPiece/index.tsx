@@ -50,7 +50,7 @@ export const topVariants = [
 
 export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => {
-    const variant = useRootSelector(selectors.pieces.top.variant.select)
+    const variant = useRootSelector(selectors.pieces.top.variant.selectConsideringPreview)
     const Top = top(variant)
     return (
       <AvatarPiece
@@ -67,7 +67,7 @@ export const TopPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & O
 )
 
 export const TopPieceIcon = (props: AvatarPieceIconBaseProps) => {
-  const variant = useRootSelector(selectors.pieces.top.variant.select)
+  const variant = useRootSelector(selectors.pieces.top.variant.selectConsideringPreview)
   const Top = top(variant)
   return (
     <AvatarPieceIcon {...props} pieceType="top" viewBoxDimension={viewBoxDimension(variant)}>

@@ -35,7 +35,7 @@ export const hairVariants = [
 
 export const HairPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & OnClickProps>(
   ({ onClick, ...avatarPieceProps }, ref) => {
-    const variant = useRootSelector(selectors.pieces.hair.variant.select)
+    const variant = useRootSelector(selectors.pieces.hair.variant.selectConsideringPreview)
     return (
       <AvatarPiece
         {...avatarPieceProps}
@@ -53,7 +53,7 @@ export const HairPiece = React.forwardRef<SVGSVGElement, AvatarPieceBaseProps & 
 )
 
 export const HairPieceIcon = (props: AvatarPieceIconBaseProps) => {
-  const variant = useRootSelector(selectors.pieces.hair.variant.select)
+  const variant = useRootSelector(selectors.pieces.hair.variant.selectConsideringPreview)
   return (
     <AvatarPieceIcon {...props} pieceType="hair" viewBoxDimension={viewBoxDimension(variant)}>
       <Hair variant={variant} />

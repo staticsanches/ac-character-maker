@@ -3,7 +3,8 @@ import { RootStateProvider, useRootSelector } from '@/hooks/useRootSelector'
 import type { RootState } from '@/redux'
 import { actions } from '@/redux/actions'
 import { selectors } from '@/redux/selectors'
-import { Grid } from '@mui/material'
+import { Grid, IconButton } from '@mui/material'
+import { useDispatch } from 'react-redux'
 import { ColorControl } from '../ColorControl'
 import { ControlPanel, type NavigateBackToProps } from '../ControlPanel'
 import { ControlPanelDivider } from '../ControlPanelDivider'
@@ -62,7 +63,9 @@ const topPresetColors = [
 ] as const
 
 const TopGridElement = ({ variant }: { variant: TopVariant }) => {
+  const dispatch = useDispatch()
   const color = useRootSelector(selectors.pieces.top.color.notNone.select)
+
   const override: DeepPartial<RootState> = {
     pieces: {
       top: {
@@ -71,10 +74,21 @@ const TopGridElement = ({ variant }: { variant: TopVariant }) => {
       },
     },
   }
+
+  const handleClick = () => dispatch(actions.pieces.top.changeVariant(variant))
+  const handleMouseEnter = () => dispatch(actions.pieces.top.changeVariantPreview(variant))
+  const handleMouseLeave = () => dispatch(actions.pieces.top.changeVariantPreview(undefined))
+
   return (
     <Grid container item xs={4}>
       <RootStateProvider override={override}>
-        <TopPieceIcon sx={{ width: '100%', height: '100%' }} />
+        <IconButton sx={{ width: '100%', height: '100%' }} onClick={handleClick}>
+          <TopPieceIcon
+            sx={{ width: '100%', height: '100%' }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        </IconButton>
       </RootStateProvider>
     </Grid>
   )
