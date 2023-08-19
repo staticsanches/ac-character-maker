@@ -124,7 +124,7 @@ export const AvatarControls = (props: NavigateBackToProps) => {
   )
 }
 
-export const skinPresetColors = [
+const skinPresetColors = [
   '#57280D',
   '#84401A',
   '#BA6332',
