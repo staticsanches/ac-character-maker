@@ -9,6 +9,7 @@ import { NosePiece } from '@/components/pieces/NosePiece'
 import { PantsPiece } from '@/components/pieces/PantsPiece'
 import { EyesPiece } from '@/components/pieces/eyes/EyesPiece'
 import { TopPiece } from '@/components/pieces/top/TopPiece'
+import { withHighlightOnHover } from '@/hoc/withHighlightOnHover'
 import { withNavigateToOnClick } from '@/hoc/withNavigateToOnClick'
 import { useRootSelector } from '@/hooks/useRootSelector'
 import { useSvgDefsBuilder } from '@/hooks/useSvgDefsBuilder'
@@ -19,6 +20,7 @@ import React from 'react'
 export type AvatarProps = {
   withoutNavigateToOnClick?: boolean
 
+  background?: React.ElementType<{}>
   blush?: React.ElementType<{}>
   body?: React.ElementType<{}>
   chest?: React.ElementType<{}>
@@ -51,6 +53,9 @@ export const AvatarIcon = (props: Omit<SvgIconProps, 'viewBox' | 'children'>) =>
 const AvatarContent = ({
   withoutNavigateToOnClick = false,
 
+  background: Background = withoutNavigateToOnClick
+    ? 'rect'
+    : withHighlightOnHover(withNavigateToOnClick('rect', '/controls/avatar')),
   blush: Blush = withoutNavigateToOnClick ? BlushPiece : withNavigateToOnClick(BlushPiece, '/controls/blush'),
   body: Body = withoutNavigateToOnClick ? BodyPiece : withNavigateToOnClick(BodyPiece, '/controls/avatar'),
   chest: Chest = withoutNavigateToOnClick ? ChestPiece : withNavigateToOnClick(ChestPiece, '/controls/avatar'),
@@ -70,14 +75,14 @@ const AvatarContent = ({
 
   const clipPathUrl = defsBuilder.addDef('clip-path', (id) => (
     <clipPath id={id}>
-      <rect x={0} y={0} width={360} height={360} rx={backgroundRadius} ry={backgroundRadius} />
+      <rect className="" x={0} y={0} width={360} height={360} rx={backgroundRadius} ry={backgroundRadius} />
     </clipPath>
   ))
 
   return (
     <>
       <g clipPath={clipPathUrl}>
-        <rect x={0} y={0} width={360} height={360} {...defsBuilder.addFillColor(backgroundColor)} />
+        <Background x={0} y={0} width={360} height={360} {...defsBuilder.addFillColor(backgroundColor)} />
         <Ears />
         <Head />
         <Blush />
